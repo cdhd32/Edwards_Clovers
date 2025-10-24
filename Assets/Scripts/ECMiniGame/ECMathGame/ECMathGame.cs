@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public class ECMathGame : MonoBehaviour
+public class ECMathGame : ECMiniGameBase
 {
     public TextMeshProUGUI problemText;
     public TextMeshProUGUI problemCount;
@@ -13,11 +13,13 @@ public class ECMathGame : MonoBehaviour
     public ECMathChoiceBox choiceBoxPrefab;
     public RectTransform boxParent;
     private int problemNumber = 1;
+    private int currentScore = 0;
 
     private MathQuiz.Question currentQuestion;
 
     void Start()
     {
+        currentScore = 0;
         problemNumber = 1;
         choiceButtons = new ECMathChoiceBox[choiceCount];
         for (int i = 0; i < choiceCount; i++) 
@@ -25,8 +27,39 @@ public class ECMathGame : MonoBehaviour
             choiceButtons[i] = Instantiate(choiceBoxPrefab, boxParent);
             choiceButtons[i].answerNumber.SetText((i+1).ToString());
         }
+
+        base.StartGame();
         GenerateNewQuestion();
     }
+
+    public override EResultState GetScore()
+    {
+        EResultState state = SendScore();
+        return state;
+    }
+
+    private EResultState SendScore()
+    {
+        EResultState state = EResultState.Good;
+        if (currentScore >= 15)
+        {
+            state = EResultState.Perfect;
+        }
+        else if (currentScore >= 8 && currentScore < 15)
+        {
+            state = EResultState.Great;
+        }
+        else if (currentScore >= 0 && currentScore < 8)
+        {
+            state = EResultState.Good;
+        }
+        else if (currentScore < 0)
+        {
+            state = EResultState.Bad;
+        }
+        return state;
+    }
+
 
     void GenerateNewQuestion()
     {
@@ -50,9 +83,11 @@ public class ECMathGame : MonoBehaviour
         if (selectedAnswer == currentQuestion.CorrectAnswer)
         {
             Debug.Log("정답");
+            currentScore++;
         }
         else
         {
+            currentScore -= 3;
             Debug.Log("오답");
         }
 
