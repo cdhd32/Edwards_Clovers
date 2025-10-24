@@ -60,6 +60,29 @@ public class ECUtils
 
     public static string GetDDayString(int leftDays)
     {
-        return "D - " + leftDays.ToString();
+        if (leftDays == 0)
+            return "D - Day";
+        else
+            return "D - " + leftDays.ToString();
+
+    }
+
+    public static string GetStatusName(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                return "Strength";
+            case 1:
+                return "Agility";
+            case 2:
+                return "Intelligence";
+            case 3:
+                return "Endurance";
+            case 4:
+                return "Charisma";
+            default:
+                return "Unknown Status";
+        }
     }
 }

@@ -13,6 +13,11 @@ public class ECMainSceneManager : ECSingleton<ECMainSceneManager>
         return 2;
     }
 
+    public string GetStautsName(int index)
+    {
+        return ECUtils.GetStatusName(index);
+    }
+
     public int GetStatusNum(int index)
     {
         return 333;

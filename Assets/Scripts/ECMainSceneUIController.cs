@@ -31,6 +31,8 @@ public class ECMainSceneUIController : MonoBehaviour
 
         classText.text = ECUtils.GetClassString(mainSceneManager.GetClassNum());
 
+        statPanels[0].SetName(mainSceneManager.GetStautsName(0));
+
         statPanels[0].SetNum(mainSceneManager.GetStatusNum(0));
 
         hpBar.value = mainSceneManager.GetHP() / 100.0f;
