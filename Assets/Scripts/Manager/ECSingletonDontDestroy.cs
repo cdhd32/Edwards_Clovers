@@ -1,15 +1,29 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class ECSingletonDontDestroy<T> : ECSingleton<T> where T : MonoBehaviour
+//Àü¿ª ½Ì±ÛÅæ
+public class ECSingletonDontDestroy<T> : MonoBehaviour where T : MonoBehaviour
 {
-    protected new void Awake()
+    private static T _instance;
+
+    protected T Instance
     {
-        if (_instance == null)
+        get
         {
-            _instance = this as T;
-            DontDestroyOnLoad(_instance);
-            Debug.Log("ECSingletonDontDestroy load");
+            if (_instance == null)
+            {
+                _instance = FindFirstObjectByType<T>();
+                if (_instance == null)
+                {
+                    var singletonObject = new GameObject();
+                    _instance = singletonObject.AddComponent<T>();
+                    singletonObject.name = "[Singleton]" + typeof(T).ToString();
+
+                    DontDestroyOnLoad(_instance);
+                    Debug.Log("ECSingletonDontDestroy Created");
+                }
+            }
+
+            return _instance;
         }
     }
 }
