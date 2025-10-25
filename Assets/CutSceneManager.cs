@@ -1,43 +1,57 @@
-
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class CutSceneManager : MonoBehaviour, IPointerDownHandler
 {
-    public List<GameObject> cutsceneObjects;  
+    public List<GameObject> cutsceneObjects;
     public List<int> groupSizeList;
-    private int groupNumIndex = 0;
-    private int clickCount = 0;
-   
+
+    private int groupNumIndex = 0;  // 현재 그룹 인덱스
+    private int groupClickCount = 0; // 현재 그룹 내 클릭 횟수
+    private int globalIndex = 0;     // 전체 컷씬 인덱스 (cutsceneObjects 기준)
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        int total = cutsceneObjects.Count;
-        int groupIndex = clickCount / (groupSizeList[groupNumIndex] + 1); 
-        int groupStart = groupIndex * groupSizeList[groupNumIndex];
-        int groupEnd = Mathf.Min(groupStart + groupSizeList[groupNumIndex], total);
-        if(clickCount==total)gameObject.SetActive(false);
-        // 현재 클릭이 "모두 끄는 단계"라면
-        if ((clickCount + 1) % (groupSizeList[groupNumIndex] + 1) == 0)
+        // 모든 컷씬이 끝났다면 종료
+        if (groupNumIndex >= groupSizeList.Count || globalIndex >= cutsceneObjects.Count)
         {
-            // 전부 비활성화
-            for (int i = groupStart; i < groupEnd; i++)
+            gameObject.SetActive(false);
+            return;
+        }
+
+        int groupSize = groupSizeList[groupNumIndex];
+
+        // "끄는 단계" (그룹 내 마지막 컷씬까지 보여준 뒤 한 번 더 클릭)
+        if (groupClickCount == groupSize)
+        {
+            // 현재 그룹 컷씬 비활성화
+            for (int i = globalIndex - groupSize; i < globalIndex; i++)
             {
-                if (i < total)
+                if (i >= 0 && i < cutsceneObjects.Count)
                     cutsceneObjects[i].SetActive(false);
             }
+
+            // 다음 그룹으로 이동
             groupNumIndex++;
+            groupClickCount = 0;
+
+            // 만약 모든 그룹을 끝냈다면 종료
+            if (groupNumIndex >= groupSizeList.Count)
+            {
+                gameObject.SetActive(false);
+                return;
+            }
+
+            return; // 끄기 단계 클릭은 컷씬 활성화 안 함
         }
-        else
+
+        // 현재 그룹에서 켜야 할 컷씬 활성화
+        if (globalIndex < cutsceneObjects.Count)
         {
-            // 활성화할 인덱스 계산
-            int activeIndex = groupStart + (clickCount % (groupSizeList[groupNumIndex] + 1));
-
-            if (activeIndex < total)
-                cutsceneObjects[activeIndex].SetActive(true);
+            cutsceneObjects[globalIndex].SetActive(true);
+            globalIndex++;
+            groupClickCount++;
         }
-
-        clickCount++;
     }
 }
