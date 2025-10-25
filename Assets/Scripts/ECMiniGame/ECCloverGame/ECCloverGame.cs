@@ -24,6 +24,7 @@ public class ECCloverGame : ECMiniGameBase
     public float cloverPadding = 50f;
 
     private int foundCloverCount;
+    private int befCloverIndex = -1;
 
     private int[] correctIndex;
 
@@ -77,7 +78,6 @@ public class ECCloverGame : ECMiniGameBase
             int index = i;
             if (isFourLeaf)
             {
-                Debug.Log("나는네잎클로버");
                 Button btn = clover.GetComponent<Button>();
                 btn.onClick.AddListener(() => OnCloverClicked(index));
                 clover.SetSprite(fourLeafSprites[Random.Range(0,fourLeafSprites.Length)]);
@@ -91,11 +91,16 @@ public class ECCloverGame : ECMiniGameBase
 
     private void OnCloverClicked(int index)
     {
+        if(index == befCloverIndex)
+        {
+            return;
+        }
         bool isFourLeaf = false;
         for (int j = 0; j < correctIndex.Length; ++j)
         {
             if (index == correctIndex[j])
             {
+                befCloverIndex = index;
                 isFourLeaf = true;
                 break;
             }

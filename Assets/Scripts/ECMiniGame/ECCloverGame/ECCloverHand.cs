@@ -10,7 +10,8 @@ public class ECCloverHand : MonoBehaviour
 
     private void Awake()
     {
-         rt = GetComponent<RectTransform>();    
+         rt = GetComponent<RectTransform>();
+        isStart = true;
     }
     private void Update()
     {
