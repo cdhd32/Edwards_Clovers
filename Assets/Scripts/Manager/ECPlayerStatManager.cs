@@ -197,6 +197,26 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         Debug.Log($"PlayerStatManager.SetPlayerStat() {playerStats[index].dataName} Changed : {playerStats[index].data}");
     }
 
+    private void SetPlayerStat(PlayerStatType type, int amount, bool isSave = false)
+    {
+        SetPlayerStat((int)type, amount, isSave);
+    }
+
+    private void SetPlayerStat(int index, int amount, bool isSave = false)
+    {
+        if (index < 0 || index >= (int)PlayerStatType._MAX)
+            return;
+
+        playerStats[index].data = amount;
+
+        if (playerStats[index].data < 0)
+            playerStats[index].data = 0;
+
+        if (isSave)
+            SaveStatData();
+        Debug.Log($"PlayerStatManager.SetPlayerStat() {playerStats[index].dataName} Set : {playerStats[index].data}");
+    }
+
     public void SetPlayerStatByEvent(EventType eventType, ConditionType conditionType)
     {
         int index = ECUtils.GetEventIndex(eventType, conditionType);
@@ -243,6 +263,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         return playerStats[index].dataName;
     }
 
+    //행동 이벤트 후 스탯 업데이트
     public void UpdateStat(EventType eventType, ConditionType conditionType)
     {
         //의욕 게이지 차감
@@ -259,5 +280,24 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         }
 
         SetPlayerStatByEvent(eventType, conditionType);
+    }
+
+    //의욕 충전 후 스탯 업데이트
+    public void UpdateStatCheer()
+    {
+        //의욕 게이지 최대치로 변경
+        SetPlayerStat(PlayerStatType.MOT, ECConst.MOTVIATION_MAX);
+
+        //1교시 증가
+        AddPlayerStat(PlayerStatType.CLASS, 1);
+
+        //4교시가 지나면 하루 차감, 1교시로 초기화
+        if (playerStats[(int)PlayerStatType.CLASS].data > ECConst.CLASS_PER_DAY)
+        {
+            playerStats[(int)PlayerStatType.CLASS].data = 1;
+            AddPlayerStat(PlayerStatType.LEFTDAY, -1); //남은 일수 감소
+        }
+
+        SaveStatData();
     }
 }

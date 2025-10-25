@@ -36,6 +36,13 @@ public class ECCheerUp : MonoBehaviour
         seq.Append(friendRectTransform.DOMoveY(originPos.y, animationSpeed));
         seq.Append(bgImageTr.DOScaleY(0, animationSpeed));
 
+        seq.OnComplete(() =>
+        {
+            ECPlayerStatManager.Instance.UpdateStatCheer();
+
+            ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
+        });
+
     }
 
     public void PlayAnimation()

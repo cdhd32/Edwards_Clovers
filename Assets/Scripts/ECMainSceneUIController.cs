@@ -23,6 +23,9 @@ public class ECMainSceneUIController : MonoBehaviour
     private Button actionButtonLuk;
 
     [SerializeField]
+    private Button actionButtonCheerUp;
+
+    [SerializeField]
     private StatusUI[] statPanels;
 
     [SerializeField]
@@ -66,6 +69,11 @@ public class ECMainSceneUIController : MonoBehaviour
         actionButtonLuk.onClick.AddListener(() =>
         {
             StartCoroutine(LoadScene(SceneType.LUCKY));
+        });
+
+        actionButtonCheerUp.onClick.AddListener(() =>
+        {
+            StartCoroutine(LoadScene(SceneType.CHEERUP));
         });
 
     }
