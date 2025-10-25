@@ -5,7 +5,7 @@ public class ECSingletonDontDestroy<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T _instance;
 
-    protected T Instance
+    public static T Instance
     {
         get
         {

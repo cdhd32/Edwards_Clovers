@@ -13,7 +13,7 @@ public class ECMainSceneUIController : MonoBehaviour
     private StatusUI[] statPanels;
 
     [SerializeField]
-    private Slider hpBar;
+    private Slider motivationBar;
 
     [SerializeField]
     private TMP_Text classText;
@@ -31,10 +31,10 @@ public class ECMainSceneUIController : MonoBehaviour
 
         classText.text = ECUtils.GetClassString(mainSceneManager.GetClassNum());
 
-        statPanels[0].SetName(mainSceneManager.GetStautsName(0));
+        statPanels[0].SetName(mainSceneManager.GetStautsName(PlayerStatType.KOR));
 
-        statPanels[0].SetNum(mainSceneManager.GetStatusNum(0));
+        statPanels[0].SetNum(mainSceneManager.GetStatusNum(PlayerStatType.KOR));
 
-        hpBar.value = mainSceneManager.GetHP() / 100.0f;
+        motivationBar.value = mainSceneManager.GetMotivation() / 100.0f;
     }
 }

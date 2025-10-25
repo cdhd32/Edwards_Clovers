@@ -2,29 +2,42 @@ using UnityEngine;
 
 public class ECMainSceneManager : ECSingleton<ECMainSceneManager>
 {
+    private ECPlayerStatManager playerStatManager;
+    protected new void Awake()
+    {
+        base.Awake();
+
+        playerStatManager = ECPlayerStatManager.Instance;
+        playerStatManager.Init();
+    }
 
     public int GetLeftDayNum()
     {
-        return 2;
+        return playerStatManager.GetPlayerStat(PlayerStatType.LEFTDAY);
     }
 
     public int GetClassNum()
     {
-        return 2;
+        return playerStatManager.GetPlayerStat(PlayerStatType.CLASS);
     }
 
-    public string GetStautsName(int index)
+    public string GetStautsName(PlayerStatType type)
     {
-        return ECUtils.GetStatusName(index);
+        return playerStatManager.GetPlayerStatName(type);
+    }
+
+    public int GetStatusNum(PlayerStatType type)
+    {
+        return playerStatManager.GetPlayerStat((int)type);
     }
 
     public int GetStatusNum(int index)
     {
-        return 333;
+        return playerStatManager.GetPlayerStat(index);
     }
 
-    public int GetHP()
+    public int GetMotivation()
     {
-        return 77;
+        return playerStatManager.GetPlayerStat(PlayerStatType.MOT);
     }
 }
