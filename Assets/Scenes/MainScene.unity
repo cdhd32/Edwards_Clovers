@@ -1807,6 +1807,7 @@ GameObject:
   - component: {fileID: 1251587986}
   - component: {fileID: 1251587985}
   - component: {fileID: 1251587987}
+  - component: {fileID: 1251587988}
   m_Layer: 0
   m_Name: Stand
   m_TagString: Untagged
@@ -1888,6 +1889,19 @@ MonoBehaviour:
   shakeStrength: 10
   shakeVibrato: 10
   shakeTime: 0.25
+--- !u!114 &1251587988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251587983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde19781c3d4f5342acc2fbff4b41d4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSFX: {fileID: 8300000, guid: 4062e38cba5a46e43af8bfe44a97ec33, type: 3}
 --- !u!1 &1282496218
 GameObject:
   m_ObjectHideFlags: 0
@@ -2636,6 +2650,7 @@ GameObject:
   - component: {fileID: 1548977950}
   - component: {fileID: 1548977949}
   - component: {fileID: 1548977948}
+  - component: {fileID: 1548977951}
   m_Layer: 5
   m_Name: Action Buttons
   m_TagString: Untagged
@@ -2750,6 +2765,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1548977946}
   m_CullTransparentMesh: 1
+--- !u!114 &1548977951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548977946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde19781c3d4f5342acc2fbff4b41d4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSFX: {fileID: 8300000, guid: dba722e4f6b89fd4dad6d7e9b3b6714f, type: 3}
 --- !u!1 &1733143163
 GameObject:
   m_ObjectHideFlags: 0
