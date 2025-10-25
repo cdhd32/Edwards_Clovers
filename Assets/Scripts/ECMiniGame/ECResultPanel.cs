@@ -28,18 +28,18 @@ public class ECResultPanel : MonoBehaviour
         Debug.Log("메인으로");
         ECPlayerStatManager statManage = ECPlayerStatManager.Instance;
         statManage.UpdateStat(eventType, conditionType);
-        int leftDayVal = statManage.GetPlayerStat(PlayerStatType.LEFTDAY);
-        int classVal = statManage.GetPlayerStat(PlayerStatType.CLASS);
-        //ECGlobalSceneManager.Instance.LoadScene(SceneType.EXAM);
-        if (classVal == 1)
-        {
-            //마지막 교시일때
-            ExamEventCheck(leftDayVal);
-        }
-        else
-        {
+        //int leftDayVal = statManage.GetPlayerStat(PlayerStatType.LEFTDAY);
+        //int classVal = statManage.GetPlayerStat(PlayerStatType.CLASS);
+        ////ECGlobalSceneManager.Instance.LoadScene(SceneType.EXAM);
+        //if (classVal == 1 || leftDayVal == 0)
+        //{
+        //    //마지막 교시거나 d - day일 때
+        //    ExamEventCheck(leftDayVal);
+        //}
+        //else
+        //{
             ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
-        }
+        //}
 
 
     }

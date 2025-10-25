@@ -9,7 +9,6 @@ public class ECExamReportBox : MonoBehaviour
 
     public void SetReportBox(string title, int score, int rank)
     {
-        Debug.Log(title + "·©Å©" + rank);
         titleTMP.SetText(title);
         scoreTMP.SetText(score.ToString());
         rankTMP.SetText(rank.ToString());

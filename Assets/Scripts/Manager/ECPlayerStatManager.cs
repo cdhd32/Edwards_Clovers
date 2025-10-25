@@ -55,7 +55,7 @@ public enum PlayerStatType
 //전역 매니저
 public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
 {
-    private PlayerStatData[] playerStats;
+    [NonSerialized] public PlayerStatData[] playerStats;
 
     private BehaviorEventData[] behaviorEventData;
 

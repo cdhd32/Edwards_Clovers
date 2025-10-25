@@ -112,7 +112,7 @@ public class ECMainSceneUIController : MonoBehaviour
         }
         isUIMoving = true;
         float pos = buttonsRect.anchoredPosition.x == 0 ? 297 : 0;
-        buttonsRect.DOAnchorPosX(pos, 1f).OnComplete(() => OnCompleteMovePos());
+        buttonsRect.DOAnchorPosX(pos, 0.5f).OnComplete(() => OnCompleteMovePos());
     }
 
     private void OnCompleteMovePos()
