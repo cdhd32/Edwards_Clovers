@@ -11,6 +11,6 @@ public class ECFirstSceneManager : MonoBehaviour
     void Start()
     {
         //첫 씬에서 바로 메인 씬으로 전환
-        //ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
+        ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
     }
 }
