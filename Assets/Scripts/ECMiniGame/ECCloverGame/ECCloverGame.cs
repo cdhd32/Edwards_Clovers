@@ -89,9 +89,11 @@ public class ECCloverGame : ECMiniGameBase
             int index = i;
             if (isFourLeaf)
             {
-                Button btn = clover.GetComponent<Button>();
+                Button btn = clover.cloverBtn;
                 btn.onClick.AddListener(() => OnCloverClicked(index));
+                
                 clover.SetSprite(fourLeafSprites[Random.Range(0,fourLeafSprites.Length)]);
+                clover.ChangeCloverState(true);
             }
             else
             {
@@ -124,7 +126,6 @@ public class ECCloverGame : ECMiniGameBase
             ECClover clover = clovers[index];
             clover.transform.SetAsLastSibling();
             clover.FindCloverEvent();
-            Debug.Log("³×ÀÙ");
             if (foundCloverCount == 2)
                 audioSource.pitch = 0.5f;
             else

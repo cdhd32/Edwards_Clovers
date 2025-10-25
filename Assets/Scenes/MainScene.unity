@@ -876,7 +876,6 @@ GameObject:
   - component: {fileID: 473870814}
   - component: {fileID: 473870813}
   - component: {fileID: 473870812}
-  - component: {fileID: 473870815}
   m_Layer: 5
   m_Name: ActionButton - KR
   m_TagString: Untagged
@@ -986,19 +985,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473870810}
   m_CullTransparentMesh: 1
---- !u!114 &473870815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 473870810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dde19781c3d4f5342acc2fbff4b41d4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickSFX: {fileID: 8300000, guid: 8363ae4a3acc7ff4d935a7fa0406c417, type: 3}
 --- !u!1 &542529584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,6 +996,7 @@ GameObject:
   - component: {fileID: 542529585}
   - component: {fileID: 542529587}
   - component: {fileID: 542529586}
+  - component: {fileID: 542529588}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1074,6 +1061,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 542529584}
   m_CullTransparentMesh: 1
+--- !u!114 &542529588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542529584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde19781c3d4f5342acc2fbff4b41d4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSFX: {fileID: 8300000, guid: dba722e4f6b89fd4dad6d7e9b3b6714f, type: 3}
 --- !u!1 &554344960
 GameObject:
   m_ObjectHideFlags: 0
@@ -1741,6 +1741,7 @@ GameObject:
   - component: {fileID: 1168910571}
   - component: {fileID: 1168910570}
   - component: {fileID: 1168910569}
+  - component: {fileID: 1168910572}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1861,6 +1862,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1168910567}
   m_CullTransparentMesh: 1
+--- !u!114 &1168910572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168910567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde19781c3d4f5342acc2fbff4b41d4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSFX: {fileID: 8300000, guid: dba722e4f6b89fd4dad6d7e9b3b6714f, type: 3}
 --- !u!1 &1199568778
 GameObject:
   m_ObjectHideFlags: 0
