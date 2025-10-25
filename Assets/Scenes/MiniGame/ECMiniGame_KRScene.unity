@@ -1073,7 +1073,7 @@ PrefabInstance:
       objectReference: {fileID: 1707167056}
     - target: {fileID: 8515270190998974400, guid: cb8cc2b9f6a5f6a438a75a1f46c86bef, type: 3}
       propertyPath: totalStageTime
-      value: 60
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8612224074198045168, guid: cb8cc2b9f6a5f6a438a75a1f46c86bef, type: 3}
       propertyPath: m_Name
