@@ -711,7 +711,7 @@ PrefabInstance:
     - target: {fileID: 8515270190998974400, guid: cb8cc2b9f6a5f6a438a75a1f46c86bef, type: 3}
       propertyPath: miniGameBase
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1707167056}
     - target: {fileID: 8515270190998974400, guid: cb8cc2b9f6a5f6a438a75a1f46c86bef, type: 3}
       propertyPath: totalStageTime
       value: 10

@@ -1,6 +1,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text;
+using TMPro;
 using UnityEngine;
 
 [Serializable]
@@ -25,13 +27,39 @@ public class ECEnglishGame : ECMiniGameBase
     private ECEnglishCard[] cards;
     private ECEnglishCardInfo[] currentCardInfos;
     [NonSerialized] public ECEnglishCard befCard;
-    private int cardCount = 14;
+    public int cardCount = 4;
+    public TextMeshProUGUI vocabularyBookTMP_Word;
+    public TextMeshProUGUI vocabularyBookTMP_Meaning;
+    public GameObject vocaPanel;
+    private StringBuilder sb = new StringBuilder(100);
 
     private void Awake()
     {
         string json = englishData.text;
         cardDataTemplate = JsonUtility.FromJson<ECEnglishCardInfoTemplate>(json);
         StartGame();
+    }
+
+    private void SetVocaBook(int cardcount)
+    {
+        for(int i=0; i< cardcount; i++)
+        {
+            sb.Append(currentCardInfos[i].word);
+            sb.AppendLine();
+        }
+        vocabularyBookTMP_Word.SetText(sb.ToString());
+        sb.Clear();
+        for (int i = 0; i < cardcount; i++)
+        {
+            sb.Append(currentCardInfos[i].meaning);
+            sb.AppendLine();
+        }
+        vocabularyBookTMP_Meaning.SetText(sb.ToString());
+    }
+
+    public void OnClickVocaBook()
+    {
+        vocaPanel.SetActive(true);
     }
 
     public void CreateCards()
@@ -44,8 +72,9 @@ public class ECEnglishGame : ECMiniGameBase
         {
             currentCardInfos[i] = cardDataTemplate.cardInfos[i];
         }
+        SetVocaBook(currentCards);
 
-        for(int i=0; i<cardCount; ++i)
+        for (int i=0; i<cardCount; ++i)
         {
             ECEnglishCard c = Instantiate(cardPrefab, cardParent);
             c.ChangeCardState(ECardState.Close);

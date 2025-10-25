@@ -84,7 +84,7 @@ public class ECKoreanGame : ECMiniGameBase
         correctItem = itemList.items[random.Next(0, itemList.items.Length)];
 
         //Sprite loadedSprite = Resources.Load<Sprite>($"ItemSprites/{correctItem.name}");
-        //itemImage.sprite = loadedSprite; 나중에 이미지 나오면
+        //itemImage.sprite = loadedSprite; 나중에 이미지 나오면 변경 / 임시로 텍스트
         questionTMP.SetText(correctItem.name);
 
         List<ECKRItemData> choices = new List<ECKRItemData> { correctItem };
