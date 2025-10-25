@@ -244,14 +244,17 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
 
     public void UpdateStat(EventType eventType, ConditionType conditionType)
     {
+        //의욕 게이지 차감
         AddPlayerStat(PlayerStatType.MOT, -ECConst.MOTVIATION_PAY);
 
+        //1교시 증가
         AddPlayerStat(PlayerStatType.CLASS, 1);
 
+        //4교시가 지나면 하루 차감, 1교시로 초기화
         if (playerStats[(int)PlayerStatType.CLASS].data >= ECConst.CLASS_PER_DAY)
         {
             playerStats[(int)PlayerStatType.CLASS].data = 1;
-            AddPlayerStat(PlayerStatType.LEFTDAY, -1);
+            AddPlayerStat(PlayerStatType.LEFTDAY, -1); //남은 일수 감소
         }
 
         SetPlayerStatByEvent(eventType, conditionType);
