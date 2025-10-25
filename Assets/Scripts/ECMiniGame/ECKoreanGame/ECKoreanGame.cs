@@ -24,26 +24,40 @@ public class ECKoreanGame : ECMiniGameBase
     [Header("UI References")]
     public Image questionImage; // 칠판 이미지
     public TextMeshProUGUI questionTMP;
-    public ECMathChoiceBox choiceBoxPrefab;
+    public ECKRChoiceBox choiceBoxPrefab;
     public RectTransform choiceBoxParent;
-    public ECMathChoiceBox[] choiceButtons;  // 객관식 버튼 3개
-    private int answerCount = 3;
+    public ECKRChoiceBox[] choiceButtons;  // 객관식 버튼 3개
+    private int answerCount = 4;
+
+    public Sprite[] answerCheckImages; // 0 틀림 1 맞춤
+    public Image answerCheck;
 
     [Header("Data")]
     public TextAsset jsonFile;      // ItemDatabase.json
     public ECKRItemDataTemplate itemList;
     private ECKRItemData correctItem;
 
+    public Sprite[] itemSprites;
+
     private int currentScore = 0;
+    private List<ECKRItemData> itemDatas;
+
+    private bool isDelay;
 
     void Start()
     {
         // JSON 데이터 로드
-        choiceButtons = new ECMathChoiceBox[answerCount];
+        choiceButtons = new ECKRChoiceBox[answerCount];
         itemList = JsonUtility.FromJson<ECKRItemDataTemplate>(jsonFile.text);
-        for(int i=0; i< answerCount; ++i)
+
+        for (int i = 0; i < itemList.items.Length; i++)
         {
-            ECMathChoiceBox box = Instantiate(choiceBoxPrefab, choiceBoxParent);
+            itemList.items[i].sprite = itemSprites[i];
+        }
+        itemDatas = itemList.items.ToList();
+        for (int i=0; i< answerCount; ++i)
+        {
+            ECKRChoiceBox box = Instantiate(choiceBoxPrefab, choiceBoxParent);
             choiceButtons[i] = box;
         }
         GenerateNewQuestion();
@@ -80,15 +94,19 @@ public class ECKoreanGame : ECMiniGameBase
 
     void GenerateNewQuestion()
     {
+        if(itemDatas.Count == 0)
+        {
+            return;
+        }
+        answerCheck.enabled = false;
         Random random = new System.Random();
-        correctItem = itemList.items[random.Next(0, itemList.items.Length)];
-
+        correctItem = itemDatas[random.Next(0, itemDatas.Count)];
         //Sprite loadedSprite = Resources.Load<Sprite>($"ItemSprites/{correctItem.name}");
-        //itemImage.sprite = loadedSprite; 나중에 이미지 나오면 변경 / 임시로 텍스트
-        questionTMP.SetText(correctItem.name);
+        questionImage.sprite = correctItem.sprite; //나중에 이미지 나오면 변경 / 임시로 텍스트
+        //questionTMP.SetText(correctItem.name);
 
         List<ECKRItemData> choices = new List<ECKRItemData> { correctItem };
-        while (choices.Count < 3)
+        while (choices.Count < answerCount)
         {
             var randomItem = itemList.items[random.Next(0, itemList.items.Length)];
             if (!choices.Contains(randomItem))
@@ -96,12 +114,13 @@ public class ECKoreanGame : ECMiniGameBase
         }
 
         Utils.Shuffle(choices);
-
+        itemDatas.Remove(correctItem);
         // 버튼 세팅
         for (int i = 0; i < choiceButtons.Length; i++)
         {
             int index = i;
             choiceButtons[i].tmp.SetText(choices[i].name);
+            choiceButtons[i].answerButton.interactable = true;
             choiceButtons[i].answerButton.onClick.RemoveAllListeners();
             choiceButtons[i].answerButton.onClick.AddListener(() => OnChoiceSelected(choices[index]));
         }
@@ -109,16 +128,22 @@ public class ECKoreanGame : ECMiniGameBase
 
     void OnChoiceSelected(ECKRItemData selected)
     {
+        answerCheck.enabled = true;
+
+        for (int i = 0; i < choiceButtons.Length; i++)
+        {
+            choiceButtons[i].answerButton.interactable = false;
+        }
         if (selected.id == correctItem.id)
         {
-            Debug.Log("정답");
+            answerCheck.sprite = answerCheckImages[0];
         }
         else
         {
-            Debug.Log("오답");
+            answerCheck.sprite = answerCheckImages[1];
         }
 
-        Invoke(nameof(GenerateNewQuestion), 1.0f);
+        Invoke(nameof(GenerateNewQuestion), 0.5f);
     }
 
 }
