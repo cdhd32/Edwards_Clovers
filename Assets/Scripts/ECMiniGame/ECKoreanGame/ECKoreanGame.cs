@@ -96,6 +96,7 @@ public class ECKoreanGame : ECMiniGameBase
     {
         if(itemDatas.Count == 0)
         {
+            timer.EndTimer(EResultState.Perfect);
             return;
         }
         answerCheck.enabled = false;

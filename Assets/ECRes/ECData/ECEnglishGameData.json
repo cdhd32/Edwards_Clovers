@@ -1,24 +1,12 @@
 {
   "cardInfos": [
-    { "id": 1, "word": "apple", "meaning": "사과" },
-    { "id": 2, "word": "run", "meaning": "달리다" },
-    { "id": 3, "word": "beautiful", "meaning": "아름다운" },
-    { "id": 4, "word": "dream", "meaning": "꿈" },
-    { "id": 5, "word": "friendship", "meaning": "우정" },
-    { "id": 6, "word": "ocean", "meaning": "바다" },
-    { "id": 7, "word": "smile", "meaning": "미소짓다" },
-    { "id": 8, "word": "courage", "meaning": "용기" },
-    { "id": 9, "word": "mountain", "meaning": "산" },
-    { "id": 10, "word": "light", "meaning": "빛" },
-    { "id": 11, "word": "kindness", "meaning": "친절" },
-    { "id": 12, "word": "discover", "meaning": "발견하다" },
-    { "id": 13, "word": "listen", "meaning": "듣다" },
-    { "id": 14, "word": "create", "meaning": "창조하다" },
-    { "id": 15, "word": "forest", "meaning": "숲" },
-    { "id": 16, "word": "peace", "meaning": "평화" },
-    { "id": 17, "word": "hope", "meaning": "희망" },
-    { "id": 18, "word": "journey", "meaning": "여행" },
-    { "id": 19, "word": "truth", "meaning": "진실" },
-    { "id": 20, "word": "memory", "meaning": "기억" }
+    { "id": 1, "word": "strawberry", "meaning": "딸기", "fileName": "1_strawberry" },
+    { "id": 2, "word": "watermelon", "meaning": "수박", "fileName": "2_watermelon" },
+    { "id": 3, "word": "apple", "meaning": "사과", "fileName": "3_apple" },
+    { "id": 4, "word": "clover", "meaning": "클로버", "fileName": "4_clover" },
+    { "id": 5, "word": "eraser", "meaning": "지우개", "fileName": "5_eraser" },
+    { "id": 6, "word": "pen", "meaning": "펜", "fileName": "6_pen" },
+    { "id": 7, "word": "book", "meaning": "책", "fileName": "7_book" },
+    { "id": 8, "word": "chocolate", "meaning": "초콜릿", "fileName": "8_chocolate" }
   ]
 }

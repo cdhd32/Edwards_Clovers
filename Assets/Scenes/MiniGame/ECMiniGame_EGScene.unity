@@ -665,6 +665,15 @@ MonoBehaviour:
   vocabularyBookTMP_Word: {fileID: 1123416894}
   vocabularyBookTMP_Meaning: {fileID: 1176182257}
   vocaPanel: {fileID: 1434508582}
+  cardSprites:
+  - {fileID: 21300000, guid: cc6bff4979666964fb4e9848db3d66af, type: 3}
+  - {fileID: 21300000, guid: c4d9c839b8a75b7449872b6c92c5a648, type: 3}
+  - {fileID: 21300000, guid: 2b06fd3340e9d7e4babf1a2395fa9f34, type: 3}
+  - {fileID: 21300000, guid: 39624c244bd5d3c4eaf7bdd71c76a63b, type: 3}
+  - {fileID: 21300000, guid: 326e3fca476d7d34c982768f3139abca, type: 3}
+  - {fileID: 21300000, guid: ca72d76a8d133054bbfecec62acda061, type: 3}
+  - {fileID: 21300000, guid: 63a9fd9f82632fd45a1977841d57cb97, type: 3}
+  - {fileID: 21300000, guid: c72eddfc5e7fb1d42b776b01da990c26, type: 3}
 --- !u!1 &1123416892
 GameObject:
   m_ObjectHideFlags: 0

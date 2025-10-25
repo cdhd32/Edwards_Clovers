@@ -43,7 +43,6 @@ public class ECMiniGameTimer : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(isStart);
         if (isStart)
         {
             currentTime -= Time.deltaTime;

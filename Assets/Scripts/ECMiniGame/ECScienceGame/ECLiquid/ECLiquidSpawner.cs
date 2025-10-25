@@ -51,7 +51,7 @@ public class ECLiquidSpawner : MonoBehaviour
             circles[count].gameObject.SetActive(true);
             count++;
         }
-        Debug.Log(count);
+        //Debug.Log(count);
     }
 
     public EResultState ReturnGameResult()

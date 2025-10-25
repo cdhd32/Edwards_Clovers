@@ -13,15 +13,17 @@ public class ECEnglishCard : MonoBehaviour
 {
     public TextMeshProUGUI tmp;
     public Image backImage;
+    public Image frontImage;
     public Outline cardOutline;
     [NonSerialized] public ECardState cardState = ECardState.Count;
     [NonSerialized] public ECEnglishCardInfo cardInfo;
     private ECEnglishGame egGame;
     private bool isDelay;
 
-    public void SetCardTMP(string cardInfo, ECEnglishGame game)
+    public void SetCardTMP(ECEnglishCardInfo cardInfo, string infoStr, ECEnglishGame game)
     {
-        tmp.SetText(cardInfo);
+        tmp.SetText(infoStr);
+        frontImage.sprite = cardInfo.spr;
         egGame = game;
     }
 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4f3431ab07479cc4db5204405a3dc6fe
+guid: cc6bff4979666964fb4e9848db3d66af
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -360144789758424525
-    second: image 38 (1)_0
+      213: 1306547481209673971
+    second: 1_strawberry_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: image 38 (1)_0
+      name: 1_strawberry_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 9
-        width: 112
-        height: 121
+        x: 12
+        y: 26
+        width: 110
+        height: 109
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 33acdbac832800bf0800000000000000
-      internalID: -360144789758424525
+      spriteID: 3f81fa3030ac12210800000000000000
+      internalID: 1306547481209673971
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      image 38 (1)_0: -360144789758424525
+      1_strawberry_0: 1306547481209673971
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

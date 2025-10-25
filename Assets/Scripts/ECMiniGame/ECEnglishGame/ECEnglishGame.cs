@@ -11,6 +11,7 @@ public class ECEnglishCardInfo
     public int id;
     public string word;
     public string meaning;
+    [NonSerialized] public Sprite spr;
 }
 [Serializable]
 public class ECEnglishCardInfoTemplate
@@ -33,11 +34,17 @@ public class ECEnglishGame : ECMiniGameBase
     public TextMeshProUGUI vocabularyBookTMP_Meaning;
     public GameObject vocaPanel;
     private StringBuilder sb = new StringBuilder(100);
+    public Sprite[] cardSprites;
 
     private void Awake()
     {
         string json = englishData.text;
         cardDataTemplate = JsonUtility.FromJson<ECEnglishCardInfoTemplate>(json);
+        for(int i = 0; i<cardDataTemplate.cardInfos.Length; ++i)
+        {
+            ECEnglishCardInfo info = cardDataTemplate.cardInfos[i];
+            info.spr = cardSprites[i];
+        }
         StartGame();
     }
 
@@ -86,7 +93,7 @@ public class ECEnglishGame : ECMiniGameBase
         {
             ECEnglishCard c = cards[i];
             c.cardInfo = currentCardInfos[i];
-            c.SetCardTMP(c.cardInfo.meaning, this);
+            c.SetCardTMP(c.cardInfo, c.cardInfo.meaning, this);
         }
 
         Utils.Shuffle(currentCardInfos);
@@ -99,7 +106,7 @@ public class ECEnglishGame : ECMiniGameBase
             {
                 Debug.Log("d");
             }
-            c.SetCardTMP(c.cardInfo.word, this);
+            c.SetCardTMP(c.cardInfo, c.cardInfo.word, this);
         }
     }
 

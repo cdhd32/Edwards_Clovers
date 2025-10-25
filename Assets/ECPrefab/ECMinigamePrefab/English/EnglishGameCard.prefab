@@ -301,6 +301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tmp: {fileID: 5525010187591546864}
   backImage: {fileID: 8661852159101329562}
+  frontImage: {fileID: 452099643305601203}
   cardOutline: {fileID: 3327103837448327911}
 --- !u!114 &3327103837448327911
 MonoBehaviour:
@@ -315,7 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0.062328577, g: 1, b: 0, a: 0}
-  m_EffectDistance: {x: 8, y: 8}
+  m_EffectDistance: {x: 7, y: 6}
   m_UseGraphicAlpha: 1
 --- !u!1 &6594813779368563687
 GameObject:
