@@ -94,4 +94,9 @@ public class ECUtils
             return string.Empty;
         }
     }
+
+    public static int GetEventIndex(EventType eventType, ConditionType conditionType)
+    {
+        return (int)ConditionType._MAX * (int)conditionType + (int)eventType;
+    }
 }
