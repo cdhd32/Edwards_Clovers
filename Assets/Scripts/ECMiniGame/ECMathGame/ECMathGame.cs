@@ -17,6 +17,7 @@ public class ECMathGame : ECMiniGameBase
     public Sprite[] answerNumberImages;
     public Sprite[] answerCheckImages; // 0 Æ²¸² 1 ¸ÂÃã
     public Image answerCheck;
+    private bool isClick;
 
     private ECMathChoiceBox currentSelectBox;
     private MathQuiz.Question currentQuestion;
@@ -67,6 +68,7 @@ public class ECMathGame : ECMiniGameBase
 
     void GenerateNewQuestion()
     {
+        isClick = false;
         answerCheck.color = Color.clear;
         if (currentSelectBox != null)
         {
@@ -90,7 +92,9 @@ public class ECMathGame : ECMiniGameBase
 
     void OnChoiceSelected(int selectedAnswer, ECMathChoiceBox box)
     {
+        if (isClick) return;
         box.ShowCheckImage(true);
+        isClick = true;
         currentSelectBox = box;
         answerCheck.color = Color.white;
         if (selectedAnswer == currentQuestion.CorrectAnswer)

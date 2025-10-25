@@ -30,7 +30,8 @@ public class ECResultPanel : MonoBehaviour
         statManage.UpdateStat(eventType, conditionType);
         int leftDayVal = statManage.GetPlayerStat(PlayerStatType.LEFTDAY);
         int classVal = statManage.GetPlayerStat(PlayerStatType.CLASS);
-        if(classVal == 1)
+        //ECGlobalSceneManager.Instance.LoadScene(SceneType.EXAM);
+        if (classVal == 1)
         {
             //마지막 교시일때
             ExamEventCheck(leftDayVal);
