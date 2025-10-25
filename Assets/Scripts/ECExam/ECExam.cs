@@ -11,6 +11,8 @@ public class ECExam : MonoBehaviour
     private int[] playerScores = new int[4]; // 국수과영
     private int[] playerRank = new int[4]; // 국수과영
 
+    private bool isClick = false;
+
     private void Awake()
     {
         int val = ECPlayerStatManager.Instance.GetPlayerStat(PlayerStatType.LEFTDAY);
@@ -31,6 +33,18 @@ public class ECExam : MonoBehaviour
         //currentStage = 0;
         currentThreshold = scorethreshold[currentStage];
         SetReportBoxs();
+    }
+
+    public void OnClickMainScene()
+    {
+        if (isClick) return;
+        if(currentStage == 2)
+        {
+            Debug.Log("이따 엔딩컷신으로 연결");
+            return;
+        }
+        ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
+        isClick = true;
     }
 
     private void SetReportBoxs()
