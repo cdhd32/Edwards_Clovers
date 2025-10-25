@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public enum SceneType
 {
+    FIRST,
     MAIN,
     CHEERUP,
     KR,
@@ -15,7 +16,8 @@ public enum SceneType
 public class ECGlobalSceneManager : ECSingletonDontDestroy<ECGlobalSceneManager>
 {
     private string[] sceneNames = {
-
+        "FirstScene",
+        "MainScene",
         "ECMiniGame_CheerUp",
         "ECMiniGame_KRScene",
         "ECMiniGame_EGScene",
