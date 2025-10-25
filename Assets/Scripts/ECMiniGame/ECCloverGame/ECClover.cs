@@ -17,6 +17,8 @@ public class ECClover : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private Canvas canvas;
     private CanvasGroup canvasGroup;
     public Image cloverImage;
+    public Button cloverBtn;
+    private bool isFourLeaf;
 
     void Awake()
     {
@@ -46,12 +48,21 @@ public class ECClover : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if(isFourLeaf)
+        {
+            Debug.Log("네잎");
+            return;
+        }
         canvasGroup.blocksRaycasts = false;
         transform.SetAsLastSibling(); // 드래그 중에는 제일 위로
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (isFourLeaf)
+        {
+            return;
+        }
         Vector2 pos;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             canvas.transform as RectTransform,
@@ -64,13 +75,16 @@ public class ECClover : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (isFourLeaf)
+        {
+            return;
+        }
         canvasGroup.blocksRaycasts = true;
     }
 
-    public void ChangeCloverState(ECloverState state)
+    public void ChangeCloverState(bool isFour)
     {
-        if (cloverState == state) return;
-        cloverState = state;
+        isFourLeaf = isFour;
         //스프라이트 변경
     }
 }
