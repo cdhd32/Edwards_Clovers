@@ -36,7 +36,33 @@ public class ECCloverGame : ECMiniGameBase
         base.StartGame();
         SpawnClovers();
     }
+    public override EResultState GetScore()
+    {
+        EResultState state = SendScore();
+        return state;
+    }
 
+    private EResultState SendScore()
+    {
+        EResultState state = EResultState.Count;
+        if (foundCloverCount == 3)
+        {
+            state = EResultState.Perfect;
+        }
+        else if (foundCloverCount == 2 )
+        {
+            state = EResultState.Great;
+        }
+        else if (foundCloverCount==1)
+        {
+            state = EResultState.Good;
+        }
+        else if (foundCloverCount== 0)
+        {
+            state = EResultState.Bad;
+        }
+        return state;
+    }
     private void SpawnClovers()
     {
         Vector2 panelSize = panel.rect.size;
@@ -106,6 +132,7 @@ public class ECCloverGame : ECMiniGameBase
             clover.transform.SetAsLastSibling();
             clover.FindCloverEvent();
             Debug.Log("³×ÀÙ");
+            if(foundCloverCount>=3) timer.EndTimer(EResultState.Perfect);
         }
         else
         {
