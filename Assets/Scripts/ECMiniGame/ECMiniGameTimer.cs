@@ -34,6 +34,12 @@ public class ECMiniGameTimer : MonoBehaviour
         resultPanel.ShowResult(state);
     }
 
+    public void EndTimer(EResultState _state)
+    {
+        isStart = false;
+        resultPanel.ShowResult(_state);
+    }
+
     private void Update()
     {
         if (isStart)

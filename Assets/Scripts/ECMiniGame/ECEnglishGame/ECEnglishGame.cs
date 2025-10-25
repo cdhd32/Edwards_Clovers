@@ -28,6 +28,7 @@ public class ECEnglishGame : ECMiniGameBase
     private ECEnglishCardInfo[] currentCardInfos;
     [NonSerialized] public ECEnglishCard befCard;
     public int cardCount = 4;
+    private int correctCount = 0;
     public TextMeshProUGUI vocabularyBookTMP_Word;
     public TextMeshProUGUI vocabularyBookTMP_Meaning;
     public GameObject vocaPanel;
@@ -102,6 +103,11 @@ public class ECEnglishGame : ECMiniGameBase
         }
     }
 
+    public override EResultState GetScore()
+    {
+        //타이머 경과로 종료된 경우
+        return EResultState.Bad;
+    }
 
     public void OpenCard(ECEnglishCard newCard)
     {
@@ -117,6 +123,11 @@ public class ECEnglishGame : ECMiniGameBase
                 newCard.ChangeCardState(ECardState.Correct);
                 befCard.ChangeCardState(ECardState.Correct);
                 befCard = null;
+                correctCount++;
+                if(correctCount == cardCount / 2)
+                {
+                    timer.EndTimer(EResultState.Perfect);
+                }
 
             }
             else

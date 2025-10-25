@@ -17,6 +17,7 @@ public class ECEnglishCard : MonoBehaviour
     [NonSerialized] public ECardState cardState = ECardState.Count;
     [NonSerialized] public ECEnglishCardInfo cardInfo;
     private ECEnglishGame egGame;
+    private bool isDelay;
 
     public void SetCardTMP(string cardInfo, ECEnglishGame game)
     {
@@ -26,6 +27,10 @@ public class ECEnglishCard : MonoBehaviour
 
     public void OnClickEnglishCard()
     {
+        if(isDelay || cardState == ECardState.Correct)
+        {
+            return;
+        }
         ChangeCardState(ECardState.Open);
         egGame.OpenCard(this);
     }
@@ -46,9 +51,9 @@ public class ECEnglishCard : MonoBehaviour
             {
                 //backImage.color = Color.red;
                 cardOutline.effectColor = Color.red;
-                backImage.DOColor(Color.white, 0.5f);
-                cardOutline.DOColor(Color.white, 0.5f);
-                //backImage.DOColor(Color.white, 1f).SetAutoKill().OnComplete(() => comp());
+                isDelay = true;
+                backImage.DOColor(Color.white, 0.5f).SetAutoKill().OnComplete(() => comp());
+                cardOutline.DOColor(Color.clear, 0.1f);
             }
             else
             {
@@ -60,7 +65,7 @@ public class ECEnglishCard : MonoBehaviour
             Color correctColor = Color.green;
             correctColor.a = 0.5f;
             cardOutline.effectColor = Color.green;
-            backImage.color = correctColor;
+            //backImage.color = correctColor;
         }
 
         cardState = state;
@@ -69,6 +74,7 @@ public class ECEnglishCard : MonoBehaviour
 
     private void comp()
     {
+        isDelay = false;
         //나중에 뒤집히는 동안 클릭 막기??
     }
 }
