@@ -114,6 +114,24 @@ public class ECMainSceneUIController : MonoBehaviour
             statPanels[i - 1].SetNum(mainSceneManager.GetStatusNum((PlayerStatType)i));
         }
 
-        motivationBar.value = mainSceneManager.GetMotivation() / 100.0f;
+        motivationBar.value = mainSceneManager.GetMotivation() / 100.0f;                                    
+
+        if (mainSceneManager.GetMotivation() < ECConst.MOTVIATION_PAY)
+        {
+            SetEnableActionButtons(false);
+        }
+        else
+        {
+            SetEnableActionButtons(true);
+        }
+    }
+
+    public void SetEnableActionButtons(bool isEnable)
+    {
+        actionButtonKr.interactable = isEnable;
+        actionButtonEn.interactable = isEnable;
+        actionButtonMath.interactable = isEnable;
+        actionButtonSci.interactable = isEnable;
+        actionButtonLuk.interactable = isEnable;
     }
 }
