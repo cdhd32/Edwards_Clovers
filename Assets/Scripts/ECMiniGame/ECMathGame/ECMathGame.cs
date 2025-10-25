@@ -67,7 +67,7 @@ public class ECMathGame : ECMiniGameBase
 
     void GenerateNewQuestion()
     {
-        answerCheck.sprite = null;
+        answerCheck.color = Color.clear;
         if (currentSelectBox != null)
         {
             currentSelectBox.ShowCheckImage(false);
@@ -81,7 +81,6 @@ public class ECMathGame : ECMiniGameBase
         {
             int answer = currentQuestion.Choices[i];
             choiceButtons[i].tmp.SetText(answer.ToString());
-
             choiceButtons[i].answerButton.onClick.RemoveAllListeners();
             int index = i;
             choiceButtons[i].answerButton.onClick.AddListener(() => OnChoiceSelected(answer, choiceButtons[index]));
@@ -93,15 +92,16 @@ public class ECMathGame : ECMiniGameBase
     {
         box.ShowCheckImage(true);
         currentSelectBox = box;
+        answerCheck.color = Color.white;
         if (selectedAnswer == currentQuestion.CorrectAnswer)
         {
             Debug.Log("정답");
-            answerCheck.sprite = answerCheckImages[1];
+            answerCheck.sprite = answerCheckImages[0];
             currentScore++;
         }
         else
         {
-            answerCheck.sprite = answerCheckImages[0];
+            answerCheck.sprite = answerCheckImages[1];
             currentScore -= 3;
             Debug.Log("오답");
         }

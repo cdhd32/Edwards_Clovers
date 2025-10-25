@@ -482,7 +482,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 20
+  m_Spacing: 25
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
@@ -1090,6 +1090,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8515270190998974400, guid: cb8cc2b9f6a5f6a438a75a1f46c86bef, type: 3}
+      propertyPath: tmp
+      value: 
+      objectReference: {fileID: 693724730}
+    - target: {fileID: 8515270190998974400, guid: cb8cc2b9f6a5f6a438a75a1f46c86bef, type: 3}
       propertyPath: resultPanel
       value: 
       objectReference: {fileID: 2064856309}
@@ -1099,7 +1103,7 @@ PrefabInstance:
       objectReference: {fileID: 1707167056}
     - target: {fileID: 8515270190998974400, guid: cb8cc2b9f6a5f6a438a75a1f46c86bef, type: 3}
       propertyPath: totalStageTime
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8612224074198045168, guid: cb8cc2b9f6a5f6a438a75a1f46c86bef, type: 3}
       propertyPath: m_Name
@@ -1412,7 +1416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
