@@ -102,9 +102,9 @@ public class ECUtils
     public static string GetDDayString(int leftDays)
     {
         if (leftDays == 0)
-            return "D - Day";
+            return "D-Day";
         else
-            return "D - " + leftDays.ToString();
+            return "D-" + leftDays.ToString();
 
     }
 

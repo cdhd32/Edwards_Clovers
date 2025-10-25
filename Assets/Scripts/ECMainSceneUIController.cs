@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
+
 public class ECMainSceneUIController : MonoBehaviour
 {
     private ECMainSceneManager mainSceneManager;
@@ -45,6 +47,10 @@ public class ECMainSceneUIController : MonoBehaviour
     //버튼 5개 추가[
     [SerializeField]
     private GameObject cheerUpPannel;
+
+    public RectTransform buttonsRect;
+    public CanvasGroup cg;
+    private bool isUIMoving;
 
     private void Awake()
     {
@@ -96,6 +102,30 @@ public class ECMainSceneUIController : MonoBehaviour
         mainSceneManager = ECMainSceneManager.Instance;
 
         UpdateUIs();
+    }
+
+    public void OnClickShowActionButton()
+    {
+        if(isUIMoving)
+        {
+            return;
+        }
+        isUIMoving = true;
+        float pos = buttonsRect.anchoredPosition.x == 0 ? 297 : 0;
+        buttonsRect.DOAnchorPosX(pos, 1f).OnComplete(() => OnCompleteMovePos());
+    }
+
+    private void OnCompleteMovePos()
+    {
+        isUIMoving = false;
+        if(buttonsRect.anchoredPosition.x == 0)
+        {
+            cg.interactable = true;
+        }
+        else
+        {
+            cg.interactable = false;
+        }
     }
 
     public void UpdateUIs()
