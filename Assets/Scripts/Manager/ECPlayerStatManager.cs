@@ -10,6 +10,35 @@ public class PlayerStatData
     public int data;
 }
 
+[Serializable]
+public class BehaviorEventData
+{
+    public int korStat;
+    public int engStat;
+    public int mathStat;
+    public int sciStat;
+    public int lukStat;
+}
+
+public enum EventType : int
+{
+    KOR,
+    ENG,
+    MATH,
+    SCI,
+    LUK,
+    _MAX
+}
+
+public enum  ConditionType : int
+{
+    BAD,
+    GOOD,
+    GREAT,
+    PERFECT,
+    _MAX
+}
+
 public enum PlayerStatType
 {
     MOT = 0, //Motivation
@@ -28,9 +57,14 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
 {
     private PlayerStatData[] playerStats;
 
+    private BehaviorEventData[] behaviorEventData;
+
     public void Init()
     {
         LoadStatData();
+        LoadEventData();
+
+        //SaveEventData();
     }
 
     public void LoadStatData()
@@ -51,7 +85,6 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
                     playerStats[i].dataName = ECUtils.GetStatusName((PlayerStatType)i);
                     playerStats[i].data = 0;
                 }
-                SaveStatData();
             }
             else
             {
@@ -87,12 +120,72 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         Debug.Log($"PlayerStatManager.SaveStatData() Data Saved");
     }
 
+    public void LoadEventData()
+    {
+        //Application.persistentDataPath 에서 json 파일 불러오기
+        var path = Application.persistentDataPath + "/behaviorEventData.json";
+        const int typeMax = (int)PlayerStatType._MAX * (int)EventType._MAX;
+
+        if (File.Exists(path))
+        {
+            string plainString = File.ReadAllText(path);
+
+            //파일이 비어있으면 새로 생성
+            if (string.IsNullOrEmpty(plainString) || plainString.Equals("{}"))
+            {
+                behaviorEventData = new BehaviorEventData[typeMax];
+                for (int i = 0; i < typeMax; i++)
+                {
+                    behaviorEventData[i] = new BehaviorEventData();
+                    behaviorEventData[i].korStat = 3;
+                    behaviorEventData[i].engStat = 4;
+                    behaviorEventData[i].mathStat = 5;
+                    behaviorEventData[i].sciStat = 6;
+                    behaviorEventData[i].lukStat = 7;
+                }
+            }
+            else
+            {
+                behaviorEventData = JSONHelper.FromJson<BehaviorEventData>(plainString);
+            }
+        }
+        else
+        {
+            //파일이 없으면 새로 생성
+            behaviorEventData = new BehaviorEventData[typeMax];
+            for (int i = 0; i < typeMax; i++)
+            {
+                behaviorEventData[i] = new BehaviorEventData();
+                behaviorEventData[i].korStat = 3;
+                behaviorEventData[i].engStat = 4;
+                behaviorEventData[i].mathStat = 5;
+                behaviorEventData[i].sciStat = 6;
+                behaviorEventData[i].lukStat = 7;
+            }
+
+        }
+
+        Debug.Log($"PlayerStatManager.LoadEventData() Data Created");
+    }
+
+    public void SaveEventData()
+    {
+        //Application.persistentDataPath 에서 json 파일 불러오기
+        var path = Application.persistentDataPath + "/behaviorEventData.json";
+
+        string plainString = JSONHelper.ToJson<BehaviorEventData>(behaviorEventData);
+
+        File.WriteAllText(path, plainString);
+
+        Debug.Log($"PlayerStatManager.SaveEventData() Data Saved");
+    }
+
     public void SetPlayerStat(PlayerStatType type, int amount)
     {
         SetPlayerStat((int)type, amount);
     }
 
-    public void SetPlayerStat(int index, int amount)
+    public void SetPlayerStat(int index, int amount, bool isSave = false)
     {
         if (index < 0 || index >= (int)PlayerStatType._MAX)
             return;
@@ -101,9 +194,22 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         if (playerStats[index].data < 0)
             playerStats[index].data = 0;
 
-        SaveStatData();
+        if (isSave)
+            SaveStatData();
 
         Debug.Log($"PlayerStatManager.SetPlayerStat() {playerStats[index].dataName} Changed : {playerStats[index].data}");
+    }
+
+    public void SetPlayerStatByEvent(EventType eventType, ConditionType conditionType)
+    {
+        int index = ECUtils.GetEventIndex(eventType, conditionType);
+        SetPlayerStat(PlayerStatType.KOR, behaviorEventData[index].korStat);
+        SetPlayerStat(PlayerStatType.ENG, behaviorEventData[index].engStat);
+        SetPlayerStat(PlayerStatType.MATH, behaviorEventData[index].mathStat);
+        SetPlayerStat(PlayerStatType.SCI, behaviorEventData[index].sciStat);
+        SetPlayerStat(PlayerStatType.LUK, behaviorEventData[index].lukStat);
+
+        SaveStatData();
     }
 
     public int GetPlayerStat(PlayerStatType statType)
