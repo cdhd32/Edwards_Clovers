@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ECUtils
@@ -16,6 +17,18 @@ public class ECUtils
     //    {"D+", (50, 99)},
     //    {"D", (0, 49)}
     //};
+
+    private static readonly Dictionary<PlayerStatType, string> statusNames = new Dictionary<PlayerStatType, string>()
+    {
+        {PlayerStatType.MOT, "의욕"},
+        {PlayerStatType.KOR, "국어"},
+        {PlayerStatType.ENG, "영어"},
+        {PlayerStatType.MATH, "수학"},
+        {PlayerStatType.SCI, "과학"},
+        {PlayerStatType.LUK, "운"},
+        {PlayerStatType.LEFTDAY, "남은 기간"},
+        {PlayerStatType.CLASS, "교시"}
+    };
 
     //
     public static string GetRankString(int num)
@@ -70,22 +83,15 @@ public class ECUtils
 
     }
 
-    public static string GetStatusName(int index)
+    public static string GetStatusName(PlayerStatType index)
     {
-        switch (index)
+        if (statusNames.TryGetValue(index, out string name))
         {
-            case 0:
-                return "Strength";
-            case 1:
-                return "Agility";
-            case 2:
-                return "Intelligence";
-            case 3:
-                return "Endurance";
-            case 4:
-                return "Charisma";
-            default:
-                return "Unknown Status";
+            return name;
+        }
+        else
+        {
+            return string.Empty;
         }
     }
 }

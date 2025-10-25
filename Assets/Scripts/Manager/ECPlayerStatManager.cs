@@ -48,7 +48,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
                 for (int i = 0; i < (int)PlayerStatType._MAX; i++)
                 {
                     playerStats[i] = new PlayerStatData();
-                    playerStats[i].dataName = Enum.GetName(typeof(PlayerStatType), i);
+                    playerStats[i].dataName = ECUtils.GetStatusName((PlayerStatType)i);
                     playerStats[i].data = 0;
                 }
                 SaveStatData();
@@ -67,7 +67,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
             for (int i = 0; i < (int)PlayerStatType._MAX; i++)
             {
                 playerStats[i] = new PlayerStatData();
-                playerStats[i].dataName = Enum.GetName(typeof(PlayerStatType), i);
+                playerStats[i].dataName = ECUtils.GetStatusName((PlayerStatType)i);
                 playerStats[i].data = 0;
             }
             SaveStatData();
@@ -106,24 +106,6 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         Debug.Log($"PlayerStatManager.SetPlayerStat() {playerStats[index].dataName} Changed : {playerStats[index].data}");
     }
 
-    public void SetPlayerStat(string dataName, int amount)
-    {
-        for (int i = 0; i < (int)PlayerStatType._MAX; i++)
-        {
-            if (playerStats[i].dataName == dataName)
-            {
-                playerStats[i].data += amount;
-
-                if (playerStats[i].data < 0)
-                    playerStats[i].data = 0;
-
-                Debug.Log($"PlayerStatManager.SetPlayerStat() {playerStats[i].dataName} Changed : {playerStats[i].data}");
-
-                SaveStatData();
-            }
-        }
-    }
-
     public int GetPlayerStat(PlayerStatType statType)
     {
         return GetPlayerStat((int)statType);
@@ -140,23 +122,6 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         Debug.Log($"PlayerStatManager.GetPlayerStat() {playerStats[index].dataName} : {playerStats[index].data}");
 
         return playerStats[index].data;
-    }
-
-    public int GetPlayerStat(string dataName)
-    {
-        for (int i = 0; i < (int)PlayerStatType._MAX; i++)
-        {
-            if (playerStats[i].dataName == dataName)
-            {
-                Debug.Log($"PlayerStatManager.GetPlayerStat() {dataName} : {playerStats[i].data}");
-
-                return playerStats[i].data;
-            }
-        }
-
-        Debug.Log($"PlayerStatManager.GetPlayerStat() Invailed dataName : dataName");
-
-        return -1;
     }
 
     public string GetPlayerStatName(PlayerStatType statType)
