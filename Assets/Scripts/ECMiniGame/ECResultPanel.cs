@@ -4,25 +4,27 @@ using UnityEngine.UI;
 
 public enum EResultState
 {
-    Perfect, Great, Good, Bad, Count
+    Bad, Good, Great, Perfect, Count
 }
 public class ECResultPanel : MonoBehaviour
 {
     public TextMeshProUGUI result;
     public GameObject go;
+    private ConditionType conditionType;
+    private EventType eventType;
 
-    public void ShowResult(EResultState state)
+    public void ShowResult(EResultState state, EventType type)
     {
         go.SetActive(true);
         result.text = state.ToString();
-        //1초뒤 사라지기??
+        eventType = type;
+        conditionType = (ConditionType)state;
     }
-
     public void OnClick_OKButton()
     {
         Debug.Log("메인으로");
-        //ECPlayerStatManager.Instance.SetPlayerStatByEvent(EventType.MATH, ConditionType.GREAT);
+        ECPlayerStatManager.Instance.SetPlayerStatByEvent(eventType, conditionType);
         ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
-        
+
     }
 }

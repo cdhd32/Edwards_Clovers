@@ -1,6 +1,8 @@
+using DG.Tweening;
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public enum ECloverState
 {
@@ -14,12 +16,32 @@ public class ECClover : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private RectTransform rectTransform;
     private Canvas canvas;
     private CanvasGroup canvasGroup;
+    public Image cloverImage;
 
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
         canvasGroup = gameObject.AddComponent<CanvasGroup>();
+    }
+
+    public void SetSprite(Sprite sp)
+    {
+        cloverImage.sprite = sp;
+    }
+
+    public void FindCloverEvent()
+    {
+        Sequence seq = DOTween.Sequence();
+        seq.Append(rectTransform.DOScale(1.5f, 1));
+        seq.Append(canvasGroup.DOFade(0, 0.5f)).OnComplete(() => CompEvent());
+        seq.Play();
+    }
+
+    private void CompEvent()
+    {
+        canvasGroup.interactable = false;
+        canvasGroup.alpha = 0;
     }
 
     public void OnBeginDrag(PointerEventData eventData)

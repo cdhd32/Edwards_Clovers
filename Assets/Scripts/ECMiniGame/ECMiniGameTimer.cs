@@ -13,6 +13,7 @@ public class ECMiniGameTimer : MonoBehaviour
     public ECResultPanel resultPanel;
     public ECMiniGameBase miniGameBase;
     public TextMeshProUGUI tmp;
+    public EventType gameType;
 
     private void Awake()
     {
@@ -31,13 +32,13 @@ public class ECMiniGameTimer : MonoBehaviour
     public void EndTimer()
     {
         EResultState state = miniGameBase.GetScore();
-        resultPanel.ShowResult(state);
+        resultPanel.ShowResult(state, gameType);
     }
 
     public void EndTimer(EResultState _state)
     {
         isStart = false;
-        resultPanel.ShowResult(_state);
+        resultPanel.ShowResult(_state, gameType);
     }
 
     private void Update()

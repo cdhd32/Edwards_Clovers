@@ -25,4 +25,22 @@ public static class Utils
             list[randomIndex] = temp;
         }
     }
+
+    public static List<int> GetUniqueRandomNumbers(int min, int max)
+    {
+        if (max - min + 1 < 3)
+        {
+            return null;
+        }
+
+        HashSet<int> numbers = new HashSet<int>();
+
+        while (numbers.Count < 3)
+        {
+            int randomValue = Random.Range(min, max + 1);
+            numbers.Add(randomValue);
+        }
+
+        return new List<int>(numbers);
+    }
 }
