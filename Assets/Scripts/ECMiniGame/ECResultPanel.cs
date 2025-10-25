@@ -12,6 +12,7 @@ public class ECResultPanel : MonoBehaviour
     public GameObject go;
     private ConditionType conditionType;
     private EventType eventType;
+    public Sprite[] resultSprites; // 나중에 이미지로 변경하기
 
     public void ShowResult(EResultState state, EventType type)
     {

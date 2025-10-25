@@ -26,6 +26,7 @@ public class ECMiniGameTimer : MonoBehaviour
         timeSlider.maxValue = totalStageTime;
         timeSlider.minValue = 0;
         timeSlider.value = timeSlider.maxValue;
+        tmp.SetText(totalStageTime.ToString() + "√ ");
         isStart = true;
     }
 
@@ -46,7 +47,7 @@ public class ECMiniGameTimer : MonoBehaviour
         if (isStart)
         {
             currentTime -= Time.deltaTime;
-            if (currentTime < 0)
+            if (currentTime < 1)
             {
                 currentTime = 0;
                 timeSlider.value = 0;

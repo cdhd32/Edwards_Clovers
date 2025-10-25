@@ -620,7 +620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &465444390
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1309,6 +1309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cg: {fileID: 1523306672}
   timer: {fileID: 1443739815}
+  smoothSpeed: 10
 --- !u!225 &1523306672
 CanvasGroup:
   m_ObjectHideFlags: 0
