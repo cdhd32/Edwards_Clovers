@@ -1124,7 +1124,7 @@ MonoBehaviour:
   actionButton: {fileID: 1548977948}
   statPanels:
   - {fileID: 898252401}
-  hpBar: {fileID: 2028031829}
+  motivationBar: {fileID: 2028031829}
   classText: {fileID: 921958050}
   dDayText: {fileID: 2034464364}
 --- !u!1 &242561192
@@ -5199,7 +5199,7 @@ GameObject:
   - component: {fileID: 2028031828}
   - component: {fileID: 2028031829}
   m_Layer: 5
-  m_Name: Health Bar
+  m_Name: Motivation Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

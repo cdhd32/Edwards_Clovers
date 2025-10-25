@@ -1,3 +1,6 @@
+using System;
+using UnityEngine;
+
 public class ECUtils
 {
     //랭크 상한 하한 수치
