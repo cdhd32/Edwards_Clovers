@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class ECCloverHand : MonoBehaviour
 {
+    public CanvasGroup cg;
     private RectTransform rt;
+    public ECMiniGameTimer timer;
+    private bool isStart;
 
     private void Awake()
     {
@@ -11,7 +14,15 @@ public class ECCloverHand : MonoBehaviour
     }
     private void Update()
     {
-        Vector2 pos = Input.mousePosition;
-        rt.position = pos;
+        if(isStart)
+        {
+            Vector2 pos = Input.mousePosition;
+            rt.position = pos;
+            if(!timer.IsStart)
+            {
+                isStart = false;
+                cg.alpha = 0;
+            }
+        }
     }
 }

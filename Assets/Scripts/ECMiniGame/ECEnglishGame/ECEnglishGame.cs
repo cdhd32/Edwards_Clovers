@@ -117,7 +117,10 @@ public class ECEnglishGame : ECMiniGameBase
         }
         else
         {
-            if(newCard.cardInfo.id == befCard.cardInfo.id)
+            if (befCard == newCard)
+                return;
+
+            if(newCard.cardInfo.id == befCard.cardInfo.id && newCard != befCard)
             {
                 //정답 이벤트
                 newCard.ChangeCardState(ECardState.Correct);

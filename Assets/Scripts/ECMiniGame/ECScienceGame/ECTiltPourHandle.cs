@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ECTiltPourHandle : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class ECTiltPourHandle : ECMiniGameBase, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [Header("Smooth Settings")]
     public float rotateSmoothSpeed = 8f; //각도 움직이는 속도
@@ -22,13 +22,15 @@ public class ECTiltPourHandle : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     public RectTransform maxTube;
     public RectTransform minTube;
 
-    public ECLiquidSpawner liquidSpanwer;
+    public ECLiquidSpawner liquidSpawner;
 
     private Canvas parentCanvas;
     private float currentAngle = 0f;
 
-    private float targetAngle = 0f; 
-    public int answerCount;
+    private float targetAngle = 0f;
+    public int answerCount = 170;
+    private bool isDragEnd = false;
+    private bool isPlaying = true;
 
     void Awake()
     {
@@ -42,34 +44,28 @@ public class ECTiltPourHandle : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
     void Update()
     {
-        currentAngle = Mathf.LerpAngle(currentAngle, targetAngle, Time.deltaTime * rotateSmoothSpeed);
-        pivotRect.localEulerAngles = new Vector3(0, 0, currentAngle);
-        if (currentAngle > pourThreshold)
+        if (isPlaying)
         {
-            float amountThisFrame = CalculatePourAmount(Time.deltaTime);
-            float removed = testTube.RemoveECLiquid(amountThisFrame);
-            Debug.Log(removed);
-            int val = (int)(removed * 500);
-            Debug.Log(val);
-            liquidSpanwer.SpawnTea(val);
-            if (removed > 0f)
-                flask.AddECLiquid(removed);
-        }
-
-        if(currentAngle == minAngle)
-        {
-            if(liquidSpanwer.Count == answerCount)
+            currentAngle = Mathf.LerpAngle(currentAngle, targetAngle, Time.deltaTime * rotateSmoothSpeed);
+            pivotRect.localEulerAngles = new Vector3(0, 0, currentAngle);
+            if (currentAngle > pourThreshold)
             {
-                EndGame();
+                float amountThisFrame = CalculatePourAmount(Time.deltaTime);
+                float removed = testTube.RemoveECLiquid(amountThisFrame);
+                int val = (int)(removed * 500);
+                liquidSpawner.SpawnTea(val);
+                if (removed > 0f)
+                    flask.AddECLiquid(removed);
             }
         }
     }
 
     private void EndGame()
     {
-
+        EResultState state = liquidSpawner.ReturnGameResult();
+        Debug.Log("State" + state);
+        timer.EndTimer(state);
     }
-
     float CalculatePourAmount(float deltaTime)
     {
         float angleExcess = Mathf.Abs(currentAngle) - Mathf.Abs(pourThreshold);
@@ -86,6 +82,7 @@ public class ECTiltPourHandle : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (isDragEnd) return;
         Vector2 localPoint;
         Camera cam = parentCanvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : parentCanvas.worldCamera;
 
@@ -101,5 +98,13 @@ public class ECTiltPourHandle : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     public void OnEndDrag(PointerEventData eventData)
     {
         targetAngle = minAngle;
+        isDragEnd = true;
+        Invoke("EndEvent", 5f);
+    }
+
+    private void EndEvent()
+    {
+        EndGame();
+        isPlaying = false;
     }
 }

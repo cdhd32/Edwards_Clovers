@@ -5,7 +5,6 @@ public class ECLiquidSpawner : MonoBehaviour
 {
     public ECLiquid Tea;
     public Transform SpawnPoint;
-    public ParticleSystem Smoke;
 
     private List<ECLiquid> circles;
     private int randNum;
@@ -52,7 +51,25 @@ public class ECLiquidSpawner : MonoBehaviour
             circles[count].gameObject.SetActive(true);
             count++;
         }
+        Debug.Log(count);
+    }
 
+    public EResultState ReturnGameResult()
+    {
+        EResultState result = EResultState.Count ;
+        if(count > 160 && count < 180)
+        {
+            result = EResultState.Perfect;
+        }
+        else if((count <200 && count >180 ) || (count<160 && count>140))
+        {
+            result = EResultState.Great;
+        }
+        else
+        {
+            result = EResultState.Bad;
+        }
+        return result;
     }
 
     public void SpawnTea()
@@ -63,6 +80,8 @@ public class ECLiquidSpawner : MonoBehaviour
             circles[count].gameObject.SetActive(true);
             count++;
         }
+
+
 
         if (count.Equals(90))
         {

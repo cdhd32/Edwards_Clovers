@@ -17,6 +17,8 @@ public class ECCloverGame : ECMiniGameBase
     public Sprite[] threeLeafSprites;
     public Sprite[] fourLeafSprites;
 
+    public Image[] cloverUI;
+
     public int cloverCount = 10;
     public int fourLeafCloverCount = 3;
     public float cloverPadding = 50f;
@@ -101,11 +103,16 @@ public class ECCloverGame : ECMiniGameBase
 
         if(isFourLeaf)
         {
+            cloverUI[foundCloverCount].color = Color.white;
             foundCloverCount++;
             ECClover clover = clovers[index];
             clover.transform.SetAsLastSibling();
             clover.FindCloverEvent();
             Debug.Log("³×ÀÙ");
+            if(foundCloverCount == fourLeafCloverCount)
+            {
+                timer.EndTimer(EResultState.Perfect);
+            }
         }
         else
         {

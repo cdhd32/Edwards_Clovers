@@ -2,7 +2,6 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static Unity.Burst.Intrinsics.X86.Avx;
 
 public class ECMiniGameTimer : MonoBehaviour
 {
@@ -10,6 +9,7 @@ public class ECMiniGameTimer : MonoBehaviour
     public float totalStageTime = 30;
     private float currentTime = 30;
     private bool isStart = false;
+    public bool IsStart => isStart;
     public ECResultPanel resultPanel;
     public ECMiniGameBase miniGameBase;
     public TextMeshProUGUI tmp;
@@ -43,6 +43,7 @@ public class ECMiniGameTimer : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(isStart);
         if (isStart)
         {
             currentTime -= Time.deltaTime;
