@@ -21,7 +21,7 @@ public class StatusUI : MonoBehaviour
 
     public void SetNum(int num)
     {
-        numText.text = num.ToString()+" / 1000";
+        numText.text = num.ToString()+" / "+((num/75+1)*75);
         
 
 
@@ -58,6 +58,6 @@ public class StatusUI : MonoBehaviour
                 rankImg.sprite = rankList[0];
                 break;
         }
-        numBar.value = num / 1000.0f;
+        numBar.value = (num % 75.0f)/75f;
     }
 }

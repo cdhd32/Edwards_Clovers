@@ -33,6 +33,31 @@ public class ECUtils
     //
     public static string GetRankString(int num)
     {
+        int k = num / 75;
+        switch (k)
+        {
+            case 0:
+                return "D";
+            case 1:
+                return "D+";
+            case 2:
+                return "C";
+            case 3:
+                return "C+";
+            case 4:
+                return "B";
+            case 5:
+                return "B+";
+            case 6:
+                return "A";
+            case 7:
+                return "A+";
+            case 8:
+                return "S";
+        }
+
+
+        return "S";
         if (num >= 800 && num <= 1000) return "S";
         else if (num >= 600 && num <= 799) return "A+";
         else if (num >= 450 && num <= 599) return "A";
