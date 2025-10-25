@@ -280,6 +280,11 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         //의욕 게이지 차감
         AddPlayerStat(PlayerStatType.MOT, -ECConst.MOTVIATION_PAY);
 
+        SetPlayerStatByEvent(eventType, conditionType);
+    }
+
+    public void UpdateTimeStat()
+    {
         //1교시 증가
         AddPlayerStat(PlayerStatType.CLASS, 1);
 
@@ -290,7 +295,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
             AddPlayerStat(PlayerStatType.LEFTDAY, -1); //남은 일수 감소
         }
 
-        SetPlayerStatByEvent(eventType, conditionType);
+        SaveStatData();
     }
 
     //의욕 충전 후 스탯 업데이트
@@ -298,16 +303,6 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
     {
         //의욕 게이지 최대치로 변경
         SetPlayerStat(PlayerStatType.MOT, ECConst.MOTVIATION_MAX);
-
-        //1교시 증가
-        AddPlayerStat(PlayerStatType.CLASS, 1);
-
-        //4교시가 지나면 하루 차감, 1교시로 초기화
-        if (playerStats[(int)PlayerStatType.CLASS].data > ECConst.CLASS_PER_DAY)
-        {
-            playerStats[(int)PlayerStatType.CLASS].data = 1;
-            AddPlayerStat(PlayerStatType.LEFTDAY, -1); //남은 일수 감소
-        }
 
         SaveStatData();
     }
