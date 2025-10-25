@@ -12,7 +12,7 @@ public class ECTiltPourHandle : ECMiniGameBase, IBeginDragHandler, IDragHandler,
     public RectTransform pivotRect;     
     public ECScienceTube testTube;            
     public ECScienceFlask flask;
-    public Image handleImage;
+    //public Image handleImage;
 
     [Header("Pour Settings")]
     private float minAngle = 0f;       
@@ -100,7 +100,7 @@ public class ECTiltPourHandle : ECMiniGameBase, IBeginDragHandler, IDragHandler,
     public void OnEndDrag(PointerEventData eventData)
     {
         targetAngle = minAngle;
-        handleImage.color = Color.gray;
+        //handleImage.color = Color.gray;
         isDragEnd = true;
         Invoke("EndEvent", 5f);
     }

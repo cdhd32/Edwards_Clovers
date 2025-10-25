@@ -890,7 +890,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -318.2, y: 115}
+  m_AnchoredPosition: {x: -318.2, y: 143}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &648120634
@@ -942,7 +942,7 @@ Transform:
   m_GameObject: {fileID: 675300305}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7500002, y: 1.74, z: 1}
+  m_LocalPosition: {x: -2.7500002, y: 2.54, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1035,7 +1035,6 @@ RectTransform:
   m_Children:
   - {fileID: 1525086161}
   - {fileID: 648120632}
-  - {fileID: 1720175981}
   - {fileID: 432870803}
   m_Father: {fileID: 1707167052}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1146,7 +1145,7 @@ MonoBehaviour:
   m_FillMethod: 3
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 3
+  m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &979778963
@@ -1575,7 +1574,7 @@ EdgeCollider2D:
   - {x: -0.046855483, y: -0.0044967253}
   - {x: -0.048401594, y: -0.05008671}
   - {x: -0.047771625, y: -0.098042905}
-  - {x: 0.078771934, y: -0.10194892}
+  - {x: 0.078076884, y: -0.09499844}
   - {x: 0.07433912, y: 0.06684213}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
@@ -1647,7 +1646,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0014165789, y: -0.012269251}
+  m_Offset: {x: 0.011441782, y: -0.011574209}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1657,7 +1656,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.14161333, y: 0.10291006}
+  m_Size: {x: 0.124237165, y: 0.10151997}
   m_EdgeRadius: 0
 --- !u!1 &1470086512
 GameObject:
@@ -1997,16 +1996,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720175980}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.6869122, w: 0.7267405}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 962296774}
+  m_Father: {fileID: 1933623405}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 554.8, y: 189}
+  m_AnchoredPosition: {x: 4.5043335, y: -133.15765}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1720175982
@@ -2022,7 +2021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.42075467, b: 0.42075467, a: 0.6313726}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2065,8 +2064,7 @@ MonoBehaviour:
   pivotRect: {fileID: 648120632}
   testTube: {fileID: 648120635}
   flask: {fileID: 1525086164}
-  handleImage: {fileID: 1720175982}
-  basePourRate: 0.2
+  basePourRate: 0.5
   pourCurveMultiplier: 1.2
   maxTube: {fileID: 639123804}
   minTube: {fileID: 1933623405}
@@ -2109,6 +2107,7 @@ RectTransform:
   m_Children:
   - {fileID: 979778961}
   - {fileID: 1190226716}
+  - {fileID: 1720175981}
   m_Father: {fileID: 648120632}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 86.772}
   m_AnchorMin: {x: 0.5, y: 0.5}

@@ -18,7 +18,7 @@ public class ECResultPanel : MonoBehaviour
     public void ShowResult(EResultState state, EventType type)
     {
         go.SetActive(true);
-        result.text = state.ToString();
+        //result.text = state.ToString();
         resultImage.sprite = resultSprites[(int)state];
         eventType = type;
         conditionType = (ConditionType)state;
