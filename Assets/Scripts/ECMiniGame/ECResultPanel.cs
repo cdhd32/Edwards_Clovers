@@ -32,23 +32,23 @@ public class ECResultPanel : MonoBehaviour
         int classVal = statManage.GetPlayerStat(PlayerStatType.CLASS);
         if(classVal == 1)
         {
+            //마지막 교시일때
             ExamEventCheck(leftDayVal);
         }
-        
-            ECGlobalSceneManager.Instance.LoadScene(SceneType.EXAM);
-        //ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
+        else
+        {
+            ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
+        }
+
 
     }
 
     private void ExamEventCheck(int leftDay)
     {
-        if (leftDay == 5)
+        if (leftDay == 5 || leftDay == 2 || leftDay == 0)
         {
+            ECGlobalSceneManager.Instance.LoadScene(SceneType.EXAM);
             //단원 평가를 봐야해요
-        }
-        else if (leftDay == 1)
-        {
-            //중간 고사를 봐야해요
         }
     }
 }

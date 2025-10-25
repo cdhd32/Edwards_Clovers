@@ -27,8 +27,8 @@ public class ECExam : MonoBehaviour
             currentStage = 2;
             //중간고사
         }
-        //임시
-        currentStage = 0;
+        ////임시
+        //currentStage = 0;
         currentThreshold = scorethreshold[currentStage];
         SetReportBoxs();
     }
@@ -62,6 +62,10 @@ public class ECExam : MonoBehaviour
         for (int i = 0; i < playerScores.Length; i++)
         {
             playerScores[i] += plusVal;
+            if (playerScores[i] > 100)
+            {
+                playerScores[i] = 100;
+            }
             playerRank[i] = GetRank(playerScores[i]);
         }
 
