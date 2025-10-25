@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using System.Reflection;
 using UnityEngine;
 
 [Serializable]
@@ -123,12 +122,12 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
     public void LoadEventData()
     {
         //Application.persistentDataPath 에서 json 파일 불러오기
-        var path = Application.persistentDataPath + "/behaviorEventData.json";
+        var textAsset = Resources.Load<TextAsset>("/behaviorEventData.json");
         const int typeMax = (int)PlayerStatType._MAX * (int)EventType._MAX;
 
-        if (File.Exists(path))
+        if (textAsset != null)
         {
-            string plainString = File.ReadAllText(path);
+            string plainString = textAsset.text;
 
             //파일이 비어있으면 새로 생성
             if (string.IsNullOrEmpty(plainString) || plainString.Equals("{}"))
