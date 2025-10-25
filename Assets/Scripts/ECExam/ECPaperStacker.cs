@@ -8,7 +8,7 @@ public class ECPaperStacker : MonoBehaviour
 {
     [Header("References")]
     public RectTransform container;      // 종이가 쌓일 부모 RectTransform (Canvas 내부)
-    public GameObject paperPrefab;       // 종이 프리팹 (UI Image)
+    public Image paperPrefab;       // 종이 프리팹 (UI Image)
 
     [Header("Stack Settings")]
     public int paperCount = 10;          // 생성할 종이 개수
@@ -16,6 +16,8 @@ public class ECPaperStacker : MonoBehaviour
     public Vector2 stackOffset = new Vector2(0, -6f); // 각 종이마다 아래로 얼마나 오프셋할지
     public float dropHeight = 600f;      // 처음 생성 위치(위)에서 얼마나 떨어뜨려 생성할지 (스크린 단위)
     public float spawnInterval = 0.08f;  // 종이 한장씩 생성될 때 딜레이
+
+    public Sprite[] sprites;
 
     [Header("Animation")]
     public float dropDuration = 0.35f;   // 낙하 시간
@@ -30,6 +32,7 @@ public class ECPaperStacker : MonoBehaviour
     public CanvasGroup cg;
 
     private List<GameObject> spawned = new List<GameObject>();
+    int count = 0;
 
     void Start()
     {
@@ -58,7 +61,13 @@ public class ECPaperStacker : MonoBehaviour
     void SpawnOne(int index)
     {
         // 1) 인스턴스화
-        GameObject go = Instantiate(paperPrefab, container);
+        Image go = Instantiate(paperPrefab, container);
+        if(count == 0)
+        {
+            go.sprite = sprites[Random.Range(0, 4)];
+            go.color = Color.white;
+        }
+        count++;
         RectTransform rt = go.GetComponent<RectTransform>();
 
         // 2) 타겟 로컬 포지션 계산 (container의 anchoredPosition 기준)
@@ -84,7 +93,7 @@ public class ECPaperStacker : MonoBehaviour
             rt.SetAsLastSibling();
         }
 
-        spawned.Add(go);
+        spawned.Add(go.gameObject);
 
         // 6) 애니메이션: 낙하 -> 약간 튕김/정리 -> 최종 스케일/회전
         Sequence seq = DOTween.Sequence();

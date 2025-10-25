@@ -30,11 +30,12 @@ public class ECEnglishGame : ECMiniGameBase
     [NonSerialized] public ECEnglishCard befCard;
     public int cardCount = 4;
     private int correctCount = 0;
-    public TextMeshProUGUI vocabularyBookTMP_Word;
-    public TextMeshProUGUI vocabularyBookTMP_Meaning;
+    //public TextMeshProUGUI vocabularyBookTMP_Word;
+    //public TextMeshProUGUI vocabularyBookTMP_Meaning;
     public GameObject vocaPanel;
     private StringBuilder sb = new StringBuilder(100);
     public Sprite[] cardSprites;
+    public ECEnglishVocaBox[] vocaBox;
 
     private void Awake()
     {
@@ -52,17 +53,18 @@ public class ECEnglishGame : ECMiniGameBase
     {
         for(int i=0; i< cardcount; i++)
         {
-            sb.Append(currentCardInfos[i].word);
-            sb.AppendLine();
+            ECEnglishCardInfo cardInfo = currentCardInfos[i];
+            vocaBox[i].SetVocaImage(cardInfo);
+  
         }
-        vocabularyBookTMP_Word.SetText(sb.ToString());
-        sb.Clear();
-        for (int i = 0; i < cardcount; i++)
-        {
-            sb.Append(currentCardInfos[i].meaning);
-            sb.AppendLine();
-        }
-        vocabularyBookTMP_Meaning.SetText(sb.ToString());
+        //vocabularyBookTMP_Word.SetText(sb.ToString());
+        //sb.Clear();
+        //for (int i = 0; i < cardcount; i++)
+        //{
+        //    sb.Append(currentCardInfos[i].meaning);
+        //    sb.AppendLine();
+        //}
+        //vocabularyBookTMP_Meaning.SetText(sb.ToString());
     }
 
     public void OnClickVocaBook()

@@ -83,10 +83,10 @@ public class ECExam : MonoBehaviour
             playerRank[i] = GetRank(playerScores[i]);
         }
 
-
+        //과수 순서바꿔서
         reportBox[0].SetReportBox("국어", playerScores[0], playerRank[0]);
-        reportBox[1].SetReportBox("수학", playerScores[1], playerRank[1]);
-        reportBox[2].SetReportBox("과학", playerScores[2], playerRank[2]);
+        reportBox[2].SetReportBox("수학", playerScores[1], playerRank[1]);
+        reportBox[1].SetReportBox("과학", playerScores[2], playerRank[2]);
         reportBox[3].SetReportBox("영어", playerScores[3], playerRank[3]);
 
     }
