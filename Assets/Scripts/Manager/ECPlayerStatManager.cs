@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [Serializable]
@@ -60,10 +61,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
 
     public void Init()
     {
-        LoadStatData();
         LoadEventData();
-
-        //SaveEventData();
     }
 
     public void LoadStatData()
@@ -122,8 +120,8 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
     public void LoadEventData()
     {
         //Application.persistentDataPath 에서 json 파일 불러오기
-        var textAsset = Resources.Load<TextAsset>("/behaviorEventData.json");
-        const int typeMax = (int)PlayerStatType._MAX * (int)EventType._MAX;
+        var textAsset = Resources.Load<TextAsset>("behaviorEventData");
+        const int typeMax = (int)EventType._MAX * (int)ConditionType._MAX;
 
         if (textAsset != null)
         {
@@ -136,11 +134,11 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
                 for (int i = 0; i < typeMax; i++)
                 {
                     behaviorEventData[i] = new BehaviorEventData();
-                    behaviorEventData[i].korStat = 3;
-                    behaviorEventData[i].engStat = 4;
-                    behaviorEventData[i].mathStat = 5;
-                    behaviorEventData[i].sciStat = 6;
-                    behaviorEventData[i].lukStat = 7;
+                    behaviorEventData[i].korStat = 0;
+                    behaviorEventData[i].engStat = 0;
+                    behaviorEventData[i].mathStat = 0;
+                    behaviorEventData[i].sciStat = 0;
+                    behaviorEventData[i].lukStat = 0;
                 }
             }
             else
@@ -155,13 +153,12 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
             for (int i = 0; i < typeMax; i++)
             {
                 behaviorEventData[i] = new BehaviorEventData();
-                behaviorEventData[i].korStat = 3;
-                behaviorEventData[i].engStat = 4;
-                behaviorEventData[i].mathStat = 5;
-                behaviorEventData[i].sciStat = 6;
-                behaviorEventData[i].lukStat = 7;
+                behaviorEventData[i].korStat = 0;
+                behaviorEventData[i].engStat = 0;
+                behaviorEventData[i].mathStat = 0;
+                behaviorEventData[i].sciStat = 0;
+                behaviorEventData[i].lukStat = 0;
             }
-
         }
 
         Debug.Log($"PlayerStatManager.LoadEventData() Data Created");
@@ -179,12 +176,12 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         Debug.Log($"PlayerStatManager.SaveEventData() Data Saved");
     }
 
-    public void SetPlayerStat(PlayerStatType type, int amount)
+    private void AddPlayerStat(PlayerStatType type, int amount, bool isSave = false)
     {
-        SetPlayerStat((int)type, amount);
+        AddPlayerStat((int)type, amount, isSave);
     }
 
-    public void SetPlayerStat(int index, int amount, bool isSave = false)
+    private void AddPlayerStat(int index, int amount, bool isSave = false)
     {
         if (index < 0 || index >= (int)PlayerStatType._MAX)
             return;
@@ -202,11 +199,11 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
     public void SetPlayerStatByEvent(EventType eventType, ConditionType conditionType)
     {
         int index = ECUtils.GetEventIndex(eventType, conditionType);
-        SetPlayerStat(PlayerStatType.KOR, behaviorEventData[index].korStat);
-        SetPlayerStat(PlayerStatType.ENG, behaviorEventData[index].engStat);
-        SetPlayerStat(PlayerStatType.MATH, behaviorEventData[index].mathStat);
-        SetPlayerStat(PlayerStatType.SCI, behaviorEventData[index].sciStat);
-        SetPlayerStat(PlayerStatType.LUK, behaviorEventData[index].lukStat);
+        AddPlayerStat(PlayerStatType.KOR, behaviorEventData[index].korStat);
+        AddPlayerStat(PlayerStatType.ENG, behaviorEventData[index].engStat);
+        AddPlayerStat(PlayerStatType.MATH, behaviorEventData[index].mathStat);
+        AddPlayerStat(PlayerStatType.SCI, behaviorEventData[index].sciStat);
+        AddPlayerStat(PlayerStatType.LUK, behaviorEventData[index].lukStat);
 
         SaveStatData();
     }
@@ -243,5 +240,20 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         }
         Debug.Log($"PlayerStatManager.GetPlayerStatName() {playerStats[index].dataName}");
         return playerStats[index].dataName;
+    }
+
+    public void UpdateStat(EventType eventType, ConditionType conditionType)
+    {
+        AddPlayerStat(PlayerStatType.MOT, -ECConst.MOTVIATION_PAY);
+
+        AddPlayerStat(PlayerStatType.CLASS, 1);
+
+        if (playerStats[(int)PlayerStatType.CLASS].data >= ECConst.CLASS_PER_DAY)
+        {
+            playerStats[(int)PlayerStatType.CLASS].data = 1;
+            AddPlayerStat(PlayerStatType.LEFTDAY, -1);
+        }
+
+        SetPlayerStatByEvent(eventType, conditionType);
     }
 }

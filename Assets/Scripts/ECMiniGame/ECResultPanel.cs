@@ -23,7 +23,8 @@ public class ECResultPanel : MonoBehaviour
     public void OnClick_OKButton()
     {
         Debug.Log("메인으로");
-        ECPlayerStatManager.Instance.SetPlayerStatByEvent(eventType, conditionType);
+        ECPlayerStatManager.Instance.UpdateStat(eventType, conditionType);
+
         ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
 
     }

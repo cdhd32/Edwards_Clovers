@@ -33,12 +33,8 @@ public class ECMainSceneUIController : MonoBehaviour
     [SerializeField]
     private TMP_Text dDayText;
 
-    //버튼 5개 추가
-
     private void Awake()
     {
-        //테스트 Scene 전환, 씬 이름 저장해서 불러오기
-
         actionButtonKr.onClick.AddListener(() =>
         {
             ECGlobalSceneManager.Instance.LoadScene(SceneType.KR);
@@ -70,15 +66,24 @@ public class ECMainSceneUIController : MonoBehaviour
     {
         mainSceneManager = ECMainSceneManager.Instance;
 
-        //Get Data from MainSceneManager
+        UpdateUIs();
+    }
 
+    public void UpdateUIs()
+    {
         dDayText.text = ECUtils.GetDDayString(mainSceneManager.GetLeftDayNum());
 
         classText.text = ECUtils.GetClassString(mainSceneManager.GetClassNum());
 
-        statPanels[0].SetName(mainSceneManager.GetStautsName(PlayerStatType.KOR));
 
-        statPanels[0].SetNum(mainSceneManager.GetStatusNum(PlayerStatType.KOR));
+        int max = statPanels.Length + 1;
+
+        for (int i = 1; i < max; i++)
+        {
+            statPanels[i - 1].SetName(mainSceneManager.GetStautsName((PlayerStatType)i));
+
+            statPanels[i - 1].SetNum(mainSceneManager.GetStatusNum((PlayerStatType)i));
+        }
 
         motivationBar.value = mainSceneManager.GetMotivation() / 100.0f;
     }

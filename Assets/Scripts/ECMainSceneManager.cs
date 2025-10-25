@@ -8,6 +8,7 @@ public class ECMainSceneManager : ECSingleton<ECMainSceneManager>
         base.Awake();
 
         playerStatManager = ECPlayerStatManager.Instance;
+        playerStatManager.LoadStatData();
     }
 
     public int GetLeftDayNum()

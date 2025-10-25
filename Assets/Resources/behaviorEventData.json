@@ -1,284 +1,144 @@
 {
-    "data": [
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        },
-        {
-            "korStat": 3,
-            "engStat": 4,
-            "mathStat": 5,
-            "sciStat": 6,
-            "lukStat": 7
-        }
-    ]
+  "data": [
+    {
+      "korStat": 24,
+      "engStat": 0,
+      "mathStat": 0,
+      "sciStat": 0,
+      "lukStat": 0
+    },
+    {
+      "korStat": 33,
+      "engStat": 10,
+      "mathStat": 0,
+      "sciStat": 0,
+      "lukStat": 0
+    },
+    {
+      "korStat": 46,
+      "engStat": 21,
+      "mathStat": 7,
+      "sciStat": 8,
+      "lukStat": 0
+    },
+    {
+      "korStat": 62,
+      "engStat": 23,
+      "mathStat": 17,
+      "sciStat": 15,
+      "lukStat": 0
+    },
+    {
+      "korStat": 0,
+      "engStat": 36,
+      "mathStat": 0,
+      "sciStat": 0,
+      "lukStat": 0
+    },
+    {
+      "korStat": 6,
+      "engStat": 42,
+      "mathStat": 0,
+      "sciStat": 0,
+      "lukStat": 0
+    },
+    {
+      "korStat": 13,
+      "engStat": 61,
+      "mathStat": 0,
+      "sciStat": 0,
+      "lukStat": 0
+    },
+    {
+      "korStat": 19,
+      "engStat": 82,
+      "mathStat": 0,
+      "sciStat": 0,
+      "lukStat": 0
+    },
+    {
+      "korStat": 0,
+      "engStat": 0,
+      "mathStat": 37,
+      "sciStat": 5,
+      "lukStat": 0
+    },
+    {
+      "korStat": 0,
+      "engStat": 0,
+      "mathStat": 43,
+      "sciStat": 12,
+      "lukStat": 0
+    },
+    {
+      "korStat": 0,
+      "engStat": 0,
+      "mathStat": 56,
+      "sciStat": 14,
+      "lukStat": 0
+    },
+    {
+      "korStat": 0,
+      "engStat": 0,
+      "mathStat": 72,
+      "sciStat": 23,
+      "lukStat": 0
+    },
+    {
+      "korStat": 0,
+      "engStat": 0,
+      "mathStat": 10,
+      "sciStat": 32,
+      "lukStat": 0
+    },
+    {
+      "korStat": 0,
+      "engStat": 0,
+      "mathStat": 21,
+      "sciStat": 43,
+      "lukStat": 0
+    },
+    {
+      "korStat": 0,
+      "engStat": 0,
+      "mathStat": 24,
+      "sciStat": 59,
+      "lukStat": 0
+    },
+    {
+      "korStat": 0,
+      "engStat": 0,
+      "mathStat": 29,
+      "sciStat": 78,
+      "lukStat": 0
+    },
+    {
+      "korStat": 0,
+      "engStat": 0,
+      "mathStat": 0,
+      "sciStat": 0,
+      "lukStat": 20
+    },
+    {
+      "korStat": 0,
+      "engStat": 0,
+      "mathStat": 0,
+      "sciStat": 0,
+      "lukStat": 40
+    },
+    {
+      "korStat": 0,
+      "engStat": 0,
+      "mathStat": 0,
+      "sciStat": 0,
+      "lukStat": 77
+    },
+    {
+      "korStat": 0,
+      "engStat": 0,
+      "mathStat": 0,
+      "sciStat": 0,
+      "lukStat": 101
+    }
+  ]
 }
