@@ -14,7 +14,11 @@ public class ECMathGame : ECMiniGameBase
     public RectTransform boxParent;
     private int problemNumber = 1;
     private int currentScore = 0;
+    public Sprite[] answerNumberImages;
+    public Sprite[] answerCheckImages; // 0 틀림 1 맞춤
+    public Image answerCheck;
 
+    private ECMathChoiceBox currentSelectBox;
     private MathQuiz.Question currentQuestion;
 
     void Start()
@@ -25,7 +29,7 @@ public class ECMathGame : ECMiniGameBase
         for (int i = 0; i < choiceCount; i++) 
         {
             choiceButtons[i] = Instantiate(choiceBoxPrefab, boxParent);
-            choiceButtons[i].answerNumber.SetText((i+1).ToString());
+            choiceButtons[i].SetAnswerNumberImage(answerNumberImages[i]);
         }
 
         base.StartGame();
@@ -63,8 +67,14 @@ public class ECMathGame : ECMiniGameBase
 
     void GenerateNewQuestion()
     {
+        answerCheck.sprite = null;
+        if (currentSelectBox != null)
+        {
+            currentSelectBox.ShowCheckImage(false);
+            currentSelectBox = null;
+        }
         currentQuestion = MathQuiz.GenerateQuestion();
-        problemCount.SetText(problemNumber.ToString());
+        problemCount.SetText(problemNumber.ToString() + "번문항");
         problemText.text = currentQuestion.Problem;
 
         for (int i = 0; i < choiceButtons.Length; i++)
@@ -73,20 +83,25 @@ public class ECMathGame : ECMiniGameBase
             choiceButtons[i].tmp.SetText(answer.ToString());
 
             choiceButtons[i].answerButton.onClick.RemoveAllListeners();
-            choiceButtons[i].answerButton.onClick.AddListener(() => OnChoiceSelected(answer));
+            int index = i;
+            choiceButtons[i].answerButton.onClick.AddListener(() => OnChoiceSelected(answer, choiceButtons[index]));
         }
         problemNumber++;
     }
 
-    void OnChoiceSelected(int selectedAnswer)
+    void OnChoiceSelected(int selectedAnswer, ECMathChoiceBox box)
     {
+        box.ShowCheckImage(true);
+        currentSelectBox = box;
         if (selectedAnswer == currentQuestion.CorrectAnswer)
         {
             Debug.Log("정답");
+            answerCheck.sprite = answerCheckImages[1];
             currentScore++;
         }
         else
         {
+            answerCheck.sprite = answerCheckImages[0];
             currentScore -= 3;
             Debug.Log("오답");
         }
@@ -132,7 +147,7 @@ public class MathQuiz
 
         HashSet<int> choicesSet = new HashSet<int> { correct };
 
-        while (choicesSet.Count < 3)
+        while (choicesSet.Count < 5)
         {
             int fake;
             do
