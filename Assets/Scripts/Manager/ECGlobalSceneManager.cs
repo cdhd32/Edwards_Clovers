@@ -55,6 +55,10 @@ public class ECGlobalSceneManager : ECSingletonDontDestroy<ECGlobalSceneManager>
 
     private bool ExamEventCheck(int leftDay)
     {
+        if(leftDay >0)
+        {
+            leftDay++;
+        }
         if (leftDay == 5 || leftDay == 2 || leftDay == 0)
         {
             return true;

@@ -962,8 +962,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 39624c244bd5d3c4eaf7bdd71c76a63b, type: 3}
   - {fileID: 21300000, guid: 326e3fca476d7d34c982768f3139abca, type: 3}
   - {fileID: 21300000, guid: ca72d76a8d133054bbfecec62acda061, type: 3}
-  - {fileID: 21300000, guid: 63a9fd9f82632fd45a1977841d57cb97, type: 3}
-  - {fileID: 21300000, guid: c72eddfc5e7fb1d42b776b01da990c26, type: 3}
+  - {fileID: 21300000, guid: 11e33fa751c32204ca8df1a7e85d808d, type: 3}
+  - {fileID: 1887922491035594210, guid: e6a16d4094e79ed4990148270072e360, type: 3}
   vocaBox:
   - {fileID: 414270010}
   - {fileID: 1260923740}

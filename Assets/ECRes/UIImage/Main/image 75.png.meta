@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 63a9fd9f82632fd45a1977841d57cb97
+guid: 9fc43c0ac4aaec747981a03fe58347b8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2809504536596402039
-    second: 7_book_0
+      213: 1003034986281940703
+    second: image 75_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 7_book_0
+      name: image 75_0
       rect:
         serializedVersion: 2
         x: 18
-        y: 15
-        width: 105
-        height: 113
+        y: 0
+        width: 1182
+        height: 792
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 980b2556282a209d0800000000000000
-      internalID: -2809504536596402039
+      spriteID: fd6bf96710f7bed00800000000000000
+      internalID: 1003034986281940703
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      7_book_0: -2809504536596402039
+      image 75_0: 1003034986281940703
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

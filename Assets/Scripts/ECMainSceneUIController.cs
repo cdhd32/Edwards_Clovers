@@ -49,6 +49,7 @@ public class ECMainSceneUIController : MonoBehaviour
     private GameObject cheerUpPannel;
 
     public RectTransform buttonsRect;
+    public Image openImage;
     public CanvasGroup cg;
     private bool isUIMoving;
 
@@ -120,10 +121,12 @@ public class ECMainSceneUIController : MonoBehaviour
         isUIMoving = false;
         if(buttonsRect.anchoredPosition.x == 0)
         {
+            openImage.enabled = true;
             cg.interactable = true;
         }
         else
         {
+            openImage.enabled = false;
             cg.interactable = false;
         }
     }

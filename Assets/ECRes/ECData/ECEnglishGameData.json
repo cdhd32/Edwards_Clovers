@@ -6,7 +6,7 @@
     { "id": 4, "word": "clover", "meaning": "클로버", "fileName": "4_clover" },
     { "id": 5, "word": "eraser", "meaning": "지우개", "fileName": "5_eraser" },
     { "id": 6, "word": "pen", "meaning": "펜", "fileName": "6_pen" },
-    { "id": 7, "word": "book", "meaning": "책", "fileName": "7_book" },
-    { "id": 8, "word": "chocolate", "meaning": "초콜릿", "fileName": "8_chocolate" }
+    { "id": 7, "word": "bread", "meaning": "빵", "fileName": "7_bread" },
+    { "id": 8, "word": "meatball", "meaning": "미트볼", "fileName": "8_meatball" }
   ]
 }
