@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5a3fee06c115b9b44ae5c4858173e2b4
+guid: be0379be1e8c31546a7fa2ab295ab039
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5216903002923324128
-    second: Edwards_0
+      213: 7277535119661571724
+    second: notFillMoraleBar_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -24,7 +24,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 1
+  isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Edwards_0
+      name: notFillMoraleBar_0
       rect:
         serializedVersion: 2
-        x: 773
+        x: 0
         y: 0
-        width: 750
-        height: 1032
+        width: 360
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 02d2613fb56d997b0800000000000000
-      internalID: -5216903002923324128
+      spriteID: c8e9bdf12affef460800000000000000
+      internalID: 7277535119661571724
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Edwards_0: -5216903002923324128
+      notFillMoraleBar_0: 7277535119661571724
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
