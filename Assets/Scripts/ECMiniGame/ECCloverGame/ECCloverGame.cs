@@ -1,6 +1,8 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 public class ECCloverGame : ECMiniGameBase
 {
@@ -28,10 +30,19 @@ public class ECCloverGame : ECMiniGameBase
 
     private int[] correctIndex;
 
+    public AudioClip clickSFX;     // 재생할 효과음
+    private AudioSource audioSource;
+
     private void Awake()
     {
         correctIndex = new int[fourLeafCloverCount];
         StartGame();
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
+
+        audioSource.playOnAwake = false;
     }
 
     public override void StartGame()
@@ -114,7 +125,12 @@ public class ECCloverGame : ECMiniGameBase
             clover.transform.SetAsLastSibling();
             clover.FindCloverEvent();
             Debug.Log("네잎");
-            if(foundCloverCount == fourLeafCloverCount)
+            if (foundCloverCount == 2)
+                audioSource.pitch = 0.5f;
+            else
+                audioSource.pitch = 1f;
+            audioSource.PlayOneShot(clickSFX);
+            if (foundCloverCount == fourLeafCloverCount)
             {
                 timer.EndTimer(EResultState.Perfect);
             }
