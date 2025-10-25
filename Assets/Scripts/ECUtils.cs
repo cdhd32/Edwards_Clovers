@@ -97,6 +97,6 @@ public class ECUtils
 
     public static int GetEventIndex(EventType eventType, ConditionType conditionType)
     {
-        return (int)ConditionType._MAX * (int)conditionType + (int)eventType;
+        return (int)EventType._MAX * (int)eventType + (int)conditionType;
     }
 }
