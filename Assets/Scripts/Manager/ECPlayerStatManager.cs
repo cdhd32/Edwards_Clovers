@@ -118,6 +118,17 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         Debug.Log($"PlayerStatManager.SaveStatData() Data Saved");
     }
 
+    public void DeleteStatData()
+    {
+        var path = Application.persistentDataPath + "/playerStat.json";
+
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+            Debug.Log($"PlayerStatManager.ClearStatData() Data Cleared");
+        }
+    }
+
     public void LoadEventData()
     {
         //Application.persistentDataPath 에서 json 파일 불러오기
