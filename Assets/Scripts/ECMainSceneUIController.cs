@@ -43,6 +43,8 @@ public class ECMainSceneUIController : MonoBehaviour
     [SerializeField]
     private List<Sprite> classImgSprites;
     //버튼 5개 추가[
+    [SerializeField]
+    private GameObject cheerUpPannel;
 
     private void Awake()
     {
@@ -73,13 +75,20 @@ public class ECMainSceneUIController : MonoBehaviour
 
         actionButtonCheerUp.onClick.AddListener(() =>
         {
-            StartCoroutine(LoadScene(SceneType.CHEERUP));
+            StartCoroutine(activeCheerUpPannel());
         });
 
     }
     IEnumerator LoadScene(SceneType sceneType) {
         yield return new WaitForSeconds(0.5f);
         ECGlobalSceneManager.Instance.LoadScene(sceneType);
+    }
+    IEnumerator activeCheerUpPannel()
+    {
+        cheerUpPannel.SetActive(true);
+        yield return new WaitForSeconds(4.5f);
+        cheerUpPannel.SetActive(false);
+
     }
 
     void Start()

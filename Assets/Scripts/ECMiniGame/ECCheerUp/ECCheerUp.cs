@@ -10,7 +10,7 @@ public class ECCheerUp : MonoBehaviour
     private Vector2 originPos;
     private Sequence seq;
 
-    public float animationSpeed = 1;
+    private float animationSpeed = 0.5f;
 
     private void Awake()
     {
@@ -34,12 +34,11 @@ public class ECCheerUp : MonoBehaviour
         seq = DOTween.Sequence().Pause();
         seq.Append(friendRectTransform.DOScale(1.2f, animationSpeed));
         seq.Append(friendRectTransform.DOScale(1f, animationSpeed));
-        seq.Append(friendRectTransform.DOMoveY(originPos.y + 50f, animationSpeed));
+        seq.Append(friendRectTransform.DOMoveY(originPos.y + 30f, animationSpeed));
         seq.Append(friendRectTransform.DOMoveY(originPos.y, animationSpeed));
-        seq.Append(friendRectTransform.DOMoveY(originPos.y + 50f, animationSpeed));
+        seq.Append(friendRectTransform.DOMoveY(originPos.y + 30f, animationSpeed));
         seq.Append(friendRectTransform.DOMoveY(originPos.y, animationSpeed));
-        seq.Append(bgImageTr.DOScaleY(0, animationSpeed));
-
+        
         seq.OnComplete(() =>
         {
             ECPlayerStatManager.Instance.UpdateStatCheer();
