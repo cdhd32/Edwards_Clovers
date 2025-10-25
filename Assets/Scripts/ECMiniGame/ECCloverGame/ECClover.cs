@@ -44,6 +44,7 @@ public class ECClover : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         canvasGroup.interactable = false;
         canvasGroup.alpha = 0;
+        gameObject.SetActive(false);
     }
 
     public void OnBeginDrag(PointerEventData eventData)

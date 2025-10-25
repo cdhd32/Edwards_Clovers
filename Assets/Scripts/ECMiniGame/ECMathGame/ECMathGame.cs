@@ -19,6 +19,8 @@ public class ECMathGame : ECMiniGameBase
     public Image answerCheck;
     private bool isClick;
 
+    private MathQuiz mathQuiz = new MathQuiz();
+
     private ECMathChoiceBox currentSelectBox;
     private MathQuiz.Question currentQuestion;
 
@@ -75,7 +77,7 @@ public class ECMathGame : ECMiniGameBase
             currentSelectBox.ShowCheckImage(false);
             currentSelectBox = null;
         }
-        currentQuestion = MathQuiz.GenerateQuestion();
+        currentQuestion = mathQuiz.GenerateQuestion();
         problemCount.SetText(problemNumber.ToString() + "번문항");
         problemText.text = currentQuestion.Problem;
 
@@ -93,8 +95,8 @@ public class ECMathGame : ECMiniGameBase
     void OnChoiceSelected(int selectedAnswer, ECMathChoiceBox box)
     {
         if (isClick) return;
-        box.ShowCheckImage(true);
         isClick = true;
+        box.ShowCheckImage(true);
         currentSelectBox = box;
         answerCheck.color = Color.white;
         if (selectedAnswer == currentQuestion.CorrectAnswer)
@@ -110,13 +112,14 @@ public class ECMathGame : ECMiniGameBase
             Debug.Log("오답");
         }
 
-        Invoke(nameof(GenerateNewQuestion), 0.5f);
+        Invoke(nameof(GenerateNewQuestion), 1f);
     }
 }
 
 public class MathQuiz
 {
-    private static System.Random rand = new System.Random();
+    private System.Random rand = new System.Random();
+    private string[] operators = { "+", "-", "*", "/" };
 
     public class Question
     {
@@ -125,11 +128,9 @@ public class MathQuiz
         public List<int> Choices;
     }
 
-    public static Question GenerateQuestion()
+    public Question GenerateQuestion()
     {
-        string[] operators = { "+", "-", "*", "/" };
         string op = operators[rand.Next(operators.Length)];
-
         int a = rand.Next(1, 21);
         int b = rand.Next(1, 21);
 
@@ -154,11 +155,7 @@ public class MathQuiz
         while (choicesSet.Count < 5)
         {
             int fake;
-            do
-            {
-                fake = correct + rand.Next(-10, 11);
-            } while (fake == correct || fake < 0);
-
+            fake = correct + rand.Next(-10, 11);
             choicesSet.Add(fake);
         }
 
