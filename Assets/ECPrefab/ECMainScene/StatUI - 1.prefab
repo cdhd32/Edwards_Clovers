@@ -215,7 +215,7 @@ MonoBehaviour:
   numText: {fileID: 7975599277817248988}
   rankImg: {fileID: 7222080813248796561}
   rankList:
-  - {fileID: 21300000, guid: 164b64aba99c5234b8bfcc7d6c1ce7fb, type: 3}
+  - {fileID: 21300000, guid: 3109a01e135d13e438e8af8b188a59c3, type: 3}
   - {fileID: 21300000, guid: 164b64aba99c5234b8bfcc7d6c1ce7fb, type: 3}
   - {fileID: 21300000, guid: c51eee11b15b20543b0038ed0ea87bc0, type: 3}
   - {fileID: 21300000, guid: 44e3c0292a5bdb046b92cbe65cb570be, type: 3}

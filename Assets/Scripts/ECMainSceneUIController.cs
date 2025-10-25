@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 public class ECMainSceneUIController : MonoBehaviour
 {
     private ECMainSceneManager mainSceneManager;
@@ -27,12 +28,17 @@ public class ECMainSceneUIController : MonoBehaviour
     [SerializeField]
     private Slider motivationBar;
 
-    [SerializeField]
-    private TMP_Text classText;
+    //[SerializeField]
+    //private TMP_Text classText;
 
     [SerializeField]
     private TMP_Text dDayText;
 
+    [SerializeField]
+    private Image classImage;
+
+    [SerializeField]
+    private List<Sprite> classImgSprites;
     //버튼 5개 추가[
 
     private void Awake()
@@ -79,8 +85,8 @@ public class ECMainSceneUIController : MonoBehaviour
     {
         dDayText.text = ECUtils.GetDDayString(mainSceneManager.GetLeftDayNum());
 
-        classText.text = ECUtils.GetClassString(mainSceneManager.GetClassNum());
-
+        //classText.text = ECUtils.GetClassString(mainSceneManager.GetClassNum());
+        classImage.sprite = classImgSprites[mainSceneManager.GetClassNum()-1];
 
         int max = statPanels.Length + 1;
 
