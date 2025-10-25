@@ -21,6 +21,17 @@ public class ECMainSceneUIController : MonoBehaviour
     [SerializeField]
     private TMP_Text dDayText;
 
+    //버튼 5개 추가
+
+    private void Awake()
+    {
+        //테스트 Scene 전환, 씬 이름 저장해서 불러오기
+        actionButton.onClick.AddListener(() =>
+        {
+            ECGlobalSceneManager.Instance.LoadScene(SceneType.MATH);
+        });
+    }
+
     void Start()
     {
         mainSceneManager = ECMainSceneManager.Instance;
