@@ -7,7 +7,19 @@ public class ECMainSceneUIController : MonoBehaviour
     private ECMainSceneManager mainSceneManager;
 
     [SerializeField]
-    private Button actionButton;
+    private Button actionButtonKr;
+
+    [SerializeField]
+    private Button actionButtonEn;
+
+    [SerializeField]
+    private Button actionButtonMath;
+
+    [SerializeField]
+    private Button actionButtonSci;
+
+    [SerializeField]
+    private Button actionButtonLuk;
 
     [SerializeField]
     private StatusUI[] statPanels;
@@ -26,10 +38,32 @@ public class ECMainSceneUIController : MonoBehaviour
     private void Awake()
     {
         //테스트 Scene 전환, 씬 이름 저장해서 불러오기
-        actionButton.onClick.AddListener(() =>
+
+        actionButtonKr.onClick.AddListener(() =>
+        {
+            ECGlobalSceneManager.Instance.LoadScene(SceneType.KR);
+        });
+
+        actionButtonEn.onClick.AddListener(() =>
+        {
+            ECGlobalSceneManager.Instance.LoadScene(SceneType.EG);
+        });
+
+        actionButtonMath.onClick.AddListener(() =>
         {
             ECGlobalSceneManager.Instance.LoadScene(SceneType.MATH);
         });
+
+        actionButtonSci.onClick.AddListener(() =>
+        {
+            ECGlobalSceneManager.Instance.LoadScene(SceneType.SCIENCE);
+        });
+
+        actionButtonLuk.onClick.AddListener(() =>
+        {
+            ECGlobalSceneManager.Instance.LoadScene(SceneType.LUCKY);
+        });
+
     }
 
     void Start()
