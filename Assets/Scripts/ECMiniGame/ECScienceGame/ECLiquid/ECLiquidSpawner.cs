@@ -56,14 +56,18 @@ public class ECLiquidSpawner : MonoBehaviour
 
     public EResultState ReturnGameResult()
     {
-        EResultState result = EResultState.Count ;
-        if(count > 160 && count < 180)
+        EResultState result = EResultState.Count;
+        if (count >= 160 && count <= 180)
         {
             result = EResultState.Perfect;
         }
-        else if((count <200 && count >180 ) || (count<160 && count>140))
+        else if ((count <= 190 && count > 180) || (count < 160 && count > 150))
         {
             result = EResultState.Great;
+        }
+        else if ((count < 200 && count > 190) || (count < 150 && count > 140))
+        {
+            result = EResultState.Good;
         }
         else
         {

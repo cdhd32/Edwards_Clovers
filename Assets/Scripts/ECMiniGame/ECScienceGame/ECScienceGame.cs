@@ -11,8 +11,6 @@ public class ECScienceGame : ECMiniGameBase
     }
 
 
-
-
     public override EResultState GetScore()
     {
         EResultState state = liquidSpawner.ReturnGameResult();
