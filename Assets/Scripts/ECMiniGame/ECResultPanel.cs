@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum EResultState
 {
@@ -15,5 +16,11 @@ public class ECResultPanel : MonoBehaviour
         go.SetActive(true);
         result.text = state.ToString();
         //1초뒤 사라지기??
+    }
+
+    public void OnClick_OKButton()
+    {
+        Debug.Log("메인으로");
+        ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
     }
 }
