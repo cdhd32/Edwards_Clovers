@@ -26,9 +26,29 @@ public class ECResultPanel : MonoBehaviour
     public void OnClick_OKButton()
     {
         Debug.Log("메인으로");
-        ECPlayerStatManager.Instance.UpdateStat(eventType, conditionType);
+        ECPlayerStatManager statManage = ECPlayerStatManager.Instance;
+        statManage.UpdateStat(eventType, conditionType);
+        int leftDayVal = statManage.GetPlayerStat(PlayerStatType.LEFTDAY);
+        int classVal = statManage.GetPlayerStat(PlayerStatType.CLASS);
+        if(classVal == 1)
+        {
+            ExamEventCheck(leftDayVal);
+        }
+        
+            ECGlobalSceneManager.Instance.LoadScene(SceneType.EXAM);
+        //ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
 
-        ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
+    }
 
+    private void ExamEventCheck(int leftDay)
+    {
+        if (leftDay == 5)
+        {
+            //단원 평가를 봐야해요
+        }
+        else if (leftDay == 1)
+        {
+            //중간 고사를 봐야해요
+        }
     }
 }
