@@ -27,11 +27,15 @@ public class ECKoreanGame : ECMiniGameBase
     public ECKRChoiceBox choiceBoxPrefab;
     public RectTransform choiceBoxParent;
     public ECKRChoiceBox[] choiceButtons;  // 객관식 버튼 3개
-    private int answerCount = 4;
+    private int answerCount = 3;
 
     public Sprite[] answerCheckImages; // 0 틀림 1 맞춤
     public Image answerCheck;
 
+    private Vector2[] spawnPos = new Vector2[]{ new Vector2(146, -4), new Vector2(560, -4), new Vector2(915, -4) }; 
+    private Vector3[] spawnRot = new Vector3[] { new Vector3(-33, -15, 0), new Vector3(-31, -27, -6), new Vector3(-37.4f, 26.2f, 11.7f) };
+
+    public ECKRTeacherAnimation teacher;
     [Header("Data")]
     public TextAsset jsonFile;      // ItemDatabase.json
     public ECKRItemDataTemplate itemList;
@@ -58,6 +62,9 @@ public class ECKoreanGame : ECMiniGameBase
         for (int i=0; i< answerCount; ++i)
         {
             ECKRChoiceBox box = Instantiate(choiceBoxPrefab, choiceBoxParent);
+            RectTransform rect = box.transform as RectTransform;
+            rect.anchoredPosition = spawnPos[i];
+            box.transform.rotation = Quaternion.Euler(spawnRot[i]);
             choiceButtons[i] = box;
         }
         GenerateNewQuestion();
@@ -99,6 +106,7 @@ public class ECKoreanGame : ECMiniGameBase
             timer.EndTimer(EResultState.Perfect);
             return;
         }
+        teacher.MoveStick(false);
         answerCheck.enabled = false;
         Random random = new System.Random();
         correctItem = itemDatas[random.Next(0, itemDatas.Count)];
@@ -129,6 +137,7 @@ public class ECKoreanGame : ECMiniGameBase
 
     void OnChoiceSelected(ECKRItemData selected)
     {
+        teacher.MoveStick(true);
         answerCheck.enabled = true;
 
         for (int i = 0; i < choiceButtons.Length; i++)

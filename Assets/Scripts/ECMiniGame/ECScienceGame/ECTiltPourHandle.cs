@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class ECTiltPourHandle : ECMiniGameBase, IBeginDragHandler, IDragHandler, IEndDragHandler
@@ -10,12 +11,13 @@ public class ECTiltPourHandle : ECMiniGameBase, IBeginDragHandler, IDragHandler,
     public RectTransform handleRect;    
     public RectTransform pivotRect;     
     public ECScienceTube testTube;            
-    public ECScienceFlask flask;          
+    public ECScienceFlask flask;
+    public Image handleImage;
 
     [Header("Pour Settings")]
     private float minAngle = 0f;       
     private float maxAngle = -90f;       
-    private float pourThreshold = 21f;    
+    private float pourThreshold = 6f;    
     public float basePourRate = 0.5f;     // 붓는 속도
     public float pourCurveMultiplier = 1.5f; // 붓는 가속도
 
@@ -98,6 +100,7 @@ public class ECTiltPourHandle : ECMiniGameBase, IBeginDragHandler, IDragHandler,
     public void OnEndDrag(PointerEventData eventData)
     {
         targetAngle = minAngle;
+        handleImage.color = Color.gray;
         isDragEnd = true;
         Invoke("EndEvent", 5f);
     }

@@ -7,6 +7,7 @@ public class ECCloverHand : MonoBehaviour
     private RectTransform rt;
     public ECMiniGameTimer timer;
     private bool isStart;
+    public float smoothSpeed = 10f;
 
     private void Awake()
     {
@@ -18,7 +19,7 @@ public class ECCloverHand : MonoBehaviour
         if(isStart)
         {
             Vector2 pos = Input.mousePosition;
-            rt.position = pos;
+            rt.position = Vector2.Lerp(rt.position, pos, Time.deltaTime * smoothSpeed);
             if(!timer.IsStart)
             {
                 isStart = false;
