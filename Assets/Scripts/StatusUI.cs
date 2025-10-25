@@ -17,7 +17,7 @@ public class StatusUI : MonoBehaviour
 
     public void SetNum(int num)
     {
-        numText.text = num.ToString();
+        numText.text = num.ToString()+" / 1000";
         
         rankText.text = ECUtils.GetRankString(num);
 
