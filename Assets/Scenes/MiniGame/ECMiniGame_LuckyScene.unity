@@ -350,6 +350,7 @@ MonoBehaviour:
   cloverCount: 100
   fourLeafCloverCount: 3
   cloverPadding: 50
+  clickSFX: {fileID: 8300000, guid: c4300efe61613b54b8fad24cd3edf5f0, type: 3}
 --- !u!1 &260596944
 GameObject:
   m_ObjectHideFlags: 0
