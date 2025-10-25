@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Collections;
 public class ECMainSceneUIController : MonoBehaviour
 {
     private ECMainSceneManager mainSceneManager;
@@ -33,33 +33,39 @@ public class ECMainSceneUIController : MonoBehaviour
     [SerializeField]
     private TMP_Text dDayText;
 
+    //버튼 5개 추가[
+
     private void Awake()
     {
         actionButtonKr.onClick.AddListener(() =>
         {
-            ECGlobalSceneManager.Instance.LoadScene(SceneType.KR);
+            StartCoroutine(LoadScene(SceneType.KR));
         });
 
         actionButtonEn.onClick.AddListener(() =>
         {
-            ECGlobalSceneManager.Instance.LoadScene(SceneType.EG);
+            StartCoroutine(LoadScene(SceneType.EG));
         });
 
         actionButtonMath.onClick.AddListener(() =>
         {
-            ECGlobalSceneManager.Instance.LoadScene(SceneType.MATH);
+            StartCoroutine(LoadScene(SceneType.MATH));
         });
 
         actionButtonSci.onClick.AddListener(() =>
         {
-            ECGlobalSceneManager.Instance.LoadScene(SceneType.SCIENCE);
+            StartCoroutine(LoadScene(SceneType.SCIENCE));
         });
 
         actionButtonLuk.onClick.AddListener(() =>
         {
-            ECGlobalSceneManager.Instance.LoadScene(SceneType.LUCKY);
+            StartCoroutine(LoadScene(SceneType.LUCKY));
         });
 
+    }
+    IEnumerator LoadScene(SceneType sceneType) {
+        yield return new WaitForSeconds(0.5f);
+        ECGlobalSceneManager.Instance.LoadScene(sceneType);
     }
 
     void Start()
