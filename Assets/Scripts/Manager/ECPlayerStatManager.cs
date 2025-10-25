@@ -72,15 +72,16 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         {
             string plainString = File.ReadAllText(path);
 
-            //파일이 비어있으면 새로 생성
+            //파일이 비어있으면 Resources에서 초기화 데이터를 불러온다
             if (string.IsNullOrEmpty(plainString) || plainString.Equals("{}"))
             {
-                playerStats = new PlayerStatData[(int)PlayerStatType._MAX];
-                for (int i = 0; i < (int)PlayerStatType._MAX; i++)
+                var textAsset = Resources.Load<TextAsset>("playerStatInit");
+
+                if (textAsset != null)
                 {
-                    playerStats[i] = new PlayerStatData();
-                    playerStats[i].dataName = ECUtils.GetStatusName((PlayerStatType)i);
-                    playerStats[i].data = 0;
+                    plainString = textAsset.text;
+
+                    playerStats = JSONHelper.FromJson<PlayerStatData>(plainString);
                 }
             }
             else
@@ -92,14 +93,14 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         }
         else
         {
-            //파일이 없으면 새로 생성
-            playerStats = new PlayerStatData[(int)PlayerStatType._MAX];
-            for (int i = 0; i < (int)PlayerStatType._MAX; i++)
+            var textAsset = Resources.Load<TextAsset>("playerStatInit");
+
+            if (textAsset != null)
             {
-                playerStats[i] = new PlayerStatData();
-                playerStats[i].dataName = ECUtils.GetStatusName((PlayerStatType)i);
-                playerStats[i].data = 0;
+                //파일이 없으면 새로 생성
+                playerStats = JSONHelper.FromJson<PlayerStatData>(textAsset.text);
             }
+
             SaveStatData();
             Debug.Log($"PlayerStatManager.LoadStatData() Data Created");
         }
@@ -251,7 +252,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         AddPlayerStat(PlayerStatType.CLASS, 1);
 
         //4교시가 지나면 하루 차감, 1교시로 초기화
-        if (playerStats[(int)PlayerStatType.CLASS].data >= ECConst.CLASS_PER_DAY)
+        if (playerStats[(int)PlayerStatType.CLASS].data > ECConst.CLASS_PER_DAY)
         {
             playerStats[(int)PlayerStatType.CLASS].data = 1;
             AddPlayerStat(PlayerStatType.LEFTDAY, -1); //남은 일수 감소

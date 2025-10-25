@@ -1,0 +1,36 @@
+{
+    "data": [
+        {
+            "dataName": "의욕",
+            "data": 100
+        },
+        {
+            "dataName": "국어",
+            "data": 0
+        },
+        {
+            "dataName": "영어",
+            "data": 0
+        },
+        {
+            "dataName": "수학",
+            "data": 0
+        },
+        {
+            "dataName": "과학",
+            "data": 0
+        },
+        {
+            "dataName": "운",
+            "data": 0
+        },
+        {
+            "dataName": "남은 기간",
+            "data": 7
+        },
+        {
+            "dataName": "교시",
+            "data": 1
+        }
+    ]
+}
