@@ -33,26 +33,6 @@ public class ECGlobalSceneManager : ECSingletonDontDestroy<ECGlobalSceneManager>
     public void LoadScene(SceneType sceneType)
     {
         // Implementation for loading a scene
-        ECPlayerStatManager statManage = ECPlayerStatManager.Instance;
-        if(statManage.playerStats!=null)
-        {
-            int leftDayVal = statManage.GetPlayerStat(PlayerStatType.LEFTDAY);
-            int classVal = statManage.GetPlayerStat(PlayerStatType.CLASS);
-            if (sceneType == SceneType.MAIN && (classVal == 1 || leftDayVal == 0))
-            {
-                //마지막 교시거나 d - day일 때
-                if(ExamEventCheck(leftDayVal))
-                {
-                    LoadScene(SceneType.EXAM);
-                    return;
-                }
-            }
-            if(sceneType!= SceneType.EXAM)
-            {
-                //ECPlayerStatManager.Instance.UpdateTimeStat();
-            }
-        }
-
         Debug.Log($"Loading scene: {sceneType.ToString()}");
 
         SceneManager.LoadScene(sceneNames[(int)sceneType]);

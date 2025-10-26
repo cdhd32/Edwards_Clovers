@@ -38,13 +38,40 @@ public class ECCheerUp : MonoBehaviour
         seq.Append(friendRectTransform.DOMoveY(originPos.y, animationSpeed));
         seq.Append(friendRectTransform.DOMoveY(originPos.y + 30f, animationSpeed));
         seq.Append(friendRectTransform.DOMoveY(originPos.y, animationSpeed));
-        
+
+
         seq.OnComplete(() =>
         {
             ECPlayerStatManager.Instance.UpdateStatCheer();
-
+            ECPlayerStatManager statManage = ECPlayerStatManager.Instance;
+            int leftDayVal = statManage.GetPlayerStat(PlayerStatType.LEFTDAY);
+            int classVal = statManage.GetPlayerStat(PlayerStatType.CLASS);
+             ExamEventCheck(leftDayVal, classVal);
             ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
         });
+
+    }
+
+    private void ExamEventCheck(int leftDay, int classCount)
+    {
+        if (leftDay == 4 || leftDay == 1 || leftDay == 0)
+        {
+            if(classCount == 1)
+            {
+                ECGlobalSceneManager.Instance.LoadScene(SceneType.EXAM);
+                return;
+            }
+
+            if(leftDay == 0)
+            {
+                ECGlobalSceneManager.Instance.LoadScene(SceneType.EXAM);
+                return;
+            }
+
+
+            //단원 평가를 봐야해요
+        }
+            ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
 
     }
 
