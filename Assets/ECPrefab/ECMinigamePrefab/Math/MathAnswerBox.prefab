@@ -451,9 +451,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmp: {fileID: 9010067913905575184}
-  answerNumber: {fileID: 0}
   answerButton: {fileID: 303423100228369956}
-  answerNumberImage: {fileID: 7375040235436104837}
+  answerNumberImage: {fileID: 4178409403438806116}
   answerCheck: {fileID: 1635700377773402685}
 --- !u!114 &3900424203857915078
 MonoBehaviour:
