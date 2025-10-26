@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ECMathChoiceBox : MonoBehaviour
 {
     public TextMeshProUGUI tmp;
-    public TextMeshProUGUI answerNumber;
+    //public TextMeshProUGUI answerNumber;
     public Button answerButton;
     public Image answerNumberImage;
     public Image answerCheck;

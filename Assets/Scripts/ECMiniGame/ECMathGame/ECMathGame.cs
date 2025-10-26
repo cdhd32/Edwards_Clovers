@@ -112,7 +112,7 @@ public class ECMathGame : ECMiniGameBase
             Debug.Log("¿À´ä");
         }
 
-        Invoke(nameof(GenerateNewQuestion), 1f);
+        Invoke(nameof(GenerateNewQuestion), 0.8f);
     }
 }
 
@@ -120,6 +120,8 @@ public class MathQuiz
 {
     private System.Random rand = new System.Random();
     private string[] operators = { "+", "-", "*", "/" };
+    private HashSet<int> choicesSet = new HashSet<int>();
+    private List<int> choices = new List<int>();
 
     public class Question
     {
@@ -150,7 +152,8 @@ public class MathQuiz
             _ => 0
         };
 
-        HashSet<int> choicesSet = new HashSet<int> { correct };
+        choicesSet.Clear();
+        choicesSet.Add(correct);
 
         while (choicesSet.Count < 5)
         {
@@ -158,8 +161,8 @@ public class MathQuiz
             fake = correct + rand.Next(-10, 11);
             choicesSet.Add(fake);
         }
-
-        List<int> choices = new List<int>(choicesSet);
+        choices.Clear();
+        choices.AddRange(choicesSet);
         Utils.Shuffle(choices);
 
         return new Question
