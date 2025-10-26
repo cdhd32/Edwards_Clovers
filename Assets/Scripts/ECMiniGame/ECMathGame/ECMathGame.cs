@@ -48,15 +48,15 @@ public class ECMathGame : ECMiniGameBase
     private EResultState SendScore()
     {
         EResultState state = EResultState.Good;
-        if (currentScore >= 15)
+        if (currentScore >= 11)
         {
             state = EResultState.Perfect;
         }
-        else if (currentScore >= 8 && currentScore < 15)
+        else if (currentScore >= 6 && currentScore < 11)
         {
             state = EResultState.Great;
         }
-        else if (currentScore >= 0 && currentScore < 8)
+        else if (currentScore >= 0 && currentScore < 6)
         {
             state = EResultState.Good;
         }
@@ -110,7 +110,7 @@ public class ECMathGame : ECMiniGameBase
             currentScore -= 3;
         }
 
-        Invoke(nameof(GenerateNewQuestion), 0.8f);
+        Invoke(nameof(GenerateNewQuestion), 0.6f);
     }
 }
 
