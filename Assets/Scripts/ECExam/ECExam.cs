@@ -5,7 +5,7 @@ public class ECExam : MonoBehaviour
     public ECExamReportBox[] reportBox;
     public ECPaperStacker stacker;
     private int currentStage = 0;
-    private int[] scorethreshold = new int[3] { 70, 100, 150 };
+    private int[] scorethreshold = new int[3] { 150, 225, 375 };
     private int currentThreshold;
 
     private int[] playerScores = new int[4]; // 국수과영
