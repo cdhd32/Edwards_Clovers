@@ -51,6 +51,28 @@ public class ECCloverGame : ECMiniGameBase
         SpawnClovers();
     }
 
+    public override EResultState GetScore()
+    {
+        EResultState state = EResultState.Count;
+        if(foundCloverCount == 1)
+        {
+            state = EResultState.Good;
+        }
+        else if(foundCloverCount == 2)
+        {
+            state = EResultState.Great;
+        }
+        else if (foundCloverCount == 3)
+        {
+            state = EResultState.Great;
+        }
+        else if(foundCloverCount == 0)
+        {
+            state = EResultState.Bad;
+        }
+        return state;
+    }
+
     private void SpawnClovers()
     {
         Vector2 panelSize = panel.rect.size;

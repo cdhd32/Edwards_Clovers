@@ -9,14 +9,14 @@ public class ECKRTeacherAnimation : MonoBehaviour
     public RectTransform teacherEffect;
     private Vector3 originPos;
     private Vector3 originRot;
-    private float edwardHandOriginPos = -906;
+    private float edwardHandOriginPos = -910;
     private float animDuration = 0.5f;
 
     private void Awake()
     {
         originPos = originTrans.position;
         originRot = originTrans.rotation.eulerAngles;
-        MoveStick(true);
+        //MoveStick(true);
         teacherEffect.transform
             .DORotate(new Vector3(0, 0, -24), 1, RotateMode.Fast)
             .SetEase(Ease.Linear)           
