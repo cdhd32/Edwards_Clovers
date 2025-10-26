@@ -112,7 +112,9 @@ public class ECMainSceneUIController : MonoBehaviour
             return;
         }
         isUIMoving = true;
-        float pos = buttonsRect.anchoredPosition.x == 0 ? 297 : 0;
+        bool isOpen = buttonsRect.anchoredPosition.x == 0;
+        float pos = isOpen ? 297 : 0;
+        openImage.enabled = !isOpen;
         buttonsRect.DOAnchorPosX(pos, 0.5f).OnComplete(() => OnCompleteMovePos());
     }
 
@@ -121,12 +123,11 @@ public class ECMainSceneUIController : MonoBehaviour
         isUIMoving = false;
         if(buttonsRect.anchoredPosition.x == 0)
         {
-            openImage.enabled = true;
             cg.interactable = true;
         }
         else
         {
-            openImage.enabled = false;
+            //openImage.enabled = false;
             cg.interactable = false;
         }
     }

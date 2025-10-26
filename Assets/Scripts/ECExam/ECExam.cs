@@ -16,6 +16,10 @@ public class ECExam : MonoBehaviour
     private void Awake()
     {
         int val = ECPlayerStatManager.Instance.GetPlayerStat(PlayerStatType.LEFTDAY);
+        if(val!=0)
+        {
+            val++;
+        }
         if (val == 5)
         {
             currentStage = 0;
@@ -24,7 +28,7 @@ public class ECExam : MonoBehaviour
         {
             currentStage = 1;
         }
-        else
+        else if (val == 0)
         {
             currentStage = 2;
             //중간고사

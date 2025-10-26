@@ -225,7 +225,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
 
         if (isSave)
             SaveStatData();
-        Debug.Log($"PlayerStatManager.SetPlayerStat() {playerStats[index].dataName} Set : {playerStats[index].data}");
+        //Debug.Log($"PlayerStatManager.SetPlayerStat() {playerStats[index].dataName} Set : {playerStats[index].data}");
     }
 
     public void SetPlayerStatByEvent(EventType eventType, ConditionType conditionType)
@@ -249,11 +249,11 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
     {
         if (index < 0 || index >= (int)PlayerStatType._MAX)
         {
-            Debug.Log($"PlayerStatManager.GetPlayerStat() Invailed Index");
+            //Debug.Log($"PlayerStatManager.GetPlayerStat() Invailed Index");
             return -1;
         }
 
-        Debug.Log($"PlayerStatManager.GetPlayerStat() {playerStats[index].dataName} : {playerStats[index].data}");
+        //Debug.Log($"PlayerStatManager.GetPlayerStat() {playerStats[index].dataName} : {playerStats[index].data}");
 
         return playerStats[index].data;
     }
@@ -267,10 +267,10 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
     {
         if (index < 0 || index >= (int)PlayerStatType._MAX)
         {
-            Debug.Log($"PlayerStatManager.GetPlayerStatName() Invailed Index");
+            //Debug.Log($"PlayerStatManager.GetPlayerStatName() Invailed Index");
             return string.Empty;
         }
-        Debug.Log($"PlayerStatManager.GetPlayerStatName() {playerStats[index].dataName}");
+        //Debug.Log($"PlayerStatManager.GetPlayerStatName() {playerStats[index].dataName}");
         return playerStats[index].dataName;
     }
 
@@ -279,8 +279,8 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
     {
         //의욕 게이지 차감
         AddPlayerStat(PlayerStatType.MOT, -ECConst.MOTVIATION_PAY);
-
         SetPlayerStatByEvent(eventType, conditionType);
+        UpdateTimeStat();
     }
 
     public void UpdateTimeStat()
@@ -299,11 +299,18 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
     }
 
     //의욕 충전 후 스탯 업데이트
+    public void UpdateStat_EndExam()
+    {
+        playerStats[(int)PlayerStatType.CLASS].data = 4;
+        AddPlayerStat(PlayerStatType.LEFTDAY, -1); //남은 일수 감소
+        SaveStatData();
+    }
+
+    //의욕 충전 후 스탯 업데이트
     public void UpdateStatCheer()
     {
         //의욕 게이지 최대치로 변경
         SetPlayerStat(PlayerStatType.MOT, ECConst.MOTVIATION_MAX);
-
-        SaveStatData();
+        UpdateTimeStat();
     }
 }

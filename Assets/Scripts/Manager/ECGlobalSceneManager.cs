@@ -45,6 +45,10 @@ public class ECGlobalSceneManager : ECSingletonDontDestroy<ECGlobalSceneManager>
                     return;
                 }
             }
+            if(sceneType!= SceneType.EXAM)
+            {
+                //ECPlayerStatManager.Instance.UpdateTimeStat();
+            }
         }
 
         Debug.Log($"Loading scene: {sceneType.ToString()}");
@@ -55,11 +59,7 @@ public class ECGlobalSceneManager : ECSingletonDontDestroy<ECGlobalSceneManager>
 
     private bool ExamEventCheck(int leftDay)
     {
-        if(leftDay >0)
-        {
-            leftDay++;
-        }
-        if (leftDay == 5 || leftDay == 2 || leftDay == 0)
+        if (leftDay == 4 || leftDay == 1 || leftDay == 0)
         {
             return true;
 
