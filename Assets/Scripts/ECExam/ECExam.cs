@@ -37,7 +37,7 @@ public class ECExam : MonoBehaviour
         //currentStage = 0;
         currentThreshold = scorethreshold[currentStage];
         SetReportBoxs();
-        Invoke("ButtonActive", 1f);
+        Invoke("ButtonActive", 2f);
     }
 
     private void ButtonActive()
