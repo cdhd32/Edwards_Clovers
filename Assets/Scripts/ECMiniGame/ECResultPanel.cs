@@ -27,15 +27,15 @@ public class ECResultPanel : MonoBehaviour
     {
         Debug.Log("메인으로");
         ECPlayerStatManager statManage = ECPlayerStatManager.Instance;
-        statManage.UpdateStat(eventType, conditionType);
+
         int leftDayVal = statManage.GetPlayerStat(PlayerStatType.LEFTDAY);
         int classVal = statManage.GetPlayerStat(PlayerStatType.CLASS);
         Debug.Log("남은 날 :" + leftDayVal +"교시" + classVal);
-        //ECGlobalSceneManager.Instance.LoadScene(SceneType.EXAM);
-        if (classVal == 1 || leftDayVal <=0)
+        statManage.UpdateStat(eventType, conditionType);
+        if (classVal == 4 || leftDayVal <=0)
         {
             //마지막 교시거나 d - day일 때
-            ExamEventCheck(leftDayVal);
+            ExamEventCheck(leftDayVal, classVal);
         }
         else
         {
@@ -43,16 +43,29 @@ public class ECResultPanel : MonoBehaviour
         }
     }
 
-    private void ExamEventCheck(int leftDay)
+    private void ExamEventCheck(int leftDay, int classCount)
     {
-        if (leftDay == 4 || leftDay == 1 || leftDay == 0)
+        Debug.Log("남은날" + leftDay);
+        leftDay++;
+
+        if (leftDay == 5 || leftDay == 2 || leftDay == 1)
         {
-            ECGlobalSceneManager.Instance.LoadScene(SceneType.EXAM);
+            if (classCount == 4)
+            {
+                ECGlobalSceneManager.Instance.LoadScene(SceneType.EXAM);
+                return;
+            }
+
+            if (leftDay == 0)
+            {
+                ECGlobalSceneManager.Instance.LoadScene(SceneType.EXAM);
+                return;
+            }
+
+
             //단원 평가를 봐야해요
         }
-        else
-        {
-            ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
-        }
+        ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
+
     }
 }

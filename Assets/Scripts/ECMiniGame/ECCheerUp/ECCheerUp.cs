@@ -47,16 +47,19 @@ public class ECCheerUp : MonoBehaviour
             int leftDayVal = statManage.GetPlayerStat(PlayerStatType.LEFTDAY);
             int classVal = statManage.GetPlayerStat(PlayerStatType.CLASS);
              ExamEventCheck(leftDayVal, classVal);
-            ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
+            //ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
         });
 
     }
 
     private void ExamEventCheck(int leftDay, int classCount)
     {
-        if (leftDay == 4 || leftDay == 1 || leftDay == 0)
+        Debug.Log("³²Àº³¯"+ leftDay);
+        leftDay++;
+
+        if (leftDay == 5 || leftDay == 2 || leftDay == 1)
         {
-            if(classCount == 1)
+            if(classCount == 4)
             {
                 ECGlobalSceneManager.Instance.LoadScene(SceneType.EXAM);
                 return;
