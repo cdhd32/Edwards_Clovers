@@ -11,7 +11,8 @@ public enum SceneType
     MATH,
     SCIENCE,
     LUCKY,
-    EXAM
+    EXAM,
+    ENDING
 }
 
 public class ECGlobalSceneManager : ECSingletonDontDestroy<ECGlobalSceneManager>
@@ -25,7 +26,8 @@ public class ECGlobalSceneManager : ECSingletonDontDestroy<ECGlobalSceneManager>
         "ECMiniGame_MathGame",
         "ECMiniGame_ScienceScene",
         "ECMiniGame_LuckyScene",
-        "ECExamScene"
+        "ECExamScene",
+        "EndingScene"
     };
 
     public void LoadScene(SceneType sceneType)
