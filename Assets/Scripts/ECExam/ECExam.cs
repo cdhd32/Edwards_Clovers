@@ -11,7 +11,7 @@ public class ECExam : MonoBehaviour
     private int[] playerScores = new int[4]; // 국수과영
     private int[] playerRank = new int[4]; // 국수과영
 
-    private bool isClick = false;
+    private bool isClick = true;
 
     private void Awake()
     {
@@ -37,6 +37,12 @@ public class ECExam : MonoBehaviour
         //currentStage = 0;
         currentThreshold = scorethreshold[currentStage];
         SetReportBoxs();
+        Invoke("ButtonActive", 1f);
+    }
+
+    private void ButtonActive()
+    {
+        isClick = false;
     }
 
     public void OnClickMainScene()
