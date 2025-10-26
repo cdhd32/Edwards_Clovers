@@ -101,7 +101,6 @@ public class ECMathGame : ECMiniGameBase
         answerCheck.color = Color.white;
         if (selectedAnswer == currentQuestion.CorrectAnswer)
         {
-            Debug.Log("정답");
             answerCheck.sprite = answerCheckImages[0];
             currentScore++;
         }
@@ -109,7 +108,6 @@ public class ECMathGame : ECMiniGameBase
         {
             answerCheck.sprite = answerCheckImages[1];
             currentScore -= 3;
-            Debug.Log("오답");
         }
 
         Invoke(nameof(GenerateNewQuestion), 0.8f);
