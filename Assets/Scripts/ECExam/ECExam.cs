@@ -41,6 +41,7 @@ public class ECExam : MonoBehaviour
         if(currentStage == 2)
         {
             Debug.Log("이따 엔딩컷신으로 연결");
+            ECGlobalSceneManager.Instance.LoadScene(SceneType.ENDING);
             return;
         }
         ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
