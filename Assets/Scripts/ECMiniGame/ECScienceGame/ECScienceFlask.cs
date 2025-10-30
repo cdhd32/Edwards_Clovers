@@ -21,11 +21,16 @@ public class ECScienceFlask : MonoBehaviour
         float accept = Mathf.Min(maxAmount - currentAmount, amount);
         currentAmount += accept;
         currentAmount = Mathf.Clamp(currentAmount, 0f, maxAmount);
-        UpdateUI();
+        Invoke("UpdateUI", 2f);
         return accept;
     }
 
-    private void UpdateUI()
+    public void UpdateFillAmount()
+    {
+
+    }
+
+    public void UpdateUI()
     {
         if (liquidImage != null)
         {

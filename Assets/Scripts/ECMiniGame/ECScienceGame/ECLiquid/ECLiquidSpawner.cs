@@ -15,9 +15,16 @@ public class ECLiquidSpawner : MonoBehaviour
     public int totalSize = 100;
     public Transform tubeEdgeCollider;
     public Transform rotTransform;
+    private bool isCheck;
+    private int[] perfect;
+    private int[] great;
+    private int[] good;
 
     private void Awake()
     {
+        perfect = new int[2] { 70, 110 };
+        great = new int[2] { 40, 140 };
+        good = new int[2] { 10, 170 };
         circles = new List<ECLiquid>();
         count = 0;
         MakeTea();
@@ -31,10 +38,7 @@ public class ECLiquidSpawner : MonoBehaviour
     {
         for (int i = 0; i < totalSize; i++)
         {
-            randNum = Random.Range(0, 1);
-            //spawnPoint = randNum == 0 ? transform.position : SpawnPoint.position;
             spawnPoint = SpawnPoint.position;
-
             tea = Instantiate(Tea, spawnPoint, Quaternion.identity);
             tea.transform.SetParent(transform);
             tea.gameObject.SetActive(false);
@@ -45,28 +49,39 @@ public class ECLiquidSpawner : MonoBehaviour
 
     public void SpawnTea(int val)
     {
-        if (count + val > circles.Count - 1) return;
+        if (count + val > circles.Count - 1)
+        {
+            if (!isCheck)
+            {
+                val = circles.Count - count;
+                isCheck = true;
+            }
+            else
+            {
+                return;
+            }
+        }
+
         for (int i = 0; i < val; i++)
         {
             circles[count].gameObject.SetActive(true);
             count++;
         }
-        //Debug.Log(count);
     }
 
     public EResultState ReturnGameResult()
     {
         EResultState result = EResultState.Count;
-        Debug.Log(count);
-        if (count >= 160 && count <= 180)
+        Debug.Log("결과" + count);
+        if (count >= perfect[0] && count <= perfect[1])
         {
             result = EResultState.Perfect;
         }
-        else if ((count <= 190 && count > 180) || (count < 160 && count > 150))
+        else if ((count <= great[1] && count > perfect[1]) || (count < perfect[0] && count > great[0]))
         {
             result = EResultState.Great;
         }
-        else if ((count < 230 && count > 190) || (count < 150 && count > 110))
+        else if ((count < good[1] && count > great[1]) || (count < great[0] && count > good[0]))
         {
             result = EResultState.Good;
         }
@@ -77,24 +92,29 @@ public class ECLiquidSpawner : MonoBehaviour
         return result;
     }
 
-    public void SpawnTea()
-    {
-        if (count > circles.Count - 1) return;
-        for (int i = 0; i < 2; i++)
-        {
-            circles[count].gameObject.SetActive(true);
-            count++;
-        }
+    //public EResultState ReturnGameResult()
+    //{
+    //    EResultState result = EResultState.Count;
+    //    Debug.Log("결과" + count);
+    //    if (count >= 140 && count <= 190)
+    //    {
+    //        result = EResultState.Perfect;
+    //    }
+    //    else if ((count <= 220 && count > 190) || (count < 140 && count > 120))
+    //    {
+    //        result = EResultState.Great;
+    //    }
+    //    else if ((count < 280 && count > 220) || (count < 120 && count > 80))
+    //    {
+    //        result = EResultState.Good;
+    //    }
+    //    else
+    //    {
+    //        result = EResultState.Bad;
+    //    }
+    //    return result;
+    //}
 
-
-
-        if (count.Equals(90))
-        {
-            Debug.Log("정답");
-            //Smoke.Play();
-        }
-
-    }
 
     public void ResetTea()
     {

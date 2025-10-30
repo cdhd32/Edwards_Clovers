@@ -44,7 +44,7 @@ public class ECTiltPourHandle : ECMiniGameBase, IBeginDragHandler, IDragHandler,
         maxAngle = maxTube.rotation.eulerAngles.z;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (isPlaying)
         {
@@ -52,10 +52,10 @@ public class ECTiltPourHandle : ECMiniGameBase, IBeginDragHandler, IDragHandler,
             pivotRect.localEulerAngles = new Vector3(0, 0, currentAngle);
             if (currentAngle > pourThreshold)
             {
-                float amountThisFrame = CalculatePourAmount(Time.deltaTime);
-                float removed = testTube.RemoveECLiquid(amountThisFrame);
-                int val = (int)(removed * 500);
-                liquidSpawner.SpawnTea(val);
+                int amountThisFrame = CalculatePourAmount(Time.deltaTime);
+                int removed = testTube.RemoveECLiquid(amountThisFrame);
+               // Debug.Log(removed);
+                liquidSpawner.SpawnTea(removed);
                 if (removed > 0f)
                     flask.AddECLiquid(removed);
             }
@@ -68,13 +68,14 @@ public class ECTiltPourHandle : ECMiniGameBase, IBeginDragHandler, IDragHandler,
         Debug.Log("State" + state);
         timer.EndTimer(state);
     }
-    float CalculatePourAmount(float deltaTime)
+    int CalculatePourAmount(float deltaTime)
     {
         float angleExcess = Mathf.Abs(currentAngle) - Mathf.Abs(pourThreshold);
         angleExcess = Mathf.Max(0f, angleExcess);
 
-        float rate = basePourRate + angleExcess * pourCurveMultiplier * 0.01f;
-        return rate * deltaTime;
+        float rate = basePourRate + angleExcess * pourCurveMultiplier;
+        int intRate = (int)rate;
+        return intRate;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
