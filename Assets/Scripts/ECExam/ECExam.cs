@@ -16,10 +16,10 @@ public class ECExam : MonoBehaviour
     private void Awake()
     {
         int leftDay = ECPlayerStatManager.Instance.GetPlayerStat(PlayerStatType.LEFTDAY);
-        if(leftDay!=0)
-        {
-            leftDay++;
-        }
+        //if(leftDay!=0)
+        //{
+        //    leftDay++;
+        //}
         if (leftDay == 5)
         {
             currentStage = 0;

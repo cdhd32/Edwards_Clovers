@@ -42,11 +42,10 @@ public class ECCheerUp : MonoBehaviour
 
         seq.OnComplete(() =>
         {
-            ECPlayerStatManager.Instance.UpdateStatCheer();
             ECPlayerStatManager statManage = ECPlayerStatManager.Instance;
             int leftDayVal = statManage.GetPlayerStat(PlayerStatType.LEFTDAY);
             int classVal = statManage.GetPlayerStat(PlayerStatType.CLASS);
-             ExamEventCheck(leftDayVal, classVal);
+            ExamEventCheck(leftDayVal, classVal);
             //ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
         });
 
@@ -54,19 +53,21 @@ public class ECCheerUp : MonoBehaviour
 
     private void ExamEventCheck(int leftDay, int classCount)
     {
-        Debug.Log("남은날"+ leftDay);
-        leftDay++;
+        Debug.Log("남은날"+ leftDay + "교시" + classCount);
+        //leftDay++;
 
         if (leftDay == 5 || leftDay == 2 || leftDay == 1)
         {
             if(classCount == 4)
             {
+                ECPlayerStatManager.Instance.UpdateStatCheer();
                 ECGlobalSceneManager.Instance.LoadScene(SceneType.EXAM);
                 return;
             }
 
             if(leftDay == 0)
             {
+                ECPlayerStatManager.Instance.UpdateStatCheer();
                 ECGlobalSceneManager.Instance.LoadScene(SceneType.EXAM);
                 return;
             }
@@ -74,8 +75,9 @@ public class ECCheerUp : MonoBehaviour
 
             //단원 평가를 봐야해요
         }
-            ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
 
+        ECPlayerStatManager.Instance.UpdateStatCheer();
+        ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
     }
 
     public void PlayAnimation()
