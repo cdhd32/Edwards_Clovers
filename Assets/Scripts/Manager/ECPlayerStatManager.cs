@@ -322,7 +322,12 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         for (int i = 1; i < playerStats.Length; i++)
         {
             if (playerStats[i].data < lowest.data)
-                lowest = playerStats[i];
+            {
+                if (i != (int)PlayerStatType.LUK)
+                {
+                    lowest = playerStats[i];
+                }
+            }
         }
 
         return lowest.dataName;

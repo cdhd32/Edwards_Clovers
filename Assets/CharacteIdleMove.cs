@@ -17,11 +17,6 @@ public class CharacteIdleMove : MonoBehaviour, IPointerDownHandler
     RectTransform rect;
     Tween idleMoveTween;
     Tween idleScaleTween;
-    void Awake()
-    {
-        Image img = GetComponent<Image>();
-        img.alphaHitTestMinimumThreshold = 0.1f; 
-    }
 
     void Start()
     {

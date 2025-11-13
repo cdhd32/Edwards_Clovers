@@ -12,6 +12,8 @@ public class ECCloverGame : ECMiniGameBase
     //손을 드래그로 움직이기
     //잡아서 옮길 수 있음
 
+    public Texture2D maskTexture;
+
     public RectTransform panel;
     public ECClover threeLeafPrefab;
     public ECClover fourLeafPrefab;
@@ -86,9 +88,10 @@ public class ECCloverGame : ECMiniGameBase
 
         for (int i = 0; i < cloverCount; i++)
         {
-            float x = Random.Range(-panelSize.x / 2 + cloverPadding, panelSize.x / 2 - cloverPadding);
-            float y = Random.Range(-panelSize.y / 2 + cloverPadding, panelSize.y / 2 - cloverPadding);
-            Vector2 position = new Vector2(x, y);
+            //float x = Random.Range(-panelSize.x / 2 + cloverPadding, panelSize.x / 2 - cloverPadding);
+           //float y = Random.Range(-panelSize.y / 2 + cloverPadding, panelSize.y / 2 - cloverPadding);
+            Vector2 position = GetRandomPointFromMask();
+            // position = new Vector2(x, y);
 
             bool isFourLeaf = false;
             for(int j = 0; j<correctIndex.Length; ++j)
@@ -106,7 +109,7 @@ public class ECCloverGame : ECMiniGameBase
             clovers[i] = clover;
             RectTransform rt = clover.GetComponent<RectTransform>();
             rt.anchoredPosition = position;
-            rt.pivot = new Vector2(0.5f, -0.5f);
+            //rt.pivot = new Vector2(0.5f, -0.5f);
 
             int index = i;
             if (isFourLeaf)
@@ -122,6 +125,31 @@ public class ECCloverGame : ECMiniGameBase
                 clover.SetSprite(threeLeafSprites[Random.Range(0, threeLeafSprites.Length)]);
             }
         }
+    }
+
+    Vector2 GetRandomPointFromMask()
+    {
+        int width = maskTexture.width;
+        int height = maskTexture.height;
+
+        for (int i = 0; i < 1000; i++)
+        {
+            int x = Random.Range(0, width);
+            int y = Random.Range(0, height);
+
+            if (maskTexture.GetPixel(x, y).a > 0.5f) // 흰색 영역
+            {
+                Vector2 uiPos = new Vector2(
+                    (float)x / width * Screen.width,
+                    (float)y / height * Screen.height
+                );
+                uiPos.x = uiPos.x - (Screen.width /2);
+                uiPos.y = uiPos.y - (Screen.height / 2);
+                return uiPos;
+            }
+        }
+
+        return Vector2.zero;
     }
 
     private void OnCloverClicked(int index)

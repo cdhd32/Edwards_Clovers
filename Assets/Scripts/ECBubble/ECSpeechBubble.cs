@@ -43,7 +43,6 @@ public class ECSpeechBubble : MonoBehaviour
     public TextMeshProUGUI tmp;
     public Image bubbleImage;
     public Image edwardImage;
-    public Sprite[] bubbleSprites; // 이미지 받고 추가
     public Sprite[] edwardSprites; // 이미지 받고 추가
     private Tweener tween;
     public float typingSpeed = 2f;
@@ -98,7 +97,7 @@ public class ECSpeechBubble : MonoBehaviour
         string val = b.value;
         //이미지 추가 후 변경
         //bubbleImage.sprite = bubbleSprites[b.bubbleSprType];
-        //edwardImage.sprite = edwardSprites[b.edwardSprType];
+        edwardImage.sprite = edwardSprites[b.edwardSprType];
         if (intType == (int)SpeechType.IDLE && resultType == 10001)
         {
             ECPlayerStatManager manager = ECPlayerStatManager.Instance;
@@ -127,10 +126,22 @@ public class ECSpeechBubble : MonoBehaviour
         ChangeSpeechBubble((EventType)state, (EResultState)result);
     }
 
+    private void RefreshSpeechBubble()
+    {
+        int state = (int)SpeechType._MAX;
+        PlayerPrefs.SetInt("state", state);
+        int result = PlayerPrefs.GetInt("result");
+        if (result > 0)
+        {
+            result--;
+        }
+        ChangeSpeechBubble((EventType)state, (EResultState)result);
+    }
+
     public void OnClickBtnSpeechBubble()
     {
         DOTween.Kill(tween);
-        ChangeSpeechBubble();
+        RefreshSpeechBubble();
     }
     private void TMPDOText(TextMeshProUGUI tmp, float duration)
     {

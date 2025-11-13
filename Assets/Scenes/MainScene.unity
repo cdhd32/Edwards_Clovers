@@ -1658,8 +1658,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -40, y: -40}
+  m_AnchoredPosition: {x: 0, y: 2.5}
+  m_SizeDelta: {x: -40, y: -35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &969585870
 MonoBehaviour:
@@ -1708,8 +1708,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2459,7 +2459,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -960, y: 0}
+  m_AnchoredPosition: {x: -710, y: 0}
   m_SizeDelta: {x: 1920, y: 1032}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1251587985
@@ -2482,9 +2482,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9fdccfa4f78e29e408307f846e266559, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b41581b4f8ba7ba4082f4d97bf85d3cf, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -4395,11 +4395,11 @@ RectTransform:
   - {fileID: 969585869}
   m_Father: {fileID: 1779468173}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -273, y: 223.00574}
-  m_SizeDelta: {x: 359.1122, y: 217.9885}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 414, y: -206}
+  m_SizeDelta: {x: 510, y: 284}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &2113815317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4420,8 +4420,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b3c7627617bcd8a458680a0f27a06a49, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4454,8 +4454,15 @@ MonoBehaviour:
   tmp: {fileID: 969585870}
   bubbleImage: {fileID: 2113815317}
   edwardImage: {fileID: 1251587985}
-  bubbleSprites: []
-  edwardSprites: []
+  edwardSprites:
+  - {fileID: 21300000, guid: 6a6501a0cfc0b0141837ed4f8627978c, type: 3}
+  - {fileID: 21300000, guid: b41581b4f8ba7ba4082f4d97bf85d3cf, type: 3}
+  - {fileID: 21300000, guid: 6f3b0e625df9f024d87562361f1a0864, type: 3}
+  - {fileID: 21300000, guid: 42ca4037230bde14d9a4820526ea9168, type: 3}
+  - {fileID: 21300000, guid: 4d804ff8cda12b942a16a3354c568c14, type: 3}
+  - {fileID: 21300000, guid: aa1025e5f91358a4f83e4f327a0cee89, type: 3}
+  - {fileID: 21300000, guid: c4522a12cce58474fa5bdf992cae2dc7, type: 3}
+  typingSpeed: 2
 --- !u!114 &2113815320
 MonoBehaviour:
   m_ObjectHideFlags: 0
