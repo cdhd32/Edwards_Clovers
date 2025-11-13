@@ -77,6 +77,7 @@ public class ECCheerUp : MonoBehaviour
         }
 
         ECPlayerStatManager.Instance.UpdateStatCheer();
+        PlayerPrefs.SetInt("state", 0);
         ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
     }
 

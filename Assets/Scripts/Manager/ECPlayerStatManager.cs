@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 [Serializable]
@@ -312,5 +313,18 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         //의욕 게이지 최대치로 변경
         SetPlayerStat(PlayerStatType.MOT, ECConst.MOTVIATION_MAX);
         UpdateTimeStat();
+    }
+
+    public string GetLowestStatSubject()
+    {
+        PlayerStatData lowest = playerStats[0];
+
+        for (int i = 1; i < playerStats.Length; i++)
+        {
+            if (playerStats[i].data < lowest.data)
+                lowest = playerStats[i];
+        }
+
+        return lowest.dataName;
     }
 }

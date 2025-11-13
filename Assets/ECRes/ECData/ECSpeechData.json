@@ -1,0 +1,124 @@
+{
+  "texts": [
+    {
+      "eventType": 0,
+      "desc": "KOR",
+      "key": 10001,
+      "value": "이 정도는 간단하지",
+      "bubbleSprType": 0,
+      "edwardSprType": 0
+    },
+    {
+      "eventType": 0,
+      "desc": "KOR",
+      "key": 10002,
+      "value": "자꾸 집중이 안되는 것 같아",
+      "bubbleSprType": 0,
+      "edwardSprType": 0
+    },
+    {
+      "eventType": 1,
+      "desc": "ENG",
+      "key": 10001,
+      "value": "Conception 개념, opposition 대립, irregular 불규칙적인…",
+      "bubbleSprType": 0,
+      "edwardSprType": 0
+    },
+    {
+      "eventType": 1,
+      "desc": "ENG",
+      "key": 10002,
+      "value": "어휘 공부가 많이 부족하네.",
+      "bubbleSprType": 0,
+      "edwardSprType": 0
+    },
+    {
+      "eventType": 2,
+      "desc": "MATH",
+      "key": 10001,
+      "value": "좋아 이정도라면..!",
+      "bubbleSprType": 0,
+      "edwardSprType": 0
+    },
+    {
+      "eventType": 2,
+      "desc": "MATH",
+      "key": 10002,
+      "value": "잔실수가 아직 많은 것 같네",
+      "bubbleSprType": 0,
+      "edwardSprType": 0
+    },
+    {
+      "eventType": 3,
+      "desc": "SCI",
+      "key": 10001,
+      "value": "이번엔 성공적으로 끝나서 다행이다.",
+      "bubbleSprType": 0,
+      "edwardSprType": 0
+    },
+    {
+      "eventType": 3,
+      "desc": "SCI",
+      "key": 10002,
+      "value": "뭐가 문제였던거지...",
+      "bubbleSprType": 0,
+      "edwardSprType": 0
+    },
+    {
+      "eventType": 4,
+      "desc": "IDLE",
+      "key": 10001,
+      "value": " 공부가 부족해 보이네.",
+      "bubbleSprType": 0,
+      "edwardSprType": 0
+    },
+    {
+      "eventType": 4,
+      "desc": "IDLE",
+      "key": 10002,
+      "value": "영단어는 틈틈히 외워두는 게 좋겠지.",
+      "bubbleSprType": 0,
+      "edwardSprType": 0
+    },
+    {
+      "eventType": 4,
+      "desc": "IDLE",
+      "key": 10003,
+      "value": "이건 나중에 갈릴레이한테 물어봐야겠다.",
+      "bubbleSprType": 0,
+      "edwardSprType": 0
+    },
+    {
+      "eventType": 4,
+      "desc": "IDLE",
+      "key": 10004,
+      "value": "Conception 개념, opposition 대립, irregular 불규칙적인…",
+      "bubbleSprType": 0,
+      "edwardSprType": 0
+    },
+    {
+      "eventType": 4,
+      "desc": "IDLE",
+      "key": 10005,
+      "value": "계산 실수가 많네… 주의해야겠어.",
+      "bubbleSprType": 0,
+      "edwardSprType": 0
+    },
+    {
+      "eventType": 4,
+      "desc": "IDLE",
+      "key": 10006,
+      "value": "아... 코코 보고 싶다",
+      "bubbleSprType": 0,
+      "edwardSprType": 0
+    },
+    {
+      "eventType": 4,
+      "desc": "IDLE",
+      "key": 10007,
+      "value": "코코랑 친구들은 어디 간거지..?",
+      "bubbleSprType": 0,
+      "edwardSprType": 0
+    }
+  ]
+}

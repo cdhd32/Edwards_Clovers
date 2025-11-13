@@ -47,4 +47,9 @@ public class ECFirstSceneUIController : MonoBehaviour
         progressText.DOFade(0.1f, 1.75f).SetLoops(-1, LoopType.Yoyo);
     }
 
+    public void OnClickBtnSkip()
+    {
+        ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
+    }
+
 }
