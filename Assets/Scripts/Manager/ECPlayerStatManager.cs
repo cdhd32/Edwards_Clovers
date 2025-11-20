@@ -320,7 +320,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
     //의욕 충전 후 스탯 업데이트
     public void UpdateStat_EndExam()
     {
-        playerStats[(int)PlayerStatType.CLASS].data = 4;
+        playerStats[(int)PlayerStatType.CLASS].data = ECConst.CLASS_PER_DAY;
         AddPlayerStat(PlayerStatType.LEFTDAY, -1); //남은 일수 감소
         SaveStatData();
     }
