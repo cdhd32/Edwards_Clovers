@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ECExam : MonoBehaviour
 {
@@ -9,17 +11,26 @@ public class ECExam : MonoBehaviour
     private int currentThreshold;
 
     private int[] playerScores = new int[4]; // 국수과영
+    private int[] playerStats = new int[5]; // 국수과영+행운
     private int[] playerRank = new int[4]; // 국수과영
+
+    public Slider[] edwardSliders;
+    public Slider[] enemySliders;
+    public Image[] edwardMaxImage;
+    public TextMeshProUGUI buttonTMP;
+
+    public GameObject defaultPanel;
+    public GameObject lastExamPanel;
+
+    public int ENEMY_SCORE = 550;
+    public int MAX_SCORE = 600;
 
     private bool isClick = true;
 
     private void Awake()
     {
         int leftDay = ECPlayerStatManager.Instance.GetPlayerStat(PlayerStatType.LEFTDAY);
-        //if(leftDay!=0)
-        //{
-        //    leftDay++;
-        //}
+        leftDay++;
         if (leftDay == ECConst.UNIT_TEST_DAY_0)
         {
             currentStage = 0;
@@ -30,13 +41,36 @@ public class ECExam : MonoBehaviour
         }
         else if (leftDay == ECConst.MIDTERM_DAY)
         {
-            currentStage = 2;
+            currentStage = 2; 
+            buttonTMP.SetText("엔딩으로");
             //중간고사
         }
-        ////임시
-        //currentStage = 0;
+
+        Debug.Log("남은 날짜:" + leftDay);
         currentThreshold = scorethreshold[currentStage];
-        SetReportBoxs();
+
+
+
+        //나중에 주석풀기
+        if (currentStage != 2)
+        {
+            defaultPanel.SetActive(true);
+            lastExamPanel.SetActive(false);
+            SetReportBoxs();
+        }
+        else
+        {
+            defaultPanel.SetActive(false);
+            lastExamPanel.SetActive(true);
+        }
+        for (int i = 0; i < 4; ++i)
+        {
+            edwardSliders[i].maxValue = MAX_SCORE;
+            enemySliders[i].maxValue = MAX_SCORE;
+            enemySliders[i].value = ENEMY_SCORE;
+        }
+        SetEndingBox();
+        //}
         Invoke("ButtonActive", 2f);
     }
 
@@ -50,7 +84,6 @@ public class ECExam : MonoBehaviour
         if (isClick) return;
         if(currentStage == 2)
         {
-            Debug.Log("이따 엔딩컷신으로 연결");
             ECGlobalSceneManager.Instance.LoadScene(SceneType.ENDING);
             return;
         }
@@ -58,21 +91,54 @@ public class ECExam : MonoBehaviour
         isClick = true;
     }
 
-    private void SetReportBoxs()
+    private void SetEndingBox()
+    {
+        GetPlayerScores();
+        int luckScore = playerStats[4] / 3;
+        edwardSliders[0].value = playerStats[0] + luckScore;
+        edwardSliders[1].value = playerStats[2] + luckScore;
+        edwardSliders[2].value = playerStats[1] + luckScore;
+        edwardSliders[3].value = playerStats[3] + luckScore;
+
+        int result = 0;
+        for(int i=0; i<4; i++)
+        {
+            if (edwardSliders[i].value >= ENEMY_SCORE)
+            {
+                if (edwardSliders[i].value == MAX_SCORE)
+                {
+                    edwardMaxImage[i].enabled = true;
+                }
+                result++;
+            }
+        }
+        
+        if(result >=3)
+        {
+            Debug.Log("승리!");
+        }
+        else
+        {
+            Debug.Log("패배!");
+        }
+    }
+
+    private void GetPlayerScores()
     {
         ECPlayerStatManager manager = ECPlayerStatManager.Instance;
 
-        int krScore = manager.GetPlayerStat(PlayerStatType.KOR);
-        playerScores[0] = GetScore(krScore);
+        playerStats[0] = manager.GetPlayerStat(PlayerStatType.KOR);
+        playerScores[0] = GetScore(playerStats[0]);
 
-        int mathScore = manager.GetPlayerStat(PlayerStatType.MATH);
-        playerScores[1] = GetScore(mathScore);
+        playerStats[1] = manager.GetPlayerStat(PlayerStatType.MATH);
+        playerScores[1] = GetScore(playerStats[1]);
 
-        int sciScore = manager.GetPlayerStat(PlayerStatType.SCI);
-        playerScores[2] = GetScore(sciScore);
-        int engScore = manager.GetPlayerStat(PlayerStatType.ENG);
-        playerScores[3] = GetScore(engScore);
+        playerStats[2] = manager.GetPlayerStat(PlayerStatType.SCI);
+        playerScores[2] = GetScore(playerStats[2]);
+        playerStats[3] = manager.GetPlayerStat(PlayerStatType.ENG);
+        playerScores[3] = GetScore(playerStats[3]);
         int luckStat = manager.GetPlayerStat(PlayerStatType.LUK);
+        playerStats[4] = luckStat;
         int plusVal = 0;
         if (luckStat >= 20)
         {
@@ -83,7 +149,6 @@ public class ECExam : MonoBehaviour
             }
         }
 
-
         for (int i = 0; i < playerScores.Length; i++)
         {
             playerScores[i] += plusVal;
@@ -93,13 +158,16 @@ public class ECExam : MonoBehaviour
             }
             playerRank[i] = GetRank(playerScores[i]);
         }
+    }
 
+    private void SetReportBoxs()
+    {
+        GetPlayerScores();
         //과수 순서바꿔서
         reportBox[0].SetReportBox("국어", playerScores[0], playerRank[0]);
         reportBox[2].SetReportBox("수학", playerScores[1], playerRank[1]);
         reportBox[1].SetReportBox("과학", playerScores[2], playerRank[2]);
         reportBox[3].SetReportBox("영어", playerScores[3], playerRank[3]);
-
     }
 
     private int GetScore(int stat)
@@ -118,8 +186,6 @@ public class ECExam : MonoBehaviour
                 score--;
             }
         }
-
-
         return 0;
     }
 

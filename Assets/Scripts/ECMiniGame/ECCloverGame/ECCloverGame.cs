@@ -109,7 +109,7 @@ public class ECCloverGame : ECMiniGameBase
             clovers[i] = clover;
             RectTransform rt = clover.GetComponent<RectTransform>();
             rt.anchoredPosition = position;
-            //rt.pivot = new Vector2(0.5f, -0.5f);
+            rt.pivot = new Vector2(0.5f, 0.5f);
 
             int index = i;
             if (isFourLeaf)
