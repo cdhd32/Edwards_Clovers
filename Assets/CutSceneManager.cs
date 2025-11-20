@@ -11,6 +11,17 @@ public class CutSceneManager : MonoBehaviour, IPointerDownHandler
     private int groupClickCount = 0; // ÇöÀç ±×·ì ³» Å¬¸¯ È½¼ö
     private int globalIndex = 0;     // ÀüÃ¼ ÄÆ¾À ÀÎµ¦½º (cutsceneObjects ±âÁØ)
 
+    public void Start()
+    {
+        // Ã¹ ¹øÂ° ÄÆ¾ÀºÎÅÍ ½ÃÀÛ
+        if (cutsceneObjects.Count > 0)
+        {
+            cutsceneObjects[0].SetActive(true);
+            globalIndex = 1;
+            groupClickCount = 1;
+        }
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         // ¸ðµç ÄÆ¾ÀÀÌ ³¡³µ´Ù¸é Á¾·á
