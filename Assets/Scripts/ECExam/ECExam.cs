@@ -20,15 +20,15 @@ public class ECExam : MonoBehaviour
         //{
         //    leftDay++;
         //}
-        if (leftDay == 5)
+        if (leftDay == ECConst.UNIT_TEST_DAY_0)
         {
             currentStage = 0;
         }
-        else if (leftDay == 2)
+        else if (leftDay == ECConst.UNIT_TEST_DAY_1)
         {
             currentStage = 1;
         }
-        else if (leftDay == 0)
+        else if (leftDay == ECConst.MIDTERM_DAY)
         {
             currentStage = 2;
             //중간고사

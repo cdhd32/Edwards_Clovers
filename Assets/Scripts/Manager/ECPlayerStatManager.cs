@@ -357,40 +357,31 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         int classVal = GetPlayerStat(PlayerStatType.CLASS);
         Debug.Log("남은 날 :" + leftDayVal + "교시" + classVal);
 
-        if (classVal == 4 || leftDayVal <= 0)
+        //마지막 교시거나 d - day일 때
+        if (leftDayVal == ECConst.UNIT_TEST_DAY_0 || 
+            leftDayVal == ECConst.UNIT_TEST_DAY_1 ||
+            leftDayVal == ECConst.MIDTERM_DAY)
         {
-            //마지막 교시거나 d - day일 때
-            if (leftDayVal == 5 || leftDayVal == 2 || leftDayVal == 1)
+            if (classVal == ECConst.CLASS_PER_DAY)
             {
-                if (classVal == 4)
-                {
-                    UpdateStat(resultState, conditionType);
-                    ECGlobalSceneManager.Instance.LoadScene(SceneType.EXAM);
-                    return;
-                }
-
-                if (leftDayVal == 0)
-                {
-                    UpdateStat(resultState, conditionType);
-                    ECGlobalSceneManager.Instance.LoadScene(SceneType.EXAM);
-                    return;
-                }
+                UpdateStat(resultState, conditionType);
+                ECGlobalSceneManager.Instance.LoadScene(SceneType.EXAM);
+                return;
             }
 
-            UpdateStat(resultState, conditionType);
-            //응원 이벤트인 경우 말풍선 상태 초기화
-            if (resultState == EventType.LUK)
-                PlayerPrefs.SetInt("state", 0);
-            ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
+            if (leftDayVal == 0)
+            {
+                UpdateStat(resultState, conditionType);
+                ECGlobalSceneManager.Instance.LoadScene(SceneType.EXAM);
+                return;
+            }
         }
-        else
-        {
-            UpdateStat(resultState, conditionType);
-            //응원 이벤트인 경우 말풍선 상태 초기화
-            if (resultState == EventType.LUK)
-                PlayerPrefs.SetInt("state", 0);
-            ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
-        }
+
+        UpdateStat(resultState, conditionType);
+        //응원 이벤트인 경우 말풍선 상태 초기화
+        if (resultState == EventType.LUK)
+            PlayerPrefs.SetInt("state", 0);
+        ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
     }
 
 
