@@ -225,6 +225,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bc04e27b81c088b4fa469c155fd6eb23, type: 3}
   - {fileID: 21300000, guid: 7f2f577a700a98149bc52e1f64cb18b7, type: 3}
   numBar: {fileID: 7190776982369988932}
+  arrowSprite: {fileID: -8280892129696796923, guid: 52f863e88e868a34aaa824c2fc510b9f, type: 3}
 --- !u!1 &990480749810740966
 GameObject:
   m_ObjectHideFlags: 0

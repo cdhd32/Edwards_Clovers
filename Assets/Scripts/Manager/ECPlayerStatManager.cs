@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Reflection;
 using UnityEngine;
 
 [Serializable]
@@ -56,6 +57,8 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
 {
     [NonSerialized] public PlayerStatData[] playerStats;
 
+    private int[] playerDataPriv = null;
+
     private BehaviorEventData[] behaviorEventData;
 
     public void Init()
@@ -81,11 +84,13 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
                     plainString = textAsset.text;
 
                     playerStats = JSONHelper.FromJson<PlayerStatData>(plainString);
+                    SavePrivStatData();
                 }
             }
             else
             {
                 playerStats = JSONHelper.FromJson<PlayerStatData>(plainString);
+                SavePrivStatData();
             }
 
             Debug.Log($"PlayerStatManager.LoadStatData() Data Loaded");
@@ -98,8 +103,9 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
             {
                 //파일이 없으면 새로 생성
                 playerStats = JSONHelper.FromJson<PlayerStatData>(textAsset.text);
+                SavePrivStatData();
             }
-
+            
             SaveStatData();
             Debug.Log($"PlayerStatManager.LoadStatData() Data Created");
         }
@@ -115,6 +121,18 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         File.WriteAllText(path, plainString);
 
         Debug.Log($"PlayerStatManager.SaveStatData() Data Saved");
+    }
+
+    //수정 전 스탯 데이터 저장
+    private void SavePrivStatData()
+    {
+        if (playerDataPriv == null)
+            playerDataPriv = new int[(int)PlayerStatType._MAX];
+
+        for (int i = 0; i < (int)PlayerStatType._MAX; i++)
+        {
+            playerDataPriv[i] = playerStats[i].data;
+        }
     }
 
     public void DeleteStatData()
@@ -197,6 +215,8 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         if (index < 0 || index >= (int)PlayerStatType._MAX)
             return;
 
+        SavePrivStatData();
+
         playerStats[index].data += amount;
         if (playerStats[index].data < 0)
             playerStats[index].data = 0;
@@ -216,6 +236,8 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
     {
         if (index < 0 || index >= (int)PlayerStatType._MAX)
             return;
+
+        SavePrivStatData();
 
         playerStats[index].data = amount;
 
@@ -256,6 +278,24 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
 
         return playerStats[index].data;
     }
+
+    public int GetplayerStatPriv(PlayerStatType statType)
+    {
+        return GetPlayerStatPriv((int)statType);
+    }
+
+    //수정 직전 스탯 데이터 반환
+    public int GetPlayerStatPriv(int index)
+    {
+        if (index < 0 || index >= (int)PlayerStatType._MAX)
+        {
+            //Debug.Log($"PlayerStatManager.GetPlayerStat() Invailed Index");
+            return -1;
+        }
+
+        return playerDataPriv[index];
+    }
+
 
     public string GetPlayerStatName(PlayerStatType statType)
     {
