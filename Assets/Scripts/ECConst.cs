@@ -8,6 +8,7 @@ public class ECConst
     public static readonly int CLASS_PER_DAY = 4;
 
     //단원 평가 및 중간고사 날짜
+    public static readonly int INIT_DAY = 7;
     public static readonly int UNIT_TEST_DAY_0 = 5;
     public static readonly int UNIT_TEST_DAY_1 = 4;
     public static readonly int MIDTERM_DAY = 1;
