@@ -40,9 +40,4 @@ public class ECMainSceneManager : ECSingleton<ECMainSceneManager>
     {
         return playerStatManager.GetPlayerStat(PlayerStatType.MOT);
     }
-
-    public void SetPlayerStat(EventType eventType, ConditionType condition)
-    {
-        playerStatManager.SetPlayerStatByEvent(eventType, condition);
-    }
 }

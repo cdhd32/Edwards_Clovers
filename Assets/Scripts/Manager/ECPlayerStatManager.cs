@@ -1,7 +1,5 @@
 using System;
 using System.IO;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 [Serializable]
@@ -278,10 +276,30 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
     //행동 이벤트 후 스탯 업데이트
     public void UpdateStat(EventType eventType, ConditionType conditionType)
     {
-        //의욕 게이지 차감
-        AddPlayerStat(PlayerStatType.MOT, -ECConst.MOTVIATION_PAY);
-        SetPlayerStatByEvent(eventType, conditionType);
-        UpdateTimeStat();
+        //의욕 게이지 증가/차감
+        if (eventType == EventType.LUK)
+        {
+            //행운 이벤트일 때는 의욕 게이지 최대치로 변경
+            AddPlayerStat(PlayerStatType.MOT, ECConst.MOTVIATION_MAX);
+        }
+        else
+        {
+            //그 외에는 의욕 게이지 차감 및 이벤트 스탯 증가
+            AddPlayerStat(PlayerStatType.MOT, -ECConst.MOTVIATION_PAY);
+            SetPlayerStatByEvent(eventType, conditionType);
+        }
+
+        //1교시 증가
+        AddPlayerStat(PlayerStatType.CLASS, 1);
+
+        //4교시가 지나면 하루 차감, 1교시로 초기화
+        if (playerStats[(int)PlayerStatType.CLASS].data > ECConst.CLASS_PER_DAY)
+        {
+            playerStats[(int)PlayerStatType.CLASS].data = 1;
+            AddPlayerStat(PlayerStatType.LEFTDAY, -1); //남은 일수 감소
+        }
+
+        SaveStatData();
     }
 
     public void UpdateTimeStat()
@@ -332,4 +350,48 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
 
         return lowest.dataName;
     }
+
+    public void GoNextTurn(EventType resultState, ConditionType conditionType = ConditionType.BAD)
+    {
+        int leftDayVal = GetPlayerStat(PlayerStatType.LEFTDAY);
+        int classVal = GetPlayerStat(PlayerStatType.CLASS);
+        Debug.Log("남은 날 :" + leftDayVal + "교시" + classVal);
+
+        if (classVal == 4 || leftDayVal <= 0)
+        {
+            //마지막 교시거나 d - day일 때
+            if (leftDayVal == 5 || leftDayVal == 2 || leftDayVal == 1)
+            {
+                if (classVal == 4)
+                {
+                    UpdateStat(resultState, conditionType);
+                    ECGlobalSceneManager.Instance.LoadScene(SceneType.EXAM);
+                    return;
+                }
+
+                if (leftDayVal == 0)
+                {
+                    UpdateStat(resultState, conditionType);
+                    ECGlobalSceneManager.Instance.LoadScene(SceneType.EXAM);
+                    return;
+                }
+            }
+
+            UpdateStat(resultState, conditionType);
+            //응원 이벤트인 경우 말풍선 상태 초기화
+            if (resultState == EventType.LUK)
+                PlayerPrefs.SetInt("state", 0);
+            ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
+        }
+        else
+        {
+            UpdateStat(resultState, conditionType);
+            //응원 이벤트인 경우 말풍선 상태 초기화
+            if (resultState == EventType.LUK)
+                PlayerPrefs.SetInt("state", 0);
+            ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
+        }
+    }
+
+
 }
