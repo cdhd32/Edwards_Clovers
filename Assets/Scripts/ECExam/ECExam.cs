@@ -31,11 +31,8 @@ public class ECExam : MonoBehaviour
     {
         int leftDay = ECPlayerStatManager.Instance.GetPlayerStat(PlayerStatType.LEFTDAY);
         leftDay++;
-        if (leftDay == ECConst.UNIT_TEST_DAY_0)
-        {
-            currentStage = 0;
-        }
-        else if (leftDay == ECConst.UNIT_TEST_DAY_1)
+
+        if (leftDay == ECConst.UNIT_TEST_DAY_1)
         {
             currentStage = 1;
         }
