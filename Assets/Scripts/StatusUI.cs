@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class StatusUI : MonoBehaviour
 {
     public TMP_Text nameText;
-    public TMP_Text numText;
 
     public Image rankImg;
     public List<Sprite> rankList;
@@ -24,6 +23,8 @@ public class StatusUI : MonoBehaviour
 
     private float animationSpeed = 0.25f;
 
+    private readonly float SCALE_VALUE_BAR = 75.0f;
+
     public void SetName(string name)
     {
         nameText.text = name;
@@ -31,12 +32,10 @@ public class StatusUI : MonoBehaviour
 
     public void DoSetNum(int num, int numPriv)
     {
-         numText.text = num.ToString()+" / "+((num/75+1)*75);
-
         string rankString = ChangeSpriteByNumber(ref rankSprite, num);
         string rankStringPriv = ChangeSpriteByNumber(ref rankSpritePriv, numPriv);
 
-        numBar.value = (num % 75.0f)/75f;
+        numBar.value = (num % SCALE_VALUE_BAR) / SCALE_VALUE_BAR;
 
         //랭크가 바뀌었을 때만 애니메이션 실행
         if (!rankString.Equals(rankStringPriv))
