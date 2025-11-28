@@ -61,9 +61,13 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
 
     private BehaviorEventData[] behaviorEventData;
 
+    private bool isFirstLoad = false;
+
     public void Init()
     {
         LoadEventData();
+        LoadStatData();
+        isFirstLoad = true;
     }
 
     public void LoadStatData()
@@ -84,13 +88,19 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
                     plainString = textAsset.text;
 
                     playerStats = JSONHelper.FromJson<PlayerStatData>(plainString);
-                    SavePrivStatData();
+                    
+                    if (!isFirstLoad)
+                        SavePrivStatData();
+                    
                 }
             }
             else
             {
                 playerStats = JSONHelper.FromJson<PlayerStatData>(plainString);
-                SavePrivStatData();
+
+                if (!isFirstLoad)
+                    SavePrivStatData();
+                
             }
 
             Debug.Log($"PlayerStatManager.LoadStatData() Data Loaded");
@@ -103,7 +113,9 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
             {
                 //파일이 없으면 새로 생성
                 playerStats = JSONHelper.FromJson<PlayerStatData>(textAsset.text);
-                SavePrivStatData();
+                
+                if (!isFirstLoad)
+                    SavePrivStatData();
             }
             
             SaveStatData();
@@ -131,7 +143,10 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
 
         for (int i = 0; i < (int)PlayerStatType._MAX; i++)
         {
-            playerDataPriv[i] = playerStats[i].data;
+            if (playerStats != null)
+                playerDataPriv[i] = playerStats[i].data;
+            else
+                playerDataPriv[i] = 0;
         }
     }
 
@@ -215,7 +230,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         if (index < 0 || index >= (int)PlayerStatType._MAX)
             return;
 
-        SavePrivStatData();
+        playerDataPriv[index] = playerStats[index].data;
 
         playerStats[index].data += amount;
         if (playerStats[index].data < 0)
@@ -224,7 +239,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         if (isSave)
             SaveStatData();
 
-        Debug.Log($"PlayerStatManager.SetPlayerStat() {playerStats[index].dataName} Changed : {playerStats[index].data}");
+        Debug.Log($"PlayerStatManager.AddPlayerStat() {playerStats[index].dataName} Changed : {playerStats[index].data}");
     }
 
     private void SetPlayerStat(PlayerStatType type, int amount, bool isSave = false)
@@ -237,7 +252,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         if (index < 0 || index >= (int)PlayerStatType._MAX)
             return;
 
-        SavePrivStatData();
+        playerDataPriv[index] = playerStats[index].data;
 
         playerStats[index].data = amount;
 
@@ -246,7 +261,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
 
         if (isSave)
             SaveStatData();
-        //Debug.Log($"PlayerStatManager.SetPlayerStat() {playerStats[index].dataName} Set : {playerStats[index].data}");
+        Debug.Log($"PlayerStatManager.SetPlayerStat() {playerStats[index].dataName} Set : {playerStats[index].data}");
     }
 
     public void SetPlayerStatByEvent(EventType eventType, ConditionType conditionType)

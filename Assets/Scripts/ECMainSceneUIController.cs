@@ -145,7 +145,7 @@ public class ECMainSceneUIController : MonoBehaviour
         {
             statPanels[i - 1].SetName(mainSceneManager.GetStautsName((PlayerStatType)i));
 
-            statPanels[i - 1].DoSetNum(mainSceneManager.GetStatusNum((PlayerStatType)i), mainSceneManager.GetStatusNum((PlayerStatType)i));
+            statPanels[i - 1].DoSetNum(mainSceneManager.GetStatusNum((PlayerStatType)i), mainSceneManager.GetStatusNumPriv((PlayerStatType)i));
         }
 
         motivationBar.value = mainSceneManager.GetMotivation() / 100.0f;                                    

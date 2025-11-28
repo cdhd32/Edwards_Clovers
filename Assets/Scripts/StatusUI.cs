@@ -1,5 +1,4 @@
 using DG.Tweening;
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -32,50 +31,55 @@ public class StatusUI : MonoBehaviour
 
     public void DoSetNum(int num, int numPriv)
     {
-        numText.text = num.ToString()+" / "+((num/75+1)*75);
+         numText.text = num.ToString()+" / "+((num/75+1)*75);
 
-        ChangeSpriteByNumber(ref rankSprite, num);
-        ChangeSpriteByNumber(ref rankSpritePriv, numPriv);
+        string rankString = ChangeSpriteByNumber(ref rankSprite, num);
+        string rankStringPriv = ChangeSpriteByNumber(ref rankSpritePriv, numPriv);
 
         numBar.value = (num % 75.0f)/75f;
 
-        DoRankSptireTransition();
+        //랭크가 바뀌었을 때만 애니메이션 실행
+        if (!rankString.Equals(rankStringPriv))
+            DoRankSptireTransition();
+        else
+            rankImg.sprite = rankSprite;
     }
 
-    private void ChangeSpriteByNumber(ref Sprite target, int num)
+    private string ChangeSpriteByNumber(ref Sprite target, int num)
     {
-        switch (ECUtils.GetRankString(num))
+        string rankStr = ECUtils.GetRankString(num);
+        switch (rankStr)
         {
             case "S":
                 target = rankList[0];
-                break;
+                return rankStr;
             case "A+":
                 target = rankList[1];
-                break;
+                return rankStr;
             case "A":
                 target = rankList[2];
-                break;
+                return rankStr;
             case "B+":
                 target = rankList[3];
-                break;
+                return rankStr;
             case "B":
                 target = rankList[4];
-                break;
+                return rankStr;
             case "C+":
                 target = rankList[5];
-                break;
+                return rankStr;
             case "C":
                 target = rankList[6];
-                break;
+                return rankStr;
             case "D+":
                 target = rankList[7];
-                break;
+                return rankStr;
             case "D":
                 target = rankList[8];
-                break;
+                return rankStr;
             default:
                 target = rankList[0];
-                break;
+                return rankStr;
         }
     }
 
@@ -85,14 +89,14 @@ public class StatusUI : MonoBehaviour
         if (seq == null)
             seq = DOTween.Sequence();
 
-        seq.Append(rankImg.transform.DOScale(0f, animationSpeed));
+        seq.Append(rankImg.transform.DOScale(0f, animationSpeed).SetEase(Ease.InCubic));
         seq.AppendCallback(() => rankImg.sprite = rankSpritePriv);
-        seq.Append(rankImg.transform.DOScale(1f, animationSpeed));
-        seq.Append(rankImg.transform.DOScale(0f, animationSpeed));
+        seq.Append(rankImg.transform.DOScale(1f, animationSpeed).SetEase(Ease.OutCubic));
+        seq.Append(rankImg.transform.DOScale(0f, animationSpeed).SetEase(Ease.InCubic));
         seq.AppendCallback(() => rankImg.sprite = arrowSprite);
-        seq.Append(rankImg.transform.DOScale(1f, animationSpeed));
-        seq.Append(rankImg.transform.DOScale(0f, animationSpeed));
+        seq.Append(rankImg.transform.DOScale(1f, animationSpeed).SetEase(Ease.OutCubic));
+        seq.Append(rankImg.transform.DOScale(0f, animationSpeed).SetEase(Ease.InCubic));
         seq.AppendCallback(() => rankImg.sprite = rankSprite);
-        seq.Append(rankImg.transform.DOScale(1f, animationSpeed));
+        seq.Append(rankImg.transform.DOScale(1f, animationSpeed).SetEase(Ease.OutCubic));
     }
 }
