@@ -6,6 +6,7 @@ public class CutSceneManager : MonoBehaviour, IPointerDownHandler
 {
     public List<GameObject> cutsceneObjects;
     public List<int> groupSizeList;
+    public bool isFirstScene;
 
     private int groupNumIndex = 0;  // 현재 그룹 인덱스
     private int groupClickCount = 0; // 현재 그룹 내 클릭 횟수
@@ -16,10 +17,21 @@ public class CutSceneManager : MonoBehaviour, IPointerDownHandler
         // 첫 번째 컷씬부터 시작
         if (cutsceneObjects.Count > 0)
         {
+            if (!isFirstScene)
+            {
+                int val = PlayerPrefs.GetInt("examResult");
+                if (val == 1)
+                {
+                    //베드엔딩
+                    return;
+                }
+            }
             cutsceneObjects[0].SetActive(true);
             globalIndex = 1;
             groupClickCount = 1;
         }
+
+
     }
 
     public void OnPointerDown(PointerEventData eventData)

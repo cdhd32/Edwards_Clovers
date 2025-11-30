@@ -6,5 +6,6 @@ public class ECFirstSceneManager : MonoBehaviour
     {
         //전역 매니저 초기화
         ECPlayerStatManager.Instance.Init();
+        PlayerPrefs.SetInt("examResult", -1);
     }
 }

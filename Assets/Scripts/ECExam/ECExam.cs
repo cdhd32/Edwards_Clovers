@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class ECExam : MonoBehaviour
 {
     public ECExamReportBox[] reportBox;
-    public ECPaperStacker stacker;
     private int currentStage = 0;
     private int[] scorethreshold = new int[3] { 150, 225, 375 };
     private int currentThreshold;
@@ -38,7 +37,7 @@ public class ECExam : MonoBehaviour
         }
         else if (leftDay == ECConst.MIDTERM_DAY)
         {
-            currentStage = 2; 
+            currentStage = 2;
             buttonTMP.SetText("엔딩으로");
             //중간고사
         }
@@ -79,7 +78,7 @@ public class ECExam : MonoBehaviour
     public void OnClickMainScene()
     {
         if (isClick) return;
-        if(currentStage == 2)
+        if (currentStage == 2)
         {
             ECGlobalSceneManager.Instance.LoadScene(SceneType.ENDING);
             return;
@@ -98,7 +97,7 @@ public class ECExam : MonoBehaviour
         edwardSliders[3].value = playerStats[3] + luckScore;
 
         int result = 0;
-        for(int i=0; i<4; i++)
+        for (int i = 0; i < 4; i++)
         {
             if (edwardSliders[i].value >= ENEMY_SCORE)
             {
@@ -109,13 +108,15 @@ public class ECExam : MonoBehaviour
                 result++;
             }
         }
-        
-        if(result >=3)
+
+        if (result >= 3)
         {
+            PlayerPrefs.SetInt("examResult", 0);
             Debug.Log("승리!");
         }
         else
         {
+            PlayerPrefs.SetInt("examResult", 1);
             Debug.Log("패배!");
         }
     }

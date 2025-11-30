@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -90,8 +91,8 @@ public class ECCloverGame : ECMiniGameBase
         {
             //float x = Random.Range(-panelSize.x / 2 + cloverPadding, panelSize.x / 2 - cloverPadding);
            //float y = Random.Range(-panelSize.y / 2 + cloverPadding, panelSize.y / 2 - cloverPadding);
-            Vector2 position = GetRandomPointFromMask();
-            // position = new Vector2(x, y);
+            //Vector2 position = GetRandomPointFromMask();
+            Vector2 position = GetPoissonPointFromMask(30);
 
             bool isFourLeaf = false;
             for(int j = 0; j<correctIndex.Length; ++j)
@@ -125,6 +126,58 @@ public class ECCloverGame : ECMiniGameBase
                 clover.SetSprite(threeLeafSprites[Random.Range(0, threeLeafSprites.Length)]);
             }
         }
+    }
+
+    Vector2 GetPoissonPointFromMask(float minDistance, int maxAttempts = 30)
+    {
+        List<Vector2> points = ListPool<Vector2>.New();
+
+        int width = maskTexture.width;
+        int height = maskTexture.height;
+
+        int attempts = 0;
+
+        while (attempts < maxAttempts)
+        {
+            int x = Random.Range(0, width);
+            int y = Random.Range(0, height);
+
+            if (maskTexture.GetPixel(x, y).a <= 0.5f)
+            {
+                attempts++;
+                continue;
+            }
+
+            Vector2 point = new Vector2(
+                (float)x / width * Screen.width,
+                (float)y / height * Screen.height
+            );
+
+            point.x -= Screen.width / 2;
+            point.y -= Screen.height / 2;
+
+            bool tooClose = false;
+            for (int i = 0; i < points.Count; i++)
+            {
+                if (Vector2.Distance(point, points[i]) < minDistance)
+                {
+                    tooClose = true;
+                    break;
+                }
+            }
+
+            if (!tooClose)
+            {
+                points.Add(point);
+                return point;
+            }
+
+            attempts++;
+        }
+
+        ListPool<Vector2>.Free(points);
+
+        return Vector2.zero;
     }
 
     Vector2 GetRandomPointFromMask()
