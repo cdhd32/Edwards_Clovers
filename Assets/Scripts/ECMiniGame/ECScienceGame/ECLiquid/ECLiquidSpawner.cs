@@ -22,7 +22,7 @@ public class ECLiquidSpawner : MonoBehaviour
 
     private void Awake()
     {
-        perfect = new int[2] { 70, 110 };
+        perfect = new int[2] { 60, 100 };
         great = new int[2] { 40, 140 };
         good = new int[2] { 10, 170 };
         circles = new List<ECLiquid>();
@@ -36,11 +36,10 @@ public class ECLiquidSpawner : MonoBehaviour
     }
     private void MakeTea()
     {
+        spawnPoint = SpawnPoint.position;
         for (int i = 0; i < totalSize; i++)
         {
-            spawnPoint = SpawnPoint.position;
-            tea = Instantiate(Tea, spawnPoint, Quaternion.identity);
-            tea.transform.SetParent(transform);
+            tea = Instantiate(Tea, spawnPoint, Quaternion.identity, transform);
             tea.gameObject.SetActive(false);
             circles.Add(tea);
         }
@@ -92,39 +91,4 @@ public class ECLiquidSpawner : MonoBehaviour
         return result;
     }
 
-    //public EResultState ReturnGameResult()
-    //{
-    //    EResultState result = EResultState.Count;
-    //    Debug.Log("°á°ú" + count);
-    //    if (count >= 140 && count <= 190)
-    //    {
-    //        result = EResultState.Perfect;
-    //    }
-    //    else if ((count <= 220 && count > 190) || (count < 140 && count > 120))
-    //    {
-    //        result = EResultState.Great;
-    //    }
-    //    else if ((count < 280 && count > 220) || (count < 120 && count > 80))
-    //    {
-    //        result = EResultState.Good;
-    //    }
-    //    else
-    //    {
-    //        result = EResultState.Bad;
-    //    }
-    //    return result;
-    //}
-
-
-    public void ResetTea()
-    {
-        count = 0;
-        foreach (ECLiquid liquid in circles)
-        {
-            randNum = Random.Range(0, 1);
-            spawnPoint = randNum == 0 ? transform.position : SpawnPoint.position;
-            liquid.transform.position = spawnPoint;
-            liquid.gameObject.SetActive(false);
-        }
-    }
 }
