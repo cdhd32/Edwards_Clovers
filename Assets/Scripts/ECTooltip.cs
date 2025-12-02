@@ -22,7 +22,7 @@ public class ECTooltip : MonoBehaviour
 
     public void OnClicKBtn_Close()
     {
-        panel.SetActive(false);
         Time.timeScale = 1;
+        panel.SetActive(false);
     }
 }

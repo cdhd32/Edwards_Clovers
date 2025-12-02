@@ -382,7 +382,6 @@ RectTransform:
   m_Children:
   - {fileID: 1707167052}
   - {fileID: 1333665746}
-  - {fileID: 1190663575}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1522,12 +1521,21 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 144643689}
+    m_TransformParent: {fileID: 1707167052}
     m_Modifications:
+    - target: {fileID: 69879092975388466, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1748374765586867875, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 1c82433fd556ff244a12be950bb33a23, type: 3}
+    - target: {fileID: 2564356458488450467, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
+      propertyPath: m_text
+      value: "\uADF8\uB9BC\uC744 \uBCF4\uACE0 \uC54C\uB9DE\uC740 \uB2E8\uC5B4\uB97C
+        \uB9DE\uCDB0\uBD10\uC720~!"
+      objectReference: {fileID: 0}
     - target: {fileID: 3832469131211421308, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
       propertyPath: m_Name
       value: ECTooltipPanel
@@ -1602,15 +1610,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9111639604449440614, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9111639604449440614, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9111639604449440614, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9111639604449440614, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2212,6 +2220,7 @@ RectTransform:
   - {fileID: 962296774}
   - {fileID: 1186003763}
   - {fileID: 1048045481}
+  - {fileID: 1190663575}
   - {fileID: 541696796}
   - {fileID: 1761704100}
   m_Father: {fileID: 144643689}

@@ -1407,10 +1407,19 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 883943058}
     m_Modifications:
+    - target: {fileID: 69879092975388466, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1748374765586867875, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: bc5cd9f2d8887814fa55a369d0ff5022, type: 3}
+    - target: {fileID: 2564356458488450467, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
+      propertyPath: m_text
+      value: "\uC601\uB2E8\uC5B4 \uCE74\uB4DC \uC9DD\uC744 \uB9DE\uCDB0\uBCF4\uC544\uC720
+        ~"
+      objectReference: {fileID: 0}
     - target: {fileID: 3832469131211421308, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
       propertyPath: m_Name
       value: ECTooltipPanel

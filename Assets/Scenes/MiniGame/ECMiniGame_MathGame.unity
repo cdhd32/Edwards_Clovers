@@ -1331,8 +1331,8 @@ RectTransform:
   - {fileID: 962296774}
   - {fileID: 1048045481}
   - {fileID: 1032304836}
-  - {fileID: 541696796}
   - {fileID: 2107198255}
+  - {fileID: 541696796}
   m_Father: {fileID: 144643689}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1475,9 +1475,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1707167052}
     m_Modifications:
+    - target: {fileID: 2564356458488450467, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
+      propertyPath: m_text
+      value: "\uC2DC\uAC04 \uB0B4\uC5D0 \uCD5C\uB300\uD55C \uB9CE\uC740 \uC218\uD559
+        \uBB38\uC81C\uB97C \uD478\uB294 \uAC70\uC5D0\uC720!"
+      objectReference: {fileID: 0}
     - target: {fileID: 3832469131211421308, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
       propertyPath: m_Name
       value: ECTooltipPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7026671269740265489, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7026671269740265489, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5230245307885083886}
+    - target: {fileID: 7026671269740265489, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClicKBtn_Close
+      objectReference: {fileID: 0}
+    - target: {fileID: 7026671269740265489, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ECTooltip, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9111639604449440614, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
       propertyPath: m_Pivot.x
@@ -1564,6 +1585,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
+--- !u!114 &5230245307885083886 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7047032653470417984, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
+  m_PrefabInstance: {fileID: 5230245307885083885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 679ada5485c01cc448ef0637e62cf677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7439064951701270517
 PrefabInstance:
   m_ObjectHideFlags: 0
