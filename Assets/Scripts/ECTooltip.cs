@@ -13,10 +13,11 @@ public class ECTooltip : MonoBehaviour
     {
         ECPlayerStatManager manager = ECPlayerStatManager.Instance;
         if (manager.playerStats == null) return;
-        if(manager.GetPlayerStat(type) == 0)
+        if (!manager.GetPlayMiniGame(type))
         {
             Time.timeScale = 0;
             panel.SetActive(true);
+            manager.PlayMiniGame(type);
         }
     }
 

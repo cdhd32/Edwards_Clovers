@@ -61,6 +61,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
     private int[] playerDataPriv = null;
 
     private BehaviorEventData[] behaviorEventData;
+    private bool[] tooltipData = new bool[(int)PlayerStatType._MAX];
 
     private bool isFirstLoad = false;
 
@@ -450,6 +451,17 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         if (resultState == EventType.CHEER)
             PlayerPrefs.SetInt("state", 0);
         ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
+    }
+
+    public void PlayMiniGame(PlayerStatType type)
+    {
+        tooltipData[(int)type] = true;
+    }
+
+    public bool GetPlayMiniGame(PlayerStatType type)
+    {
+        bool d = tooltipData[(int)type];
+        return d;
     }
 
 
