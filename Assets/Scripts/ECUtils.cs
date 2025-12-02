@@ -102,9 +102,9 @@ public class ECUtils
     public static string GetDDayString(int leftDays)
     {
         if (leftDays == 0)
-            return "중간고사\nD-Day";
+            return "D-Day";
         else
-            return $"중간고사\nD-{leftDays.ToString()}";
+            return $"D-{leftDays.ToString()}";
 
     }
 
