@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Reflection;
 using UnityEngine;
 
 [Serializable]
@@ -56,11 +57,17 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
 {
     [NonSerialized] public PlayerStatData[] playerStats;
 
+    private int[] playerDataPriv = null;
+
     private BehaviorEventData[] behaviorEventData;
+
+    private bool isFirstLoad = false;
 
     public void Init()
     {
         LoadEventData();
+        LoadStatData();
+        isFirstLoad = true;
     }
 
     public void LoadStatData()
@@ -81,11 +88,19 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
                     plainString = textAsset.text;
 
                     playerStats = JSONHelper.FromJson<PlayerStatData>(plainString);
+                    
+                    if (!isFirstLoad)
+                        SavePrivStatData();
+                    
                 }
             }
             else
             {
                 playerStats = JSONHelper.FromJson<PlayerStatData>(plainString);
+
+                if (!isFirstLoad)
+                    SavePrivStatData();
+                
             }
 
             Debug.Log($"PlayerStatManager.LoadStatData() Data Loaded");
@@ -98,8 +113,11 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
             {
                 //파일이 없으면 새로 생성
                 playerStats = JSONHelper.FromJson<PlayerStatData>(textAsset.text);
+                
+                if (!isFirstLoad)
+                    SavePrivStatData();
             }
-
+            
             SaveStatData();
             Debug.Log($"PlayerStatManager.LoadStatData() Data Created");
         }
@@ -115,6 +133,21 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         File.WriteAllText(path, plainString);
 
         Debug.Log($"PlayerStatManager.SaveStatData() Data Saved");
+    }
+
+    //수정 전 스탯 데이터 저장
+    private void SavePrivStatData()
+    {
+        if (playerDataPriv == null)
+            playerDataPriv = new int[(int)PlayerStatType._MAX];
+
+        for (int i = 0; i < (int)PlayerStatType._MAX; i++)
+        {
+            if (playerStats != null)
+                playerDataPriv[i] = playerStats[i].data;
+            else
+                playerDataPriv[i] = 0;
+        }
     }
 
     public void DeleteStatData()
@@ -197,6 +230,8 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         if (index < 0 || index >= (int)PlayerStatType._MAX)
             return;
 
+        playerDataPriv[index] = playerStats[index].data;
+
         playerStats[index].data += amount;
         if (playerStats[index].data < 0)
             playerStats[index].data = 0;
@@ -204,7 +239,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         if (isSave)
             SaveStatData();
 
-        Debug.Log($"PlayerStatManager.SetPlayerStat() {playerStats[index].dataName} Changed : {playerStats[index].data}");
+        Debug.Log($"PlayerStatManager.AddPlayerStat() {playerStats[index].dataName} Changed : {playerStats[index].data}");
     }
 
     private void SetPlayerStat(PlayerStatType type, int amount, bool isSave = false)
@@ -217,6 +252,8 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         if (index < 0 || index >= (int)PlayerStatType._MAX)
             return;
 
+        playerDataPriv[index] = playerStats[index].data;
+
         playerStats[index].data = amount;
 
         if (playerStats[index].data < 0)
@@ -224,7 +261,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
 
         if (isSave)
             SaveStatData();
-        //Debug.Log($"PlayerStatManager.SetPlayerStat() {playerStats[index].dataName} Set : {playerStats[index].data}");
+        Debug.Log($"PlayerStatManager.SetPlayerStat() {playerStats[index].dataName} Set : {playerStats[index].data}");
     }
 
     public void SetPlayerStatByEvent(EventType eventType, ConditionType conditionType)
@@ -256,6 +293,24 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
 
         return playerStats[index].data;
     }
+
+    public int GetplayerStatPriv(PlayerStatType statType)
+    {
+        return GetPlayerStatPriv((int)statType);
+    }
+
+    //수정 직전 스탯 데이터 반환
+    public int GetPlayerStatPriv(int index)
+    {
+        if (index < 0 || index >= (int)PlayerStatType._MAX)
+        {
+            //Debug.Log($"PlayerStatManager.GetPlayerStat() Invailed Index");
+            return -1;
+        }
+
+        return playerDataPriv[index];
+    }
+
 
     public string GetPlayerStatName(PlayerStatType statType)
     {
