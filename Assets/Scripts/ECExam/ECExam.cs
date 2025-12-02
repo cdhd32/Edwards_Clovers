@@ -170,21 +170,21 @@ public class ECExam : MonoBehaviour
 
     private int GetScore(int stat)
     {
-        int score = 0;
+        int score = 100;
         if (stat >= currentThreshold)
         {
-            score = 100;
             return score;
         }
         else
         {
-            while (stat > 0)
+            int diff = currentThreshold - stat;
+            while (diff > 0)
             {
-                stat -= 10;
+                diff -= 10;
                 score--;
             }
         }
-        return 0;
+        return score;
     }
 
     private int GetRank(int score)
@@ -208,15 +208,15 @@ public class ECExam : MonoBehaviour
         }
         else if (score < 80 && score > 64)
         {
-            rank = 12;
+            rank = UnityEngine.Random.Range(12,25);
         }
         else if (score < 65 && score > 39)
         {
-            rank = 32;
+            rank = UnityEngine.Random.Range(28,45);
         }
         else if (score < 40)
         {
-            rank = 78;
+            rank = UnityEngine.Random.Range(56, 78);
         }
 
         return rank;

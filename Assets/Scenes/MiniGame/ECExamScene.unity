@@ -652,7 +652,6 @@ MonoBehaviour:
   - {fileID: 1291269544}
   - {fileID: 1519394005}
   - {fileID: 1593431318}
-  stacker: {fileID: 0}
   edwardSliders:
   - {fileID: 1360062306}
   - {fileID: 466407026}
@@ -671,7 +670,7 @@ MonoBehaviour:
   buttonTMP: {fileID: 928445858}
   defaultPanel: {fileID: 1880342601}
   lastExamPanel: {fileID: 1725676261}
-  ENEMY_SCORE: 550
+  ENEMY_SCORE: 400
   MAX_SCORE: 600
 --- !u!224 &395973675 stripped
 RectTransform:

@@ -267,11 +267,11 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
     public void SetPlayerStatByEvent(EventType eventType, ConditionType conditionType)
     {
         int index = ECUtils.GetEventIndex(eventType, conditionType);
-        AddPlayerStat(PlayerStatType.KOR, behaviorEventData[index].korStat);
-        AddPlayerStat(PlayerStatType.ENG, behaviorEventData[index].engStat);
-        AddPlayerStat(PlayerStatType.MATH, behaviorEventData[index].mathStat);
-        AddPlayerStat(PlayerStatType.SCI, behaviorEventData[index].sciStat);
-        AddPlayerStat(PlayerStatType.LUK, behaviorEventData[index].lukStat);
+        AddPlayerStat(PlayerStatType.KOR, (int)(behaviorEventData[index].korStat*UnityEngine.Random.Range(1.2f, 1.25f)));
+        AddPlayerStat(PlayerStatType.ENG, (int)(behaviorEventData[index].engStat * UnityEngine.Random.Range(1.2f, 1.25f)));
+        AddPlayerStat(PlayerStatType.MATH, (int)(behaviorEventData[index].mathStat * UnityEngine.Random.Range(1.2f, 1.25f)));
+        AddPlayerStat(PlayerStatType.SCI, (int)(behaviorEventData[index].sciStat * UnityEngine.Random.Range(1.2f, 1.25f)));
+        AddPlayerStat(PlayerStatType.LUK, (int)(behaviorEventData[index].lukStat * UnityEngine.Random.Range(1.2f, 1.25f)));
 
         SaveStatData();
     }
