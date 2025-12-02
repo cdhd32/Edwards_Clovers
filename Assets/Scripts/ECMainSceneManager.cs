@@ -31,6 +31,11 @@ public class ECMainSceneManager : ECSingleton<ECMainSceneManager>
         return playerStatManager.GetPlayerStat((int)type);
     }
 
+    public int GetStatusNumPriv(PlayerStatType type)
+    {
+        return playerStatManager.GetPlayerStatPriv((int)type);
+    }
+
     public int GetStatusNum(int index)
     {
         return playerStatManager.GetPlayerStat(index);

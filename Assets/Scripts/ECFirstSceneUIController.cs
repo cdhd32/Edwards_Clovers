@@ -11,11 +11,12 @@ public class ECFirstSceneUIController : MonoBehaviour
     [SerializeField]
     private TMP_Text progressText;
 
-    [SerializeField]
-    private Button resetButton;
+    //리셋 버튼 사용 안함
+    //[SerializeField]
+    //private Button resetButton;
 
-    [SerializeField]
-    private TMP_Text resetButtonText;
+    //[SerializeField]
+    //private TMP_Text resetButtonText;
 
     [SerializeField]
     private Image fadeImage;
@@ -33,22 +34,26 @@ public class ECFirstSceneUIController : MonoBehaviour
             });
         });
 
-        resetButton.onClick.AddListener(() =>
-        {
-            ECPlayerStatManager.Instance.DeleteStatData();
+        //resetButton.onClick.AddListener(() =>
+        //{
+        //    ECPlayerStatManager.Instance.DeleteStatData();
 
-            resetButtonText.text = resetCompletionText;
-            resetButton.interactable = false;
-        });
+        //    resetButtonText.text = resetCompletionText;
+        //    resetButton.interactable = false;
+        //});
     }
 
     private void Start()
     {
+        ECPlayerStatManager.Instance.DeleteStatData();
+
         progressText.DOFade(0.1f, 1.75f).SetLoops(-1, LoopType.Yoyo);
     }
 
     public void OnClickBtnSkip()
     {
+        ECPlayerStatManager.Instance.DeleteStatData();
+
         ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
     }
 
