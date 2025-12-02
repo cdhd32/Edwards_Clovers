@@ -710,6 +710,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   friendsImage: {fileID: 1796138388}
   bgImageTr: {fileID: 86290608}
+  maskPanel: {fileID: 0}
+  targetHeight: 400
+  duration: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
