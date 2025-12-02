@@ -106,6 +106,7 @@ public class StatusUI : MonoBehaviour
         {
             rankUpImage.transform.DOScale(0.8f, 0f);
             rankUpImage.gameObject.SetActive(true);
+            rankImg.gameObject.SetActive(false);
         });
         rankSequence.Append(rankUpImage.transform.DOScale(1.2f, animationSpeed).SetEase(Ease.InCubic));
         rankSequence.AppendCallback(() =>
@@ -116,6 +117,7 @@ public class StatusUI : MonoBehaviour
         rankSequence.AppendCallback(() =>
         {
             rankUpImage.gameObject.SetActive(false);
+            rankImg.gameObject.SetActive(true);
         });
     }
 
