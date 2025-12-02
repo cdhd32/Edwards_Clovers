@@ -42,7 +42,7 @@ public class ECCheerUp : MonoBehaviour
 
         seq.OnComplete(() =>
         {
-            ECPlayerStatManager.Instance.GoNextTurn(EventType.LUK);
+            ECPlayerStatManager.Instance.GoNextTurn(EventType.CHEER);
         });
 
     }

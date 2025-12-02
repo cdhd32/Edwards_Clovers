@@ -43,7 +43,10 @@ public class StatusUI : MonoBehaviour
         string rankString = ChangeSpriteByNumber(ref rankSprite, num);
         string rankStringPriv = ChangeSpriteByNumber(ref rankSpritePriv, numPriv);
 
-        DoChangeValueBar(num, numPriv);
+        if (num != numPriv)
+            DoChangeValueBar(num, numPriv);
+        else
+            numBar.value = (num % SCALE_VALUE_BAR) / SCALE_VALUE_BAR;
 
         //랭크가 바뀌었을 때만 애니메이션 실행
         if (!rankString.Equals(rankStringPriv))
