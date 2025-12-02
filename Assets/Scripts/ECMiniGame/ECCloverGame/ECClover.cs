@@ -30,6 +30,7 @@ public class ECClover : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public void SetSprite(Sprite sp)
     {
         cloverImage.sprite = sp;
+        cloverImage.SetNativeSize();
     }
 
     public void FindCloverEvent()
