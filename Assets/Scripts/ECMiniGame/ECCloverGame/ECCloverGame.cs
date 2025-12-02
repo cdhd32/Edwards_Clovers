@@ -67,7 +67,7 @@ public class ECCloverGame : ECMiniGameBase
         }
         else if (foundCloverCount == 3)
         {
-            state = EResultState.Great;
+            state = EResultState.Perfect;
         }
         else if(foundCloverCount == 0)
         {

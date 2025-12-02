@@ -7,11 +7,12 @@ public class ECTooltip : MonoBehaviour
 
     private void OnEnable()
     {
-        ShowTooltip();
+        //ShowTooltip();
     }
     public void ShowTooltip()
     {
         ECPlayerStatManager manager = ECPlayerStatManager.Instance;
+        if (manager.playerStats == null) return;
         if(manager.GetPlayerStat(type) == 0)
         {
             panel.SetActive(true);
