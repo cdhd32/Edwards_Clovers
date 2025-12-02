@@ -66,8 +66,6 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
     public void Init()
     {
         LoadEventData();
-        LoadStatData();
-        isFirstLoad = true;
     }
 
     public void LoadStatData()
@@ -121,6 +119,9 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
             SaveStatData();
             Debug.Log($"PlayerStatManager.LoadStatData() Data Created");
         }
+
+        if (!isFirstLoad)
+            isFirstLoad = true;
     }
 
     public void SaveStatData()
