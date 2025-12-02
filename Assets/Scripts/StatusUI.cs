@@ -43,7 +43,7 @@ public class StatusUI : MonoBehaviour
         string rankString = ChangeSpriteByNumber(ref rankSprite, num);
         string rankStringPriv = ChangeSpriteByNumber(ref rankSpritePriv, numPriv);
 
-        DoChangeValueBar(num+100, numPriv);
+        DoChangeValueBar(num, numPriv);
 
         //랭크가 바뀌었을 때만 애니메이션 실행
         if (!rankString.Equals(rankStringPriv))
@@ -118,12 +118,35 @@ public class StatusUI : MonoBehaviour
 
     private void DoChangeValueBar(int value, int valPriv)
     {
+        float barValue = (value % SCALE_VALUE_BAR) / SCALE_VALUE_BAR;
+        float barValuePriv = (valPriv % SCALE_VALUE_BAR) / SCALE_VALUE_BAR;
+
+        float diff = barValue - barValuePriv;
+
         if (barSequence == null)
             barSequence = DOTween.Sequence();
 
-        numBar.value = (valPriv % SCALE_VALUE_BAR) / SCALE_VALUE_BAR;
+        if (barValue < barValuePriv)
+        {
+            float animSpeed0 = animationSpeed * (1.0f - barValuePriv) / (1.0f - diff);
+            float animSpeed1 = animationSpeed * barValue / (1.0f - diff);
 
-        barSequence.AppendInterval(animationSpeed);
-        barSequence.Append(numBar.DOValue((value % SCALE_VALUE_BAR) / SCALE_VALUE_BAR, animationSpeed).SetEase(Ease.OutCubic));
+            numBar.value = barValuePriv;
+
+            //100% 채우기
+            barSequence.AppendInterval(animationSpeed);
+            barSequence.Append(numBar.DOValue(1.0f, animSpeed0));
+
+            //다시 0부터 채우기
+            barSequence.Append(numBar.DOValue(0.0f, 0.0f));
+            barSequence.Append(numBar.DOValue(barValue, animSpeed1));
+        }
+        else
+        {
+            numBar.value = barValuePriv;
+
+            barSequence.AppendInterval(animationSpeed);
+            barSequence.Append(numBar.DOValue(barValue, animationSpeed));
+        }
     }
 }
