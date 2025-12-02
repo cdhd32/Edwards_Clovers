@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 190864170}
   - component: {fileID: 190864169}
   m_Layer: 5
-  m_Name: Image
+  m_Name: frined2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -431,7 +431,7 @@ MonoBehaviour:
   - {fileID: 1671342090}
   cloverCount: 100
   fourLeafCloverCount: 3
-  cloverPadding: 30
+  cloverPadding: 40
   clickSFX: {fileID: 8300000, guid: c4300efe61613b54b8fad24cd3edf5f0, type: 3}
 --- !u!1 &260596944
 GameObject:
@@ -1542,7 +1542,7 @@ MonoBehaviour:
   handGuideRect: {fileID: 303236989}
   handImage: {fileID: 1590044428}
   bodyImage: {fileID: 1811037148}
-  smoothSpeed: 10
+  smoothSpeed: 20
   arm: {fileID: 736516042}
   canvas: {fileID: 1301572145}
 --- !u!225 &1523306672
@@ -1720,7 +1720,7 @@ GameObject:
   - component: {fileID: 1793135387}
   - component: {fileID: 1793135386}
   m_Layer: 5
-  m_Name: Image
+  m_Name: whitelilne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1870,7 +1870,7 @@ GameObject:
   - component: {fileID: 1834545675}
   - component: {fileID: 1834545674}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: friend1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

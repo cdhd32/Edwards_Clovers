@@ -86,13 +86,10 @@ public class ECCloverGame : ECMiniGameBase
             correctIndex[i] = list[i];
         }
         clovers = new ECClover[cloverCount];
-
+       List<Vector2> positions = GeneratePoissonPointsFromMask(cloverCount, cloverPadding);
         for (int i = 0; i < cloverCount; i++)
         {
-            //float x = Random.Range(-panelSize.x / 2 + cloverPadding, panelSize.x / 2 - cloverPadding);
-           //float y = Random.Range(-panelSize.y / 2 + cloverPadding, panelSize.y / 2 - cloverPadding);
-            //Vector2 position = GetRandomPointFromMask();
-            Vector2 position = GetPoissonPointFromMask(30);
+            Vector2 position = positions[i];
 
             bool isFourLeaf = false;
             for(int j = 0; j<correctIndex.Length; ++j)
@@ -128,26 +125,30 @@ public class ECCloverGame : ECMiniGameBase
         }
     }
 
-    Vector2 GetPoissonPointFromMask(float minDistance, int maxAttempts = 30)
+    List<Vector2> GeneratePoissonPointsFromMask(int count, float minDistance, int maxSampleAttempts = 50)
     {
-        List<Vector2> points = ListPool<Vector2>.New();
+        // 결과 리스트
+        List<Vector2> result = new List<Vector2>(count);
 
         int width = maskTexture.width;
         int height = maskTexture.height;
 
         int attempts = 0;
+        int maxAttemptsTotal = count * maxSampleAttempts;
 
-        while (attempts < maxAttempts)
+        while (result.Count < count && attempts < maxAttemptsTotal)
         {
+            attempts++;
+
+            // 임의 좌표 샘플링
             int x = Random.Range(0, width);
             int y = Random.Range(0, height);
 
+            // 마스크가 흰색 영역인지 검사
             if (maskTexture.GetPixel(x, y).a <= 0.5f)
-            {
-                attempts++;
                 continue;
-            }
 
+            // UI 좌표로 변환
             Vector2 point = new Vector2(
                 (float)x / width * Screen.width,
                 (float)y / height * Screen.height
@@ -156,10 +157,11 @@ public class ECCloverGame : ECMiniGameBase
             point.x -= Screen.width / 2;
             point.y -= Screen.height / 2;
 
+            // 이미 생성한 포인트들과 거리 비교
             bool tooClose = false;
-            for (int i = 0; i < points.Count; i++)
+            for (int i = 0; i < result.Count; i++)
             {
-                if (Vector2.Distance(point, points[i]) < minDistance)
+                if (Vector2.Distance(point, result[i]) < minDistance)
                 {
                     tooClose = true;
                     break;
@@ -168,41 +170,11 @@ public class ECCloverGame : ECMiniGameBase
 
             if (!tooClose)
             {
-                points.Add(point);
-                return point;
-            }
-
-            attempts++;
-        }
-
-        ListPool<Vector2>.Free(points);
-
-        return Vector2.zero;
-    }
-
-    Vector2 GetRandomPointFromMask()
-    {
-        int width = maskTexture.width;
-        int height = maskTexture.height;
-
-        for (int i = 0; i < 1000; i++)
-        {
-            int x = Random.Range(0, width);
-            int y = Random.Range(0, height);
-
-            if (maskTexture.GetPixel(x, y).a > 0.5f) // 흰색 영역
-            {
-                Vector2 uiPos = new Vector2(
-                    (float)x / width * Screen.width,
-                    (float)y / height * Screen.height
-                );
-                uiPos.x = uiPos.x - (Screen.width /2);
-                uiPos.y = uiPos.y - (Screen.height / 2);
-                return uiPos;
+                result.Add(point);
             }
         }
 
-        return Vector2.zero;
+        return result;
     }
 
     private void OnCloverClicked(int index)
