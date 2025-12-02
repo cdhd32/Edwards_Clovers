@@ -84,7 +84,6 @@ public class ECSpeechBubble : MonoBehaviour
         {
             resultType = UnityEngine.Random.Range(10001, maxIdleNum);
             int befType = PlayerPrefs.GetInt("idle");
-            Debug.Log("BEF " + befType);
             if(resultType == befType)
             {
                 while (befType == resultType)
@@ -93,7 +92,6 @@ public class ECSpeechBubble : MonoBehaviour
                 }
 
             }
-            Debug.Log("AFT " + resultType);
 
             PlayerPrefs.SetInt("idle", resultType);
         }
