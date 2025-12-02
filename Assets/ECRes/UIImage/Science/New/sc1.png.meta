@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: aa1025e5f91358a4f83e4f327a0cee89
+guid: 994b30cb2c3ec2f42935b87092a33916
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7817703507989579596
-    second: edward6_0
-  - first:
-      213: 4457077872284067948
-    second: edward6_1
+      213: 2278769393490559486
+    second: sc1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: edward6_0
+      name: sc1_0
       rect:
         serializedVersion: 2
-        x: 517
-        y: 1432
-        width: 33
-        height: 31
+        x: 672
+        y: 73
+        width: 854
+        height: 590
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c474b09abef0e7c60800000000000000
-      internalID: 7817703507989579596
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: edward6_1
-      rect:
-        serializedVersion: 2
-        x: 78
-        y: 0
-        width: 1035
-        height: 1351
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c68eeb1d5b8badd30800000000000000
-      internalID: 4457077872284067948
+      spriteID: ef18900a0b0df9f10800000000000000
+      internalID: 2278769393490559486
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      edward6_0: 7817703507989579596
-      edward6_1: 4457077872284067948
+      sc1_0: 2278769393490559486
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

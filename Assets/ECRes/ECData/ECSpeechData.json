@@ -22,7 +22,7 @@
       "key": 10001,
       "value": "Conception 개념, opposition 대립, irregular 불규칙적인…",
       "bubbleSprType": 0,
-      "edwardSprType": 0
+      "edwardSprType": 4
     },
     {
       "eventType": 1,
@@ -30,7 +30,7 @@
       "key": 10002,
       "value": "어휘 공부가\n많이 부족하네.",
       "bubbleSprType": 0,
-      "edwardSprType": 0
+      "edwardSprType": 2
     },
     {
       "eventType": 2,
@@ -46,7 +46,7 @@
       "key": 10002,
       "value": "잔실수가\n아직 많은 것 같네",
       "bubbleSprType": 0,
-      "edwardSprType": 0
+      "edwardSprType": 2
     },
     {
       "eventType": 3,
@@ -86,7 +86,7 @@
       "key": 10003,
       "value": "이건 나중에 갈릴레이한테 물어봐야겠다.",
       "bubbleSprType": 0,
-      "edwardSprType": 0
+      "edwardSprType": 7
     },
     {
       "eventType": 4,
@@ -102,7 +102,7 @@
       "key": 10005,
       "value": "계산 실수가 많네…\n주의해야겠어.",
       "bubbleSprType": 0,
-      "edwardSprType": 2
+      "edwardSprType": 5
     },
     {
       "eventType": 4,

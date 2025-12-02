@@ -3,6 +3,8 @@ using UnityEngine;
 
 public static class Utils
 {
+
+    public const string tagName = "Box";
     public static void Shuffle<T>(T[] array)
     {
         System.Random random = new System.Random();

@@ -2482,7 +2482,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b41581b4f8ba7ba4082f4d97bf85d3cf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4db1ff1fcfd78f942820db2067133284, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4455,13 +4455,14 @@ MonoBehaviour:
   bubbleImage: {fileID: 2113815317}
   edwardImage: {fileID: 1251587985}
   edwardSprites:
-  - {fileID: 21300000, guid: 6a6501a0cfc0b0141837ed4f8627978c, type: 3}
-  - {fileID: 21300000, guid: b41581b4f8ba7ba4082f4d97bf85d3cf, type: 3}
-  - {fileID: 21300000, guid: 6f3b0e625df9f024d87562361f1a0864, type: 3}
-  - {fileID: 21300000, guid: 42ca4037230bde14d9a4820526ea9168, type: 3}
-  - {fileID: 21300000, guid: 4d804ff8cda12b942a16a3354c568c14, type: 3}
-  - {fileID: 21300000, guid: aa1025e5f91358a4f83e4f327a0cee89, type: 3}
-  - {fileID: 21300000, guid: c4522a12cce58474fa5bdf992cae2dc7, type: 3}
+  - {fileID: 21300000, guid: 5cdecd220770ffa4289b9d95f215d05e, type: 3}
+  - {fileID: 21300000, guid: 4db1ff1fcfd78f942820db2067133284, type: 3}
+  - {fileID: 21300000, guid: c212827782d1a2342b0d69a958d84ba8, type: 3}
+  - {fileID: 21300000, guid: cd46b863e2479eb4b86af9bf0716599b, type: 3}
+  - {fileID: 21300000, guid: 9d924625ed42f0646bcbe758c21fca18, type: 3}
+  - {fileID: 21300000, guid: 7ba569837ceac864ebca16a835facadf, type: 3}
+  - {fileID: 21300000, guid: 617d5adbf229aa9449acaf1605f7177c, type: 3}
+  - {fileID: 21300000, guid: 28e585fcb977e64458793b59e0595631, type: 3}
   typingSpeed: 2
 --- !u!114 &2113815320
 MonoBehaviour:

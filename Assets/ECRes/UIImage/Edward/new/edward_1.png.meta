@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 6f3b0e625df9f024d87562361f1a0864
+guid: 5cdecd220770ffa4289b9d95f215d05e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -495026690810416396
-    second: edward3_0
-  - first:
-      213: 3700903275500166283
-    second: edward3_1
-  - first:
-      213: 2071534944840691254
-    second: edward3_2
+      213: -8010316510177855908
+    second: edward_1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -78,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -106,57 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: edward3_0
+      name: edward_1_0
       rect:
         serializedVersion: 2
-        x: 794
-        y: 1434
-        width: 31
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4f278e3f8df4129f0800000000000000
-      internalID: -495026690810416396
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: edward3_1
-      rect:
-        serializedVersion: 2
-        x: 760
-        y: 1410
-        width: 12
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b8c544cbbef3c5330800000000000000
-      internalID: 3700903275500166283
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: edward3_2
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 82
         y: 0
-        width: 1539
-        height: 1376
+        width: 840
+        height: 1002
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 63ea90f8e029fbc10800000000000000
-      internalID: 2071534944840691254
+      spriteID: c56f6601393a5d090800000000000000
+      internalID: -8010316510177855908
       vertices: []
       indices: 
       edges: []
@@ -185,9 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      edward3_0: -495026690810416396
-      edward3_1: 3700903275500166283
-      edward3_2: 2071534944840691254
+      edward_1_0: -8010316510177855908
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 42ca4037230bde14d9a4820526ea9168
+guid: 28e585fcb977e64458793b59e0595631
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 647101823194499504
-    second: edward4_0
-  - first:
-      213: -2718199109964259046
-    second: edward4_1
-  - first:
-      213: 1009231085543490769
-    second: edward4_2
-  - first:
-      213: -2808285678020633245
-    second: edward4_3
-  - first:
-      213: 1824752585196916693
-    second: edward4_4
+      213: -4136730891437115543
+    second: edward_8_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -112,57 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: edward4_0
+      name: edward_8_0
       rect:
         serializedVersion: 2
-        x: 595
-        y: 1420
-        width: 31
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0b904010ea7faf800800000000000000
-      internalID: 647101823194499504
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: edward4_1
-      rect:
-        serializedVersion: 2
-        x: 685
-        y: 1422
-        width: 13
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a112cc5af44074ad0800000000000000
-      internalID: -2718199109964259046
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: edward4_2
-      rect:
-        serializedVersion: 2
-        x: 119
+        x: 69
         y: 0
-        width: 1023
-        height: 1325
+        width: 841
+        height: 1002
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,52 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1d40a1e3352810e00800000000000000
-      internalID: 1009231085543490769
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: edward4_3
-      rect:
-        serializedVersion: 2
-        x: 1207
-        y: 695
-        width: 9
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 36d53c50e07f609d0800000000000000
-      internalID: -2808285678020633245
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: edward4_4
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 554
-        width: 9
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5df43abeec2d25910800000000000000
-      internalID: 1824752585196916693
+      spriteID: 967718ceb216796c0800000000000000
+      internalID: -4136730891437115543
       vertices: []
       indices: 
       edges: []
@@ -235,11 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      edward4_0: 647101823194499504
-      edward4_1: -2718199109964259046
-      edward4_2: 1009231085543490769
-      edward4_3: -2808285678020633245
-      edward4_4: 1824752585196916693
+      edward_8_0: -4136730891437115543
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

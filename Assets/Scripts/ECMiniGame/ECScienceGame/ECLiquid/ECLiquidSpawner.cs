@@ -64,6 +64,7 @@ public class ECLiquidSpawner : MonoBehaviour
         for (int i = 0; i < val; i++)
         {
             circles[count].gameObject.SetActive(true);
+            circles[count].AddForce();
             count++;
         }
     }
