@@ -1,3 +1,4 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -91,10 +92,17 @@ public class ECExam : MonoBehaviour
     {
         GetPlayerScores();
         int luckScore = playerStats[4] / 3;
-        edwardSliders[0].value = playerStats[0] + luckScore;
-        edwardSliders[1].value = playerStats[2] + luckScore;
-        edwardSliders[2].value = playerStats[1] + luckScore;
-        edwardSliders[3].value = playerStats[3] + luckScore;
+        float val0 = playerStats[0] + luckScore;
+        float val1 = playerStats[2] + luckScore;
+        float val2 = playerStats[1] + luckScore;
+        float val3 = playerStats[3] + luckScore;
+        edwardSliders[0].DOValue(val0, 1);
+        edwardSliders[1].DOValue(val1, 1);
+        edwardSliders[2].DOValue(val2, 1);
+        edwardSliders[3].DOValue(val3, 1);
+        //edwardSliders[1].value = playerStats[2] + luckScore;
+        //edwardSliders[2].value = playerStats[1] + luckScore;
+        //edwardSliders[3].value = playerStats[3] + luckScore;
 
         int result = 0;
         for (int i = 0; i < 4; i++)
