@@ -34,6 +34,8 @@ public class ECTiltPourHandle : ECMiniGameBase, IBeginDragHandler, IDragHandler,
     private bool isDragEnd = false;
     private bool isPlaying = true;
 
+    public GameObject clickPanel;
+
     void Awake()
     {
         if (handleRect == null)
@@ -80,7 +82,7 @@ public class ECTiltPourHandle : ECMiniGameBase, IBeginDragHandler, IDragHandler,
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-
+        clickPanel.SetActive(false);
     }
 
     public void OnDrag(PointerEventData eventData)

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: eba20816a43a4274f9f9173aed27ea80
+guid: f87490f4f3b5c9846be182c14cce3170
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7470825589942316658
-    second: fourleaf3_0
+      213: -3444301227239799567
+    second: 152_-_1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fourleaf3_0
+      name: 152_-_1_0
       rect:
         serializedVersion: 2
-        x: 25
-        y: 21
-        width: 132
-        height: 127
+        x: 105
+        y: 75
+        width: 136
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e81179445bb425890800000000000000
-      internalID: -7470825589942316658
+      spriteID: 1f40ee258426330d0800000000000000
+      internalID: -3444301227239799567
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      fourleaf3_0: -7470825589942316658
+      152_-_1_0: -3444301227239799567
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
