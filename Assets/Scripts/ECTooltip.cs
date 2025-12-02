@@ -7,7 +7,7 @@ public class ECTooltip : MonoBehaviour
 
     private void OnEnable()
     {
-        //ShowTooltip();
+        ShowTooltip();
     }
     public void ShowTooltip()
     {
@@ -15,7 +15,14 @@ public class ECTooltip : MonoBehaviour
         if (manager.playerStats == null) return;
         if(manager.GetPlayerStat(type) == 0)
         {
+            Time.timeScale = 0;
             panel.SetActive(true);
         }
+    }
+
+    public void OnClicKBtn_Close()
+    {
+        panel.SetActive(false);
+        Time.timeScale = 1;
     }
 }
