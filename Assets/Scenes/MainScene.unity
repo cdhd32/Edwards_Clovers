@@ -4838,7 +4838,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7ba569837ceac864ebca16a835facadf, type: 3}
   - {fileID: 21300000, guid: 617d5adbf229aa9449acaf1605f7177c, type: 3}
   - {fileID: 21300000, guid: 28e585fcb977e64458793b59e0595631, type: 3}
-  typingSpeed: 2
+  typingSpeed: 0.05
 --- !u!114 &2113815320
 MonoBehaviour:
   m_ObjectHideFlags: 0

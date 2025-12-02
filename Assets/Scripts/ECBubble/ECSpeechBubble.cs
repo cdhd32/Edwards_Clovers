@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -47,10 +48,13 @@ public class ECSpeechBubble : MonoBehaviour
     private Tweener tween;
     public float typingSpeed = 2f;
     private const int maxIdleNum = 10007;
+    public Coroutine typingCo;
+    private WaitForSeconds waitforseconds;
 
     private void Awake()
     {
         ECBubbleTextTable table = JsonUtility.FromJson<ECBubbleTextTable>(speechText.text);
+        waitforseconds = new WaitForSeconds(typingSpeed);
         tableDictionary = new Dictionary<ECBubbleKey, ECBubbleText>();
         for (int i = 0; i < table.texts.Length; ++i)
         {
@@ -107,7 +111,7 @@ public class ECSpeechBubble : MonoBehaviour
             val = manager.GetLowestStatSubject() + val;
         }
         tmp.SetText(val);
-        TMPDOText(tmp, typingSpeed);
+        typingCo = StartCoroutine(TypeWriter(tmp, typingSpeed));
     }
 
     private void ChangeSpeechBubble()
@@ -143,14 +147,40 @@ public class ECSpeechBubble : MonoBehaviour
 
     public void OnClickBtnSpeechBubble()
     {
-        DOTween.Kill(tween);
+        //DOTween.Kill(tween);
+        StopCoroutine(typingCo);
+
         RefreshSpeechBubble();
     }
-    private void TMPDOText(TextMeshProUGUI tmp, float duration)
+    private void TMPDOText(TextMeshProUGUI tmp, float timePerChar)
     {
         tmp.maxVisibleCharacters = 0;
-        tween = DOTween.To(x => tmp.maxVisibleCharacters = (int)x, 0, tmp.text.Length, duration);
+
+        float totalDuration = tmp.text.Length * timePerChar;
+
+        tween = DOTween.To(
+            x => tmp.maxVisibleCharacters = (int)x,
+            0,
+            tmp.text.Length,
+            totalDuration
+        );
     }
 
-    
+    IEnumerator TypeWriter(TextMeshProUGUI tmp, float timePerChar)
+    {
+        tmp.maxVisibleCharacters = 0;
+
+        // TMP는 string 속성 수정 후 ForceMeshUpdate() 호출 필요
+        tmp.ForceMeshUpdate();
+
+        int totalChars = tmp.textInfo.characterCount;
+
+        for (int i = 0; i < totalChars; i++)
+        {
+            tmp.maxVisibleCharacters = i + 1;
+            yield return waitforseconds;
+        }
+    }
+
+
 }
