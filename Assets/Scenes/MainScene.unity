@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7573af4a05b735c43b8d9b6bccdc5d64, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fb5c62bfdf4e9c1418523b1696059db1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2601,6 +2601,7 @@ GameObject:
   - component: {fileID: 1251587985}
   - component: {fileID: 1251587987}
   - component: {fileID: 1251587988}
+  - component: {fileID: 1251587989}
   m_Layer: 0
   m_Name: Stand
   m_TagString: Untagged
@@ -2695,6 +2696,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickSFX: {fileID: 8300000, guid: 4062e38cba5a46e43af8bfe44a97ec33, type: 3}
+--- !u!114 &1251587989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251587983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1251587985}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2113815319}
+        m_TargetAssemblyTypeName: ECSpeechBubble, Assembly-CSharp
+        m_MethodName: OnClickBtnSpeechBubble
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1282496218
 GameObject:
   m_ObjectHideFlags: 0
@@ -4777,7 +4834,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4db1ff1fcfd78f942820db2067133284, type: 3}
   - {fileID: 21300000, guid: c212827782d1a2342b0d69a958d84ba8, type: 3}
   - {fileID: 21300000, guid: cd46b863e2479eb4b86af9bf0716599b, type: 3}
-  - {fileID: 21300000, guid: 9d924625ed42f0646bcbe758c21fca18, type: 3}
+  - {fileID: 21300000, guid: 060047ecf2e944940a7213650610c9d0, type: 3}
   - {fileID: 21300000, guid: 7ba569837ceac864ebca16a835facadf, type: 3}
   - {fileID: 21300000, guid: 617d5adbf229aa9449acaf1605f7177c, type: 3}
   - {fileID: 21300000, guid: 28e585fcb977e64458793b59e0595631, type: 3}
@@ -4795,7 +4852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}

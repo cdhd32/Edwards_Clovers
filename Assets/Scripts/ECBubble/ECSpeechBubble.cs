@@ -80,14 +80,17 @@ public class ECSpeechBubble : MonoBehaviour
         {
             resultType = UnityEngine.Random.Range(10001, maxIdleNum);
             int befType = PlayerPrefs.GetInt("idle");
+            Debug.Log("BEF " + befType);
             if(resultType == befType)
             {
-                while (befType != resultType)
+                while (befType == resultType)
                 {
                     resultType = UnityEngine.Random.Range(10001, maxIdleNum);
                 }
 
             }
+            Debug.Log("AFT " + resultType);
+
             PlayerPrefs.SetInt("idle", resultType);
         }
         ECBubbleKey key = new ECBubbleKey();
@@ -103,7 +106,7 @@ public class ECSpeechBubble : MonoBehaviour
             ECPlayerStatManager manager = ECPlayerStatManager.Instance;
             val = manager.GetLowestStatSubject() + val;
         }
-        tmp.text = val;
+        tmp.SetText(val);
         TMPDOText(tmp, typingSpeed);
     }
 

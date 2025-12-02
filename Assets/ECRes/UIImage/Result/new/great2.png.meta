@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 73805d06ee71c2c42806897710e7388c
+guid: 2c35a814429637a41ad4be218710cfb7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1553473719986876514
-    second: click2-Sheet_0
+      213: -8650176675549383258
+    second: great2_0
   - first:
-      213: -7024424345658845586
-    second: click2-Sheet_1
+      213: 9045220463685700797
+    second: great2_1
   - first:
-      213: 3308469149078013198
-    second: click2-Sheet_2
+      213: -7662346456690981626
+    second: great2_2
   - first:
-      213: -6638598293817198701
-    second: click2-Sheet_3
+      213: 5371535440911858937
+    second: great2_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -55,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -109,89 +109,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: click2-Sheet_0
+      name: great2_0
       rect:
         serializedVersion: 2
-        x: 39
-        y: 49
-        width: 92
-        height: 62
+        x: 62
+        y: 1089
+        width: 336
+        height: 323
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e9f0740e1e3f07ae0800000000000000
-      internalID: -1553473719986876514
+      spriteID: 6a57289e42664f780800000000000000
+      internalID: -8650176675549383258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: click2-Sheet_1
+      name: great2_1
       rect:
         serializedVersion: 2
-        x: 199
-        y: 49
-        width: 92
-        height: 62
+        x: 338
+        y: 1229
+        width: 1448
+        height: 517
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e66166d464b348e90800000000000000
-      internalID: -7024424345658845586
+      spriteID: dbc841d8614178d70800000000000000
+      internalID: 9045220463685700797
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: click2-Sheet_2
+      name: great2_2
       rect:
         serializedVersion: 2
-        x: 359
-        y: 39
-        width: 92
-        height: 70
+        x: 438
+        y: 113
+        width: 1123
+        height: 1182
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e05422d792b0aed20800000000000000
-      internalID: 3308469149078013198
+      spriteID: 60506f69e70e9a590800000000000000
+      internalID: -7662346456690981626
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: click2-Sheet_3
+      name: great2_3
       rect:
         serializedVersion: 2
-        x: 519
-        y: 39
-        width: 92
-        height: 70
+        x: 1582
+        y: 1141
+        width: 369
+        height: 327
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 397f28a4606fed3a0800000000000000
-      internalID: -6638598293817198701
+      spriteID: 9fcf8fd16078b8a40800000000000000
+      internalID: 5371535440911858937
       vertices: []
       indices: 
       edges: []
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7336a6bbdef2e594ea0d74eacd9a8e3b
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      click2-Sheet_0: -1553473719986876514
-      click2-Sheet_1: -7024424345658845586
-      click2-Sheet_2: 3308469149078013198
-      click2-Sheet_3: -6638598293817198701
+      great2_0: -8650176675549383258
+      great2_1: 9045220463685700797
+      great2_2: -7662346456690981626
+      great2_3: 5371535440911858937
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
