@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 892abc8d78e19674d9f293bfc5727415
+guid: 59feeb97b2f9bf8428e8c3d6bfc06b53
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1838944626751184287
-    second: leveluparrow2-2-Sheet_0
+      213: -6744139860706980385
+    second: leveluparrow-Sheet_0
   - first:
-      213: 8310305852659873912
-    second: leveluparrow2-2-Sheet_1
+      213: 8179682538366929347
+    second: leveluparrow-Sheet_1
   - first:
-      213: -5131659727117313196
-    second: leveluparrow2-2-Sheet_2
+      213: 7623941942739794652
+    second: leveluparrow-Sheet_2
   - first:
-      213: -142558329261803235
-    second: leveluparrow2-2-Sheet_3
+      213: -6030748485932108235
+    second: leveluparrow-Sheet_3
   - first:
-      213: -4944827918030074260
-    second: leveluparrow2-2-Sheet_4
+      213: 229120135099530539
+    second: leveluparrow-Sheet_4
   - first:
-      213: 8496268287033213443
-    second: leveluparrow2-2-Sheet_5
+      213: -103400657440863329
+    second: leveluparrow-Sheet_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,7 +115,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: leveluparrow2-2-Sheet_0
+      name: leveluparrow-Sheet_0
       rect:
         serializedVersion: 2
         x: 9
@@ -123,21 +123,21 @@ TextureImporter:
         width: 142
         height: 132
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 162e1e8ea91ca76e0800000000000000
-      internalID: -1838944626751184287
+      spriteID: fdd020757800862a0800000000000000
+      internalID: -6744139860706980385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: leveluparrow2-2-Sheet_1
+      name: leveluparrow-Sheet_1
       rect:
         serializedVersion: 2
         x: 169
@@ -145,21 +145,21 @@ TextureImporter:
         width: 142
         height: 132
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 87834a2a423245370800000000000000
-      internalID: 8310305852659873912
+      spriteID: 3c983da4ee1148170800000000000000
+      internalID: 8179682538366929347
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: leveluparrow2-2-Sheet_2
+      name: leveluparrow-Sheet_2
       rect:
         serializedVersion: 2
         x: 329
@@ -167,21 +167,21 @@ TextureImporter:
         width: 142
         height: 132
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 45b9ef8baaea8c8b0800000000000000
-      internalID: -5131659727117313196
+      spriteID: cdaf435bdceadc960800000000000000
+      internalID: 7623941942739794652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: leveluparrow2-2-Sheet_3
+      name: leveluparrow-Sheet_3
       rect:
         serializedVersion: 2
         x: 489
@@ -189,21 +189,21 @@ TextureImporter:
         width: 142
         height: 132
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d19b39074f7850ef0800000000000000
-      internalID: -142558329261803235
+      spriteID: 536ba4e443a7e4ca0800000000000000
+      internalID: -6030748485932108235
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: leveluparrow2-2-Sheet_4
+      name: leveluparrow-Sheet_4
       rect:
         serializedVersion: 2
         x: 649
@@ -211,21 +211,21 @@ TextureImporter:
         width: 142
         height: 132
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6e02661531706bb0800000000000000
-      internalID: -4944827918030074260
+      spriteID: b2d3f778c8ffd2300800000000000000
+      internalID: 229120135099530539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: leveluparrow2-2-Sheet_5
+      name: leveluparrow-Sheet_5
       rect:
         serializedVersion: 2
         x: 809
@@ -233,15 +233,15 @@ TextureImporter:
         width: 142
         height: 132
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 302080dedfec8e570800000000000000
-      internalID: 8496268287033213443
+      spriteID: f9b02bf56a5a09ef0800000000000000
+      internalID: -103400657440863329
       vertices: []
       indices: 
       edges: []
@@ -250,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f73a2585f63d7cb40812dc4b9f6eddf3
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -260,12 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      leveluparrow2-2-Sheet_0: -1838944626751184287
-      leveluparrow2-2-Sheet_1: 8310305852659873912
-      leveluparrow2-2-Sheet_2: -5131659727117313196
-      leveluparrow2-2-Sheet_3: -142558329261803235
-      leveluparrow2-2-Sheet_4: -4944827918030074260
-      leveluparrow2-2-Sheet_5: 8496268287033213443
+      leveluparrow-Sheet_0: -6744139860706980385
+      leveluparrow-Sheet_1: 8179682538366929347
+      leveluparrow-Sheet_2: 7623941942739794652
+      leveluparrow-Sheet_3: -6030748485932108235
+      leveluparrow-Sheet_4: 229120135099530539
+      leveluparrow-Sheet_5: -103400657440863329
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
