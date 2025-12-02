@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4db1ff1fcfd78f942820db2067133284
+guid: 468e2ecc3d1edb04e966aaa84397b21a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1727470202888008162
-    second: edward_2_0
+      213: 2576325073044272552
+    second: -_1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: edward_2_0
+      name: -_1_0
       rect:
         serializedVersion: 2
-        x: 85
+        x: 0
         y: 0
-        width: 826
-        height: 1008
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e1ec9c4c00bc608e0800000000000000
-      internalID: -1727470202888008162
+      spriteID: 8a57cb40102f0c320800000000000000
+      internalID: 2576325073044272552
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      edward_2_0: -1727470202888008162
+      -_1_0: 2576325073044272552
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

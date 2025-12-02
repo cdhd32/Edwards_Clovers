@@ -324,6 +324,7 @@ MonoBehaviour:
   lastExamPanel: {fileID: 1725676261}
   ENEMY_SCORE: 380
   MAX_SCORE: 600
+  graphDuration: 2
 --- !u!224 &395973675 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8346312578084705609, guid: 4ddd7b0f4be079b4a8a8e2965f63ffb8, type: 3}
@@ -1702,7 +1703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1394331996
 RectTransform:
   m_ObjectHideFlags: 0

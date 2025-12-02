@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class StatusUI : MonoBehaviour
 {
-    public TMP_Text nameText;
+    //public TMP_Text nameText;
 
     public Image rankImg;
     public List<Sprite> rankList;
@@ -35,7 +35,7 @@ public class StatusUI : MonoBehaviour
 
     public void SetName(string name)
     {
-        nameText.text = name;
+        //nameText.text = name;
     }
 
     public void DoSetNum(int num, int numPriv)

@@ -24,6 +24,7 @@ public class ECExam : MonoBehaviour
 
     public int ENEMY_SCORE = 550;
     public int MAX_SCORE = 600;
+    public float graphDuration = 2;
 
     private bool isClick = true;
 
@@ -96,10 +97,10 @@ public class ECExam : MonoBehaviour
         float val1 = playerStats[2] + luckScore;
         float val2 = playerStats[1] + luckScore;
         float val3 = playerStats[3] + luckScore;
-        edwardSliders[0].DOValue(val0, 1);
-        edwardSliders[1].DOValue(val1, 1);
-        edwardSliders[2].DOValue(val2, 1);
-        edwardSliders[3].DOValue(val3, 1);
+        edwardSliders[0].DOValue(val0, graphDuration);
+        edwardSliders[1].DOValue(val1, graphDuration);
+        edwardSliders[2].DOValue(val2, graphDuration);
+        edwardSliders[3].DOValue(val3, graphDuration);
         //edwardSliders[1].value = playerStats[2] + luckScore;
         //edwardSliders[2].value = playerStats[1] + luckScore;
         //edwardSliders[3].value = playerStats[3] + luckScore;
