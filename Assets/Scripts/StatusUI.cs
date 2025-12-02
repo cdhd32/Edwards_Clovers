@@ -21,7 +21,7 @@ public class StatusUI : MonoBehaviour
 
     private Sequence seq;
 
-    private float animationSpeed = 2.5f;
+    private float animationSpeed = 0.5f;
 
     private readonly float SCALE_VALUE_BAR = 75.0f;
 
@@ -44,11 +44,10 @@ public class StatusUI : MonoBehaviour
         numBar.value = (num % SCALE_VALUE_BAR) / SCALE_VALUE_BAR;
 
         //랭크가 바뀌었을 때만 애니메이션 실행
-        //if (!rankString.Equals(rankStringPriv))
-        //    DoRankSptireTransition();
-        //else
-        //    rankImg.sprite = rankSprite;
-        DoRankSptireTransition();
+        if (!rankString.Equals(rankStringPriv))
+            DoRankSptireTransition();
+        else
+            rankImg.sprite = rankSprite;
     }
 
     private string ChangeSpriteByNumber(ref Sprite target, int num)
@@ -95,38 +94,23 @@ public class StatusUI : MonoBehaviour
         if (seq == null)
             seq = DOTween.Sequence();
 
-        //rankUpImage.transform.DOScale(0f, 0f);
-        //rankImg.gameObject.SetActive(true);
+        rankImg.sprite = rankSpritePriv;
 
-        //rankImg.sprite = rankSpritePriv;
-
-        //seq.Append(rankUpImage.transform.DOScale(2f, animationSpeed).SetEase(Ease.InCubic));
-        //seq.AppendCallback(() =>
-        //{
-        //    rankImg.sprite = rankSprite;
-        //});
-        //seq.Append(rankUpImage.transform.DOScale(0f, animationSpeed).SetEase(Ease.OutCubic));
-
-        //rankUpImage.gameObject.SetActive(false);
-       // rankImg.gameObject.SetActive(true);
-
-        //seq.Append(rankImg.transform.DOScale(0f, animationSpeed).SetEase(Ease.InCubic));
-        //seq.AppendCallback(() => {
-        //    rankImg.sprite = rankSpritePriv;
-        //    rankUpImage.gameObject.SetActive(true);
-        //    rankImg.gameObject.SetActive(false);
-        //});
-        //seq.Append(rankImg.transform.DOScale(1f, animationSpeed).SetEase(Ease.OutCubic));
-        //seq.Append(rankImg.transform.DOScale(4f, animationSpeed*2.0f).SetEase(Ease.InCubic));
-        //seq.AppendCallback(() => {
-        //    rankUpImage.gameObject.SetActive(false);
-        //    rankImg.gameObject.SetActive(true);
-        //});
-        //seq.Append(rankImg.transform.DOScale(1f, animationSpeed/2.0f).SetEase(Ease.OutCubic));
-        //seq.Append(rankImg.transform.DOScale(0f, animationSpeed).SetEase(Ease.InCubic));
-        //seq.AppendCallback(() => {
-        //    rankImg.sprite = rankSprite;
-        //});
-        //seq.Append(rankImg.transform.DOScale(1f, animationSpeed).SetEase(Ease.OutCubic));
+        seq.AppendInterval(animationSpeed);
+        seq.AppendCallback(() =>
+        {
+            rankUpImage.transform.DOScale(0.8f, 0f);
+            rankUpImage.gameObject.SetActive(true);
+        });
+        seq.Append(rankUpImage.transform.DOScale(1.2f, animationSpeed).SetEase(Ease.InCubic));
+        seq.AppendCallback(() =>
+        {
+            rankImg.sprite = rankSprite;
+        });
+        seq.Append(rankUpImage.transform.DOScale(0.8f, animationSpeed).SetEase(Ease.OutCubic));
+        seq.AppendCallback(() =>
+        {
+            rankUpImage.gameObject.SetActive(false);
+        });
     }
 }
