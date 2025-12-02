@@ -27,6 +27,7 @@ public enum EventType : int
     MATH,
     SCI,
     LUK,
+    CHEER,
     _MAX
 }
 
@@ -267,12 +268,23 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
 
     public void SetPlayerStatByEvent(EventType eventType, ConditionType conditionType)
     {
-        int index = ECUtils.GetEventIndex(eventType, conditionType);
-        AddPlayerStat(PlayerStatType.KOR, behaviorEventData[index].korStat);
-        AddPlayerStat(PlayerStatType.ENG, behaviorEventData[index].engStat);
-        AddPlayerStat(PlayerStatType.MATH, behaviorEventData[index].mathStat);
-        AddPlayerStat(PlayerStatType.SCI, behaviorEventData[index].sciStat);
-        AddPlayerStat(PlayerStatType.LUK, behaviorEventData[index].lukStat);
+        if (eventType == EventType.CHEER)
+        {
+            AddPlayerStat(PlayerStatType.KOR, 0);
+            AddPlayerStat(PlayerStatType.ENG, 0);
+            AddPlayerStat(PlayerStatType.MATH, 0);
+            AddPlayerStat(PlayerStatType.SCI, 0);
+            AddPlayerStat(PlayerStatType.LUK, 0);
+        }
+        else
+        {
+            int index = ECUtils.GetEventIndex(eventType, conditionType);
+            AddPlayerStat(PlayerStatType.KOR, behaviorEventData[index].korStat);
+            AddPlayerStat(PlayerStatType.ENG, behaviorEventData[index].engStat);
+            AddPlayerStat(PlayerStatType.MATH, behaviorEventData[index].mathStat);
+            AddPlayerStat(PlayerStatType.SCI, behaviorEventData[index].sciStat);
+            AddPlayerStat(PlayerStatType.LUK, behaviorEventData[index].lukStat);
+        }
 
         SaveStatData();
     }
@@ -333,7 +345,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
     public void UpdateStat(EventType eventType, ConditionType conditionType)
     {
         //의욕 게이지 증가/차감
-        if (eventType == EventType.LUK)
+        if (eventType == EventType.CHEER)
         {
             //행운 이벤트일 때는 의욕 게이지 최대치로 변경
             AddPlayerStat(PlayerStatType.MOT, ECConst.MOTVIATION_MAX);
@@ -342,8 +354,9 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         {
             //그 외에는 의욕 게이지 차감 및 이벤트 스탯 증가
             AddPlayerStat(PlayerStatType.MOT, -ECConst.MOTVIATION_PAY);
-            SetPlayerStatByEvent(eventType, conditionType);
         }
+
+        SetPlayerStatByEvent(eventType, conditionType);
 
         //1교시 증가
         AddPlayerStat(PlayerStatType.CLASS, 1);
@@ -434,7 +447,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
 
         UpdateStat(resultState, conditionType);
         //응원 이벤트인 경우 말풍선 상태 초기화
-        if (resultState == EventType.LUK)
+        if (resultState == EventType.CHEER)
             PlayerPrefs.SetInt("state", 0);
         ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
     }
