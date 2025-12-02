@@ -19,7 +19,9 @@ public class StatusUI : MonoBehaviour
     [SerializeField]
     private Image rankUpImage;
 
-    private Sequence seq;
+    private Sequence rankSequence;
+
+    private Sequence barSequence;
 
     private float animationSpeed = 0.5f;
 
@@ -41,7 +43,7 @@ public class StatusUI : MonoBehaviour
         string rankString = ChangeSpriteByNumber(ref rankSprite, num);
         string rankStringPriv = ChangeSpriteByNumber(ref rankSpritePriv, numPriv);
 
-        numBar.value = (num % SCALE_VALUE_BAR) / SCALE_VALUE_BAR;
+        DoChangeValueBar(num+100, numPriv);
 
         //랭크가 바뀌었을 때만 애니메이션 실행
         if (!rankString.Equals(rankStringPriv))
@@ -91,26 +93,37 @@ public class StatusUI : MonoBehaviour
     private void DoRankSptireTransition()
     {
         //DoTween 으로 priv -> arrow -> next 변경 애니메이션
-        if (seq == null)
-            seq = DOTween.Sequence();
+        if (rankSequence == null)
+            rankSequence = DOTween.Sequence();
 
         rankImg.sprite = rankSpritePriv;
 
-        seq.AppendInterval(animationSpeed);
-        seq.AppendCallback(() =>
+        rankSequence.AppendInterval(animationSpeed);
+        rankSequence.AppendCallback(() =>
         {
             rankUpImage.transform.DOScale(0.8f, 0f);
             rankUpImage.gameObject.SetActive(true);
         });
-        seq.Append(rankUpImage.transform.DOScale(1.2f, animationSpeed).SetEase(Ease.InCubic));
-        seq.AppendCallback(() =>
+        rankSequence.Append(rankUpImage.transform.DOScale(1.2f, animationSpeed).SetEase(Ease.InCubic));
+        rankSequence.AppendCallback(() =>
         {
             rankImg.sprite = rankSprite;
         });
-        seq.Append(rankUpImage.transform.DOScale(0.8f, animationSpeed).SetEase(Ease.OutCubic));
-        seq.AppendCallback(() =>
+        rankSequence.Append(rankUpImage.transform.DOScale(0.8f, animationSpeed).SetEase(Ease.OutCubic));
+        rankSequence.AppendCallback(() =>
         {
             rankUpImage.gameObject.SetActive(false);
         });
+    }
+
+    private void DoChangeValueBar(int value, int valPriv)
+    {
+        if (barSequence == null)
+            barSequence = DOTween.Sequence();
+
+        numBar.value = (valPriv % SCALE_VALUE_BAR) / SCALE_VALUE_BAR;
+
+        barSequence.AppendInterval(animationSpeed);
+        barSequence.Append(numBar.DOValue((value % SCALE_VALUE_BAR) / SCALE_VALUE_BAR, animationSpeed).SetEase(Ease.OutCubic));
     }
 }
