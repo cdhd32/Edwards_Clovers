@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9d924625ed42f0646bcbe758c21fca18
+guid: 1c82433fd556ff244a12be950bb33a23
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8689434105189481118
-    second: edward_5_0
+      213: -3054898839346062820
+    second: tooltip_kor_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: edward_5_0
+      name: tooltip_kor_0
       rect:
         serializedVersion: 2
-        x: 87
+        x: 0
         y: 0
-        width: 838
-        height: 997
+        width: 1340
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 265440d48bde86780800000000000000
-      internalID: -8689434105189481118
+      spriteID: c1a5600f0b1da95d0800000000000000
+      internalID: -3054898839346062820
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      edward_5_0: -8689434105189481118
+      tooltip_kor_0: -3054898839346062820
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

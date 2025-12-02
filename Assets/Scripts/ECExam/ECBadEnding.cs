@@ -24,6 +24,6 @@ public class ECBadEnding : MonoBehaviour
     {
         //다시 시작하기
         ECPlayerStatManager.Instance.DeleteStatData();
-        ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
+        ECGlobalSceneManager.Instance.LoadScene(SceneType.FIRST);
     }
 }
