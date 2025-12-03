@@ -22,10 +22,15 @@ public class ECFirstSceneUIController : MonoBehaviour
     private Image fadeImage;
 
     private const string resetCompletionText = "초기화 완료";
+    private bool isEditor;
 
 
     private void Awake()
     {
+#if UNITY_EDITOR
+        isEditor = true;
+#endif
+
         progressButton.onClick.AddListener(() =>
         {
             fadeImage.DOFade(1.0f, 3.0f).OnComplete(() =>
@@ -45,14 +50,20 @@ public class ECFirstSceneUIController : MonoBehaviour
 
     private void Start()
     {
-        ECPlayerStatManager.Instance.DeleteStatData();
+        if(!isEditor)
+        {
+            ECPlayerStatManager.Instance.DeleteStatData();
+        }
 
         progressText.DOFade(0.1f, 1.75f).SetLoops(-1, LoopType.Yoyo);
     }
 
     public void OnClickBtnSkip()
     {
-        ECPlayerStatManager.Instance.DeleteStatData();
+        if (!isEditor)
+        {
+            ECPlayerStatManager.Instance.DeleteStatData();
+        }
 
         ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
     }
