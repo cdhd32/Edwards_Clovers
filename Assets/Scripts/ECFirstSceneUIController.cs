@@ -45,14 +45,14 @@ public class ECFirstSceneUIController : MonoBehaviour
 
     private void Start()
     {
-        //ECPlayerStatManager.Instance.DeleteStatData();
+        ECPlayerStatManager.Instance.DeleteStatData();
 
         progressText.DOFade(0.1f, 1.75f).SetLoops(-1, LoopType.Yoyo);
     }
 
     public void OnClickBtnSkip()
     {
-       // ECPlayerStatManager.Instance.DeleteStatData();
+        ECPlayerStatManager.Instance.DeleteStatData();
 
         ECGlobalSceneManager.Instance.LoadScene(SceneType.MAIN);
     }
