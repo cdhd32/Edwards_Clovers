@@ -181,11 +181,11 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
                 for (int i = 0; i < typeMax; i++)
                 {
                     behaviorEventData[i] = new BehaviorEventData();
-                    behaviorEventData[i].korStat = 0;
-                    behaviorEventData[i].engStat = 0;
-                    behaviorEventData[i].mathStat = 0;
-                    behaviorEventData[i].sciStat = 0;
-                    behaviorEventData[i].lukStat = 0;
+                    behaviorEventData[i].korStat = 150;
+                    behaviorEventData[i].engStat = 150;
+                    behaviorEventData[i].mathStat = 150;
+                    behaviorEventData[i].sciStat = 150;
+                    behaviorEventData[i].lukStat = 150;
                 }
             }
             else
@@ -200,11 +200,11 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
             for (int i = 0; i < typeMax; i++)
             {
                 behaviorEventData[i] = new BehaviorEventData();
-                behaviorEventData[i].korStat = 0;
-                behaviorEventData[i].engStat = 0;
-                behaviorEventData[i].mathStat = 0;
-                behaviorEventData[i].sciStat = 0;
-                behaviorEventData[i].lukStat = 0;
+                behaviorEventData[i].korStat = 150;
+                behaviorEventData[i].engStat = 150;
+                behaviorEventData[i].mathStat = 150;
+                behaviorEventData[i].sciStat = 150;
+                behaviorEventData[i].lukStat = 150;
             }
         }
 

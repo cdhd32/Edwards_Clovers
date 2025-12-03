@@ -322,7 +322,7 @@ MonoBehaviour:
   buttonTMP: {fileID: 928445858}
   defaultPanel: {fileID: 1880342601}
   lastExamPanel: {fileID: 1725676261}
-  ENEMY_SCORE: 380
+  ENEMY_SCORE: 400
   MAX_SCORE: 600
   graphDuration: 2
 --- !u!224 &395973675 stripped
