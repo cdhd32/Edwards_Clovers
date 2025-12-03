@@ -1793,6 +1793,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1779468173}
     m_Modifications:
+    - target: {fileID: 382253464915872040, guid: b633385ec7db70f498b7857b7612d234, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2294585198054665392, guid: b633385ec7db70f498b7857b7612d234, type: 3}
       propertyPath: m_fontSize
       value: 64
@@ -1808,9 +1812,17 @@ PrefabInstance:
     - target: {fileID: 2294585198054665392, guid: b633385ec7db70f498b7857b7612d234, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -1729161012141596729, guid: 3f33ceca68d4fc540accca03ccf392f2, type: 2}
+      objectReference: {fileID: -5654041430339188190, guid: 45574f92ec4668b42aaa9b13eb0d8876, type: 2}
     - target: {fileID: 2294585198054665392, guid: b633385ec7db70f498b7857b7612d234, type: 3}
       propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3176964660741776956, guid: b633385ec7db70f498b7857b7612d234, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cd4b38c4f76f9074c8ad10838bd7183b, type: 3}
+    - target: {fileID: 3946714372001185759, guid: b633385ec7db70f498b7857b7612d234, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3991555398881315650, guid: b633385ec7db70f498b7857b7612d234, type: 3}
@@ -2637,8 +2649,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -710, y: 0}
-  m_SizeDelta: {x: 1920, y: 1032}
+  m_AnchoredPosition: {x: -675.71826, y: 0}
+  m_SizeDelta: {x: 1851.4365, y: 907.3392}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1251587985
 MonoBehaviour:
@@ -2660,7 +2672,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4db1ff1fcfd78f942820db2067133284, type: 3}
+  m_Sprite: {fileID: -1727470202888008162, guid: 4db1ff1fcfd78f942820db2067133284, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4842,14 +4854,14 @@ MonoBehaviour:
   bubbleImage: {fileID: 2113815317}
   edwardImage: {fileID: 1251587985}
   edwardSprites:
-  - {fileID: 21300000, guid: 5cdecd220770ffa4289b9d95f215d05e, type: 3}
-  - {fileID: 21300000, guid: 4db1ff1fcfd78f942820db2067133284, type: 3}
-  - {fileID: 21300000, guid: c212827782d1a2342b0d69a958d84ba8, type: 3}
-  - {fileID: 21300000, guid: cd46b863e2479eb4b86af9bf0716599b, type: 3}
-  - {fileID: 21300000, guid: 060047ecf2e944940a7213650610c9d0, type: 3}
-  - {fileID: 21300000, guid: 7ba569837ceac864ebca16a835facadf, type: 3}
-  - {fileID: 21300000, guid: 617d5adbf229aa9449acaf1605f7177c, type: 3}
-  - {fileID: 21300000, guid: 28e585fcb977e64458793b59e0595631, type: 3}
+  - {fileID: -8010316510177855908, guid: 5cdecd220770ffa4289b9d95f215d05e, type: 3}
+  - {fileID: -1727470202888008162, guid: 4db1ff1fcfd78f942820db2067133284, type: 3}
+  - {fileID: -4628410566462010537, guid: c212827782d1a2342b0d69a958d84ba8, type: 3}
+  - {fileID: -1604399940262180576, guid: cd46b863e2479eb4b86af9bf0716599b, type: 3}
+  - {fileID: 7832282147901650655, guid: 060047ecf2e944940a7213650610c9d0, type: 3}
+  - {fileID: 5493272966774153437, guid: 7ba569837ceac864ebca16a835facadf, type: 3}
+  - {fileID: 2747097144207320420, guid: 617d5adbf229aa9449acaf1605f7177c, type: 3}
+  - {fileID: -4136730891437115543, guid: 28e585fcb977e64458793b59e0595631, type: 3}
   typingSpeed: 0.05
 --- !u!114 &2113815320
 MonoBehaviour:
