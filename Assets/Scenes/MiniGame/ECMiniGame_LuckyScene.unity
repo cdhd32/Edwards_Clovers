@@ -416,16 +416,16 @@ MonoBehaviour:
   threeLeafPrefab: {fileID: 8413280665676505244, guid: 10cfba1ec7664a24b8c280366a4305ee, type: 3}
   fourLeafPrefab: {fileID: 8325098014887022621, guid: b39bdbe30c81add4ea2de65847c1359e, type: 3}
   threeLeafSprites:
-  - {fileID: 21300000, guid: 849e7e17a8e13f943bfb3340970385aa, type: 3}
-  - {fileID: 21300000, guid: b69dd5bc567f1cc49bdeaf32cb3cb34f, type: 3}
-  - {fileID: 21300000, guid: 8818e1d5aac9a7e4b872cfaaede55e56, type: 3}
-  - {fileID: 21300000, guid: 163ee9587dbedba43ac4751791290f55, type: 3}
-  - {fileID: 21300000, guid: 523f732d9049aa64d881617e27eaebf3, type: 3}
+  - {fileID: 1066911480983647868, guid: 849e7e17a8e13f943bfb3340970385aa, type: 3}
+  - {fileID: 6319704488918358478, guid: b69dd5bc567f1cc49bdeaf32cb3cb34f, type: 3}
+  - {fileID: 3906877329310484733, guid: 8818e1d5aac9a7e4b872cfaaede55e56, type: 3}
+  - {fileID: 5495806269719479506, guid: 163ee9587dbedba43ac4751791290f55, type: 3}
+  - {fileID: 4139819503710643285, guid: 523f732d9049aa64d881617e27eaebf3, type: 3}
   fourLeafSprites:
-  - {fileID: 21300000, guid: 26f7925d065b79a4fa92a709ac71f14c, type: 3}
-  - {fileID: 21300000, guid: c56322b8db63a82438a96f72c2f5fdc1, type: 3}
-  - {fileID: 21300000, guid: 52d8dd200a4a7cc458fceccd4abab0c6, type: 3}
-  - {fileID: 21300000, guid: 124a37725671b15428249ed06ae064ee, type: 3}
+  - {fileID: -5556717207454734547, guid: 26f7925d065b79a4fa92a709ac71f14c, type: 3}
+  - {fileID: -4824707364486844085, guid: c56322b8db63a82438a96f72c2f5fdc1, type: 3}
+  - {fileID: -4990078564271206873, guid: 52d8dd200a4a7cc458fceccd4abab0c6, type: 3}
+  - {fileID: -5623491333860023608, guid: 124a37725671b15428249ed06ae064ee, type: 3}
   cloverUI:
   - {fileID: 1215796723}
   - {fileID: 442332729}
@@ -1794,7 +1794,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 69879092975388466, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1748374765586867875, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
       propertyPath: m_Sprite
