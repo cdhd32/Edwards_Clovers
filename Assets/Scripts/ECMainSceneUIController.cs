@@ -101,8 +101,16 @@ public class ECMainSceneUIController : MonoBehaviour
     void Start()
     {
         mainSceneManager = ECMainSceneManager.Instance;
+        ECPlayerStatManager manager = ECPlayerStatManager.Instance;
+        if(manager.isFirstLoad)
+        {
+            UpdateUIs();
+        }
+        else
+        {
+            manager.isFirstLoad = false;
+        }
 
-        UpdateUIs();
     }
 
     public void OnClickShowActionButton()

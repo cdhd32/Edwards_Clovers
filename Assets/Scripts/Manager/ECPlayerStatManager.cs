@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.Pool;
 
 [Serializable]
 public class PlayerStatData
@@ -63,7 +65,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
     private BehaviorEventData[] behaviorEventData;
     private bool[] tooltipData = new bool[(int)PlayerStatType._MAX];
 
-    private bool isFirstLoad = false;
+    [NonSerialized] public bool isFirstLoad = false;
 
     public void Init()
     {
@@ -160,6 +162,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         if (File.Exists(path))
         {
             File.Delete(path);
+            isFirstLoad = false;
             //Debug.Log($"PlayerStatManager.ClearStatData() Data Cleared");
         }
     }
@@ -405,19 +408,22 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
 
     public string GetLowestStatSubject()
     {
-        PlayerStatData lowest = playerStats[0];
+        PlayerStatData lowest = playerStats[1];
 
+        List<PlayerStatData> data = ListPool<PlayerStatData>.Get();
         //운 전까지만ㅈ
         for (int i = 1; i < 5; i++)
         {
-            if (playerStats[i].data < lowest.data)
+            if (playerStats[i].data <= lowest.data)
             {
                 if (i != (int)PlayerStatType.LUK)
                 {
-                    lowest = playerStats[i];
+                    data.Add(playerStats[i]);
                 }
             }
         }
+
+        lowest = data[UnityEngine.Random.Range(0, data.Count)];
 
         return lowest.dataName;
     }

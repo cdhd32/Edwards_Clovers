@@ -27,6 +27,7 @@ public class ECLiquid : MonoBehaviour
     {
 
         rigid.bodyType = RigidbodyType2D.Dynamic;
+        rigid.gravityScale = 1.5f;
         rigid.AddForce(new Vector2(-2,-1) * 0.05f, ForceMode2D.Impulse);
     }
 
