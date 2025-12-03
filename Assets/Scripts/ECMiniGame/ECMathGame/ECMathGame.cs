@@ -24,6 +24,8 @@ public class ECMathGame : ECMiniGameBase
     private ECMathChoiceBox currentSelectBox;
     private MathQuiz.Question currentQuestion;
 
+    private bool isGameEnd = false;
+
     void Start()
     {
         currentScore = 0;
@@ -41,6 +43,7 @@ public class ECMathGame : ECMiniGameBase
 
     public override EResultState GetScore()
     {
+        isGameEnd = true;
         EResultState state = SendScore();
         return state;
     }
@@ -70,6 +73,7 @@ public class ECMathGame : ECMiniGameBase
 
     void GenerateNewQuestion()
     {
+        if (isGameEnd) return;
         isClick = false;
         answerCheck.color = Color.clear;
         if (currentSelectBox != null)
