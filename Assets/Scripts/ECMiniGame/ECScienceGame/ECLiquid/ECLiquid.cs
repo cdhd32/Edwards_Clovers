@@ -26,8 +26,8 @@ public class ECLiquid : MonoBehaviour
     public void AddForce()
     {
 
-            rigid.bodyType = RigidbodyType2D.Dynamic;
-        rigid.AddForce(new Vector2(-1,-1) * 0.05f, ForceMode2D.Impulse);
+        rigid.bodyType = RigidbodyType2D.Dynamic;
+        rigid.AddForce(new Vector2(-2,-1) * 0.05f, ForceMode2D.Impulse);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

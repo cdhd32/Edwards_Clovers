@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 964f458549a31c14babd4be8acfb450e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MiniGame/ECMiniGame_CheerUp.unity
     guid: 71edffbda4b11174786258d76b0aa1c7
   - enabled: 1

@@ -1489,7 +1489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8346312578084705609, guid: 4ddd7b0f4be079b4a8a8e2965f63ffb8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 390
+      value: 422
       objectReference: {fileID: 0}
     - target: {fileID: 8346312578084705609, guid: 4ddd7b0f4be079b4a8a8e2965f63ffb8, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1607,7 +1607,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 170, y: -42.409576}
+  m_AnchoredPosition: {x: 97, y: -47}
   m_SizeDelta: {x: 1111.0085, y: 450.4048}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1300368535
@@ -1703,7 +1703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1394331996
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2011,7 +2011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8346312578084705609, guid: 4ddd7b0f4be079b4a8a8e2965f63ffb8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 678
+      value: 710
       objectReference: {fileID: 0}
     - target: {fileID: 8346312578084705609, guid: 4ddd7b0f4be079b4a8a8e2965f63ffb8, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2289,7 +2289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8346312578084705609, guid: 4ddd7b0f4be079b4a8a8e2965f63ffb8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 941
+      value: 984
       objectReference: {fileID: 0}
     - target: {fileID: 8346312578084705609, guid: 4ddd7b0f4be079b4a8a8e2965f63ffb8, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2770,7 +2770,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3ca827f0f1eb345438028a185fa35828, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4e7b675ba9e7cf44f9ca2cc846a647a7, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

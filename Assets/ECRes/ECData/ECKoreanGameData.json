@@ -14,6 +14,7 @@
     { "id": 12, "name": "우유",    "fileName": "12_milk" },
     { "id": 13, "name": "옥두렁",  "fileName": "13_okdureong" },
     { "id": 14, "name": "눈사람",  "fileName": "14_snowman" },
-    { "id": 15, "name": "빗자루",  "fileName": "15_broom" }
+    { "id": 15, "name": "빗자루",  "fileName": "15_broom" },
+    { "id": 16, "name": "지우개",  "fileName": "16_eraser" }
   ]
 }
