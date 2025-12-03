@@ -93,22 +93,20 @@ public class ECExam : MonoBehaviour
     {
         GetPlayerScores();
         int luckScore = playerStats[4] / 3;
-        float val0 = playerStats[0] + luckScore;
-        float val1 = playerStats[2] + luckScore;
-        float val2 = playerStats[1] + luckScore;
-        float val3 = playerStats[3] + luckScore;
-        edwardSliders[0].DOValue(val0, graphDuration);
-        edwardSliders[1].DOValue(val1, graphDuration);
-        edwardSliders[2].DOValue(val2, graphDuration);
-        edwardSliders[3].DOValue(val3, graphDuration);
-        //edwardSliders[1].value = playerStats[2] + luckScore;
-        //edwardSliders[2].value = playerStats[1] + luckScore;
-        //edwardSliders[3].value = playerStats[3] + luckScore;
+        float[] resultval = new float[4];
+        resultval[0] = playerStats[0] + luckScore;
+        resultval[1] = playerStats[2] + luckScore;
+        resultval[2] = playerStats[1] + luckScore;
+        resultval[3] = playerStats[3] + luckScore;
+        edwardSliders[0].DOValue(resultval[0], graphDuration);
+        edwardSliders[1].DOValue(resultval[1], graphDuration);
+        edwardSliders[2].DOValue(resultval[2], graphDuration);
+        edwardSliders[3].DOValue(resultval[3], graphDuration);
 
         int result = 0;
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < resultval.Length; i++)
         {
-            if (edwardSliders[i].value >= ENEMY_SCORE)
+            if (resultval[i] >= ENEMY_SCORE)
             {
                 if (edwardSliders[i].value == MAX_SCORE)
                 {
