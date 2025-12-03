@@ -7,7 +7,7 @@ public class ECExam : MonoBehaviour
 {
     public ECExamReportBox[] reportBox;
     private int currentStage = 0;
-    private int[] scorethreshold = new int[3] { 150, 225, 375 };
+    private int[] scorethreshold = new int[3] { 375, 375, 375 };
     private int currentThreshold;
 
     private int[] playerScores = new int[4]; // 국수과영
@@ -22,7 +22,7 @@ public class ECExam : MonoBehaviour
     public GameObject defaultPanel;
     public GameObject lastExamPanel;
 
-    public int ENEMY_SCORE = 550;
+    public int ENEMY_SCORE = 400;
     public int MAX_SCORE = 600;
     public float graphDuration = 2;
 
