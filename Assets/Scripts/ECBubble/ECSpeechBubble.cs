@@ -47,7 +47,7 @@ public class ECSpeechBubble : MonoBehaviour
     public Sprite[] edwardSprites; // 이미지 받고 추가
     private Tweener tween;
     public float typingSpeed = 2f;
-    private const int maxIdleNum = 10007;
+    private const int maxIdleNum = 10010    ;
     public Coroutine typingCo;
     private WaitForSeconds waitforseconds;
 
@@ -79,7 +79,20 @@ public class ECSpeechBubble : MonoBehaviour
         {
             intType = (int)SpeechType.IDLE;
         }
-        int resultType = state == EResultState.Bad ? 10002 : 10001;
+        int resultType = 0;
+
+        switch(state)
+        {
+            case EResultState.Bad: 
+                resultType = 10002;
+                break;
+            case EResultState.Good: 
+                resultType = 10003;
+                break;
+            default:
+                resultType = 10001;
+                break;
+        }
         if(intType == (int)SpeechType.IDLE)
         {
             resultType = UnityEngine.Random.Range(10001, maxIdleNum);
@@ -105,6 +118,7 @@ public class ECSpeechBubble : MonoBehaviour
         edwardImage.sprite = edwardSprites[b.edwardSprType];
         if (intType == (int)SpeechType.IDLE && resultType == 10001)
         {
+            //공부가 부족해보이네
             ECPlayerStatManager manager = ECPlayerStatManager.Instance;
             val = manager.GetLowestStatSubject() + val;
         }

@@ -12,7 +12,7 @@ public class UISFXOnClick : MonoBehaviour, IPointerDownHandler
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
             audioSource = gameObject.AddComponent<AudioSource>();
-
+        audioSource.volume = 0.5f;
         audioSource.playOnAwake = false;
     }
 

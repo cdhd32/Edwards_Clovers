@@ -1747,7 +1747,7 @@ PrefabInstance:
     - target: {fileID: 1748374765586867875, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 1c82433fd556ff244a12be950bb33a23, type: 3}
+      objectReference: {fileID: 21300000, guid: f6b84e851ae8d024a96f333dc30a422f, type: 3}
     - target: {fileID: 2564356458488450467, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
       propertyPath: m_text
       value: "\uADF8\uB9BC\uC744 \uBCF4\uACE0 \uC54C\uB9DE\uC740 \uB2E8\uC5B4\uB97C

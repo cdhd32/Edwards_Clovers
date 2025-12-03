@@ -2594,7 +2594,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9db449679323f2c4598101707aaa4c1f, type: 3}
+  m_Sprite: {fileID: -8139247677639316835, guid: 83a9345294bee8e498de14b12f79d435, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4854,7 +4854,7 @@ MonoBehaviour:
   bubbleImage: {fileID: 2113815317}
   edwardImage: {fileID: 1251587985}
   edwardSprites:
-  - {fileID: -8010316510177855908, guid: 5cdecd220770ffa4289b9d95f215d05e, type: 3}
+  - {fileID: 21300000, guid: 5cdecd220770ffa4289b9d95f215d05e, type: 3}
   - {fileID: -1727470202888008162, guid: 4db1ff1fcfd78f942820db2067133284, type: 3}
   - {fileID: -4628410566462010537, guid: c212827782d1a2342b0d69a958d84ba8, type: 3}
   - {fileID: -1604399940262180576, guid: cd46b863e2479eb4b86af9bf0716599b, type: 3}

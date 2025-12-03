@@ -4,24 +4,28 @@
       "eventType": 0,
       "desc": "KOR",
       "key": 10001,
-      "value": "이 정도는 간단하지",
-      "bubbleSprType": 0,
+      "value": "이 정도는 간단하지.",
       "edwardSprType": 3
     },
     {
       "eventType": 0,
       "desc": "KOR",
       "key": 10002,
-      "value": "자꾸 집중이\n안되는 것 같아",
-      "bubbleSprType": 0,
-      "edwardSprType": 2
+      "value": "자꾸 집중이\n안되는 것 같아.",
+      "edwardSprType": 7
+    },
+    {
+      "eventType": 0,
+      "desc": "KOR",
+      "key": 10003,
+      "value": "책을 조금 더\n읽어야하려나.",
+      "edwardSprType": 7
     },
     {
       "eventType": 1,
       "desc": "ENG",
       "key": 10001,
       "value": "Conception 개념, opposition 대립, irregular 불규칙적인…",
-      "bubbleSprType": 0,
       "edwardSprType": 4
     },
     {
@@ -29,15 +33,20 @@
       "desc": "ENG",
       "key": 10002,
       "value": "어휘 공부가\n많이 부족하네.",
-      "bubbleSprType": 0,
-      "edwardSprType": 2
+      "edwardSprType": 5
+    },
+    {
+      "eventType": 1,
+      "desc": "ENG",
+      "key": 10003,
+      "value": "꽤 재밌네.\n아직 부족하지만 말야.",
+      "edwardSprType": 5
     },
     {
       "eventType": 2,
       "desc": "MATH",
       "key": 10001,
       "value": "좋아 이정도라면..!",
-      "bubbleSprType": 0,
       "edwardSprType": 1
     },
     {
@@ -45,15 +54,20 @@
       "desc": "MATH",
       "key": 10002,
       "value": "잔실수가\n아직 많은 것 같네",
-      "bubbleSprType": 0,
-      "edwardSprType": 2
+      "edwardSprType": 5
+    },
+    {
+      "eventType": 2,
+      "desc": "MATH",
+      "key": 10003,
+      "value": "꽤 재밌네.\n아직 부족하지만 말야.",
+      "edwardSprType": 1
     },
     {
       "eventType": 3,
       "desc": "SCI",
       "key": 10001,
       "value": "이번엔 성공적으로\n끝나서 다행이다.",
-      "bubbleSprType": 0,
       "edwardSprType": 6
     },
     {
@@ -61,15 +75,20 @@
       "desc": "SCI",
       "key": 10002,
       "value": "뭐가 문제였던거지...",
-      "bubbleSprType": 0,
       "edwardSprType": 5
+    },
+    {
+      "eventType": 3,
+      "desc": "SCI",
+      "key": 10003,
+      "value": "어렵네... 조금 더 고민해봐야겠어.",
+      "edwardSprType": 2
     },
     {
       "eventType": 4,
       "desc": "IDLE",
       "key": 10001,
       "value": " 공부가 부족해 보이네.",
-      "bubbleSprType": 0,
       "edwardSprType": 2
     },
     {
@@ -77,7 +96,6 @@
       "desc": "IDLE",
       "key": 10002,
       "value": "영단어는 틈틈히 외워두는 게 좋겠지.",
-      "bubbleSprType": 0,
       "edwardSprType": 4
     },
     {
@@ -85,7 +103,6 @@
       "desc": "IDLE",
       "key": 10003,
       "value": "이건 나중에 갈릴레이한테 물어봐야겠다.",
-      "bubbleSprType": 0,
       "edwardSprType": 7
     },
     {
@@ -93,23 +110,20 @@
       "desc": "IDLE",
       "key": 10004,
       "value": "Conception 개념,\nopposition 대립,\nirregular 불규칙적인…",
-      "bubbleSprType": 0,
       "edwardSprType": 4
     },
     {
       "eventType": 4,
       "desc": "IDLE",
       "key": 10005,
-      "value": "계산 실수가 많네…\n주의해야겠어.",
-      "bubbleSprType": 0,
-      "edwardSprType": 5
+      "value": "오늘은 왠지\n공부가 잘 될 거 같아.",
+      "edwardSprType": 1
     },
     {
       "eventType": 4,
       "desc": "IDLE",
       "key": 10006,
       "value": "아... \n코코 보고 싶다.",
-      "bubbleSprType": 0,
       "edwardSprType": 2
     },
     {
@@ -117,8 +131,21 @@
       "desc": "IDLE",
       "key": 10007,
       "value": "코코랑 친구들은\n어디 간거지..?",
-      "bubbleSprType": 0,
       "edwardSprType": 2
+    },
+    {
+      "eventType": 4,
+      "desc": "IDLE",
+      "key": 10008,
+      "value": "연습만이 확실히 실력을\n올릴 수 있어, 계속해볼까!",
+      "edwardSprType": 1
+    },
+    {
+      "eventType": 4,
+      "desc": "IDLE",
+      "key": 10009,
+      "value": "여기서 말하려는 핵심이… \n음, 이 부분인가?",
+      "edwardSprType": 0
     }
   ]
 }

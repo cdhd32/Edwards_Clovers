@@ -5,7 +5,6 @@ public class ECScienceGame : ECMiniGameBase
     public ECTiltPourHandle handle;
     public ECLiquidSpawner liquidSpawner;
     public Camera cam;
-    public SpriteRenderer renderTextureSR;
     private void Awake()
     {
     }

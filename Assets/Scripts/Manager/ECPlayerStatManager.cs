@@ -103,7 +103,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
                 
             }
 
-            Debug.Log($"PlayerStatManager.LoadStatData() Data Loaded");
+            //Debug.Log($"PlayerStatManager.LoadStatData() Data Loaded");
         }
         else
         {
@@ -119,7 +119,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
             }
             
             SaveStatData();
-            Debug.Log($"PlayerStatManager.LoadStatData() Data Created");
+            //Debug.Log($"PlayerStatManager.LoadStatData() Data Created");
         }
 
         if (!isFirstLoad)
@@ -135,7 +135,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
 
         File.WriteAllText(path, plainString);
 
-        Debug.Log($"PlayerStatManager.SaveStatData() Data Saved");
+        //Debug.Log($"PlayerStatManager.SaveStatData() Data Saved");
     }
 
     //수정 전 스탯 데이터 저장
@@ -160,7 +160,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         if (File.Exists(path))
         {
             File.Delete(path);
-            Debug.Log($"PlayerStatManager.ClearStatData() Data Cleared");
+            //Debug.Log($"PlayerStatManager.ClearStatData() Data Cleared");
         }
     }
 
@@ -208,7 +208,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
             }
         }
 
-        Debug.Log($"PlayerStatManager.LoadEventData() Data Created");
+        //Debug.Log($"PlayerStatManager.LoadEventData() Data Created");
     }
 
     public void SaveEventData()
@@ -220,7 +220,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
 
         File.WriteAllText(path, plainString);
 
-        Debug.Log($"PlayerStatManager.SaveEventData() Data Saved");
+        //Debug.Log($"PlayerStatManager.SaveEventData() Data Saved");
     }
 
     private void AddPlayerStat(PlayerStatType type, int amount, bool isSave = false)
@@ -242,7 +242,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
         if (isSave)
             SaveStatData();
 
-        Debug.Log($"PlayerStatManager.AddPlayerStat() {playerStats[index].dataName} Changed : {playerStats[index].data}");
+        //Debug.Log($"PlayerStatManager.AddPlayerStat() {playerStats[index].dataName} Changed : {playerStats[index].data}");
     }
 
     private void SetPlayerStat(PlayerStatType type, int amount, bool isSave = false)
@@ -407,7 +407,8 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
     {
         PlayerStatData lowest = playerStats[0];
 
-        for (int i = 1; i < playerStats.Length; i++)
+        //운 전까지만
+        for (int i = 1; i < 5; i++)
         {
             if (playerStats[i].data < lowest.data)
             {
@@ -425,7 +426,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
     {
         int leftDayVal = GetPlayerStat(PlayerStatType.LEFTDAY);
         int classVal = GetPlayerStat(PlayerStatType.CLASS);
-        Debug.Log("남은 날 :" + leftDayVal + "교시" + classVal);
+        //Debug.Log("남은 날 :" + leftDayVal + "교시" + classVal);
 
         //마지막 교시거나 d - day일 때
         if (leftDayVal == ECConst.UNIT_TEST_DAY_1 ||

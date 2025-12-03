@@ -32,8 +32,8 @@ public class ECKoreanGame : ECMiniGameBase
     public Sprite[] answerCheckImages; // 0 틀림 1 맞춤
     public Image answerCheck;
 
-    private Vector2[] spawnPos = new Vector2[]{ new Vector2(146, -4), new Vector2(560, -4), new Vector2(915, -4) }; 
-    private Vector3[] spawnRot = new Vector3[] { new Vector3(-33, -15, 0), new Vector3(-31, -27, -6), new Vector3(-37.4f, 26.2f, 11.7f) };
+    private Vector2[] spawnPos = new Vector2[]{ new Vector2(146, 1), new Vector2(547, -10), new Vector2(918, -12) };
+    private Vector3[] spawnRot = new Vector3[] { new Vector3(-19.3f, -14.2f, 2.81f), new Vector3(-20.6f, -28.13f, -5.5f), new Vector3(-27.8f, 13.13f, 15.68f) };
 
     public ECKRTeacherAnimation teacher;
     [Header("Data")]

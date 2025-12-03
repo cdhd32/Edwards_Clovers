@@ -134,7 +134,7 @@ PrefabInstance:
     - target: {fileID: 1748374765586867875, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 9fe8d7c77016c614cb7070146d756946, type: 3}
+      objectReference: {fileID: 21300000, guid: 0aa4f4a54a9f01d4ea2904d5b87ce476, type: 3}
     - target: {fileID: 2564356458488450467, guid: 2c12ac9c848763b4b8cdf5663cac2eaf, type: 3}
       propertyPath: m_text
       value: "\uC8FC\uC5B4\uC9C4 \uC120\uAE4C\uC9C0 \uC6A9\uC561\uC744 \uCC44\uC6B0\uB294
@@ -3558,7 +3558,6 @@ MonoBehaviour:
   handle: {fileID: 1720175984}
   liquidSpawner: {fileID: 1470086514}
   cam: {fileID: 1205342624}
-  renderTextureSR: {fileID: 0}
 --- !u!1 &1707301340
 GameObject:
   m_ObjectHideFlags: 0
