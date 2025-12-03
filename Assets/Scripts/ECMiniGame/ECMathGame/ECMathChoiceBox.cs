@@ -9,6 +9,7 @@ public class ECMathChoiceBox : MonoBehaviour
     public Button answerButton;
     public Image answerNumberImage;
     public Image answerCheck;
+    public RectTransform rect;
 
     public void SetAnswerNumberImage(Sprite sp)
     {

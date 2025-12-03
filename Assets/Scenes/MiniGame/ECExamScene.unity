@@ -1703,7 +1703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1394331996
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3667,6 +3667,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 868777446}
     m_Modifications:
+    - target: {fileID: 83627277275103460, guid: b666c1f571a66124eb53f32158f7a137, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 346771115095680807, guid: b666c1f571a66124eb53f32158f7a137, type: 3}
       propertyPath: m_Name
       value: SliderPrefab
@@ -3761,6 +3765,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7361731378215929246, guid: b666c1f571a66124eb53f32158f7a137, type: 3}
       propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034152881976264953, guid: b666c1f571a66124eb53f32158f7a137, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034152881976264953, guid: b666c1f571a66124eb53f32158f7a137, type: 3}
+      propertyPath: m_FillMethod
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

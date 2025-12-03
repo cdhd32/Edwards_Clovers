@@ -84,10 +84,12 @@ public class ECMathGame : ECMiniGameBase
         for (int i = 0; i < choiceButtons.Length; i++)
         {
             int answer = currentQuestion.Choices[i];
-            choiceButtons[i].tmp.SetText(answer.ToString());
-            choiceButtons[i].answerButton.onClick.RemoveAllListeners();
+            ECMathChoiceBox box = choiceButtons[i];
+            box.tmp.SetText(answer.ToString());
+            LayoutRebuilder.ForceRebuildLayoutImmediate(box.rect);
+            box.answerButton.onClick.RemoveAllListeners();
             int index = i;
-            choiceButtons[i].answerButton.onClick.AddListener(() => OnChoiceSelected(answer, choiceButtons[index]));
+            box.answerButton.onClick.AddListener(() => OnChoiceSelected(answer, choiceButtons[index]));
         }
         problemNumber++;
     }

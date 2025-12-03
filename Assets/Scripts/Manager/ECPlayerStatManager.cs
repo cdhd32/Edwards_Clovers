@@ -407,7 +407,7 @@ public class ECPlayerStatManager : ECSingletonDontDestroy<ECPlayerStatManager>
     {
         PlayerStatData lowest = playerStats[0];
 
-        //운 전까지만
+        //운 전까지만ㅈ
         for (int i = 1; i < 5; i++)
         {
             if (playerStats[i].data < lowest.data)

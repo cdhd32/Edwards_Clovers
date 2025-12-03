@@ -174,7 +174,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -455,6 +455,7 @@ MonoBehaviour:
   answerButton: {fileID: 303423100228369956}
   answerNumberImage: {fileID: 4178409403438806116}
   answerCheck: {fileID: 1635700377773402685}
+  rect: {fileID: 6729468560289665873}
 --- !u!114 &3900424203857915078
 MonoBehaviour:
   m_ObjectHideFlags: 0
