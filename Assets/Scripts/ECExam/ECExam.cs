@@ -27,6 +27,7 @@ public class ECExam : MonoBehaviour
     public float graphDuration = 2;
 
     private bool isClick = true;
+    public GameObject Btn;
 
     private void Awake()
     {
@@ -68,13 +69,17 @@ public class ECExam : MonoBehaviour
             enemySliders[i].value = ENEMY_SCORE;
         }
         SetEndingBox();
+        ButtonActive();
         //}
-        Invoke("ButtonActive", 2f);
+        //Invoke("ButtonActive", 2f);
     }
 
     private void ButtonActive()
     {
         isClick = false;
+        Btn.SetActive(true);
+        RectTransform rect = Btn.transform as RectTransform;
+        rect.DOLocalMoveX(650, 2).SetEase(Ease.OutCubic);
     }
 
     public void OnClickMainScene()

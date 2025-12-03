@@ -28,7 +28,7 @@ public class ECFirstSceneUIController : MonoBehaviour
     private void Awake()
     {
 #if UNITY_EDITOR
-        //isEditor = true;
+        isEditor = true;
 #endif
 
         progressButton.onClick.AddListener(() =>
